@@ -1,60 +1,75 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <div>
+      <v-app-bar color="white" height="60">
+        <div class="wrapper">
+          
+          <div>Logo</div>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+          <div>Title</div>
 
-      <v-spacer></v-spacer>
+          <v-menu bottom left offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn icon x-large v-bind="attrs" v-on="on">
+                <v-icon x-large color="black">mdi-account-circle</v-icon>
+              </v-btn>
+            </template>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+             <v-list>
+              <v-list-item
+                v-for="(navigator, id) in menuNavigators"
+                :key="id"
+                @click=""
+              >
+                <v-list-item-title>{{ navigator.label }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+          
+          
+        </div>
+      </v-app-bar>
+
+  </div>
+    </div>
+    
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    
   },
 
-  data: () => ({
-    //
-  }),
+  data (){
+    return {
+      menu: false,
+      menuNavigators: [
+        { id: 1, label: "Moje recepty", ikona: "mdi-home" },
+        { id: 2, label: "Moje seznamy", ikona: "mdi-account" },
+        { id: 3, label: "Profil", ikona: "mdi-cellphone-android" },
+        { id: 4, label: "Odhlásit", ikona: "mdi-image-multiple" }
+      ]
+    }
+  },
+
+ 
 };
 </script>
+
+<style>
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+</style>

@@ -1,0 +1,102 @@
+{
+    "ingredients": [
+        {
+            "id": "i1",
+            "name": "máslo",
+            "minQuantity": 1,
+            "basicUnit": "g",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i2",
+            "name": "vejce",
+            "minQuantity": "1",
+            "basicUnit": "ks",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i3",
+            "name": "krupicový cukr",
+            "minQuantity": "1",
+            "basicUnit": "g",
+            "category": "Přísady na pečení"
+        },
+        {
+            "id": "i4",
+            "name": "hladká mouka",
+            "minQuantity": "1",
+            "basicUnit": "g",
+            "category": "Přísady na pečení"
+        },
+        {
+            "id": "i5",
+            "name": "prášek do pečiva",
+            "minQuantity": "1",
+            "basicUnit": "lžička",
+            "category": "Přísady na pečení"
+        },
+        {
+            "id": "i6",
+            "name": "holandské kakao",
+            "minQuantity": "1",
+            "basicUnit": "lžíce",
+            "category": "Přísady na pečení"
+        },
+        {
+            "id": "i7",
+            "name": "mléko",
+            "minQuantity": "1",
+            "basicUnit": "ml",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i8",
+            "name": "sůl",
+            "minQuantity": "1",
+            "basicUnit": "špetka",
+            "category": "Dochucovadla a koření"
+        },
+        {
+            "id": "i9",
+            "name": "bílek",
+            "minQuantity": "1",
+            "basicUnit": "ks",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i10",
+            "name": "moučkový cukr",
+            "minQuantity": "1",
+            "basicUnit": "g",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i11",
+            "name": "smetana ke šlehání",
+            "minQuantity": "1",
+            "basicUnit": "g",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i12",
+            "name": "mascarpone",
+            "minQuantity": "1",
+            "basicUnit": "g",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i13",
+            "name": "marmeláda jahodová",
+            "minQuantity": "1",
+            "basicUnit": "g",
+            "category": "Mléčné výrobky a vejce"
+        },
+        {
+            "id": "i14",
+            "name": "vanilkový pudink",
+            "minQuantity": "1",
+            "basicUnit": "balení",
+            "category": "Mléčné výrobky a vejce"
+        }
+    ]
+}

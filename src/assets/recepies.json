@@ -1,0 +1,268 @@
+{
+    "recipes": [
+        {
+            "id": "r1",
+            "name": "Kakaové cupcakes",
+            "ingredients": [
+                {
+                    "id": "i1",
+                    "amount": 200
+                },
+                { 
+                    "name": "máslo",
+                    "quantity": "120",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "vejce",
+                    "quantity": "2",
+                    "unit": "ks",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "krupicový cukr",
+                    "quantity": "295",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "hladká mouka",
+                    "quantity": "200",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "prášek do pečiva",
+                    "quantity": "2",
+                    "unit": "lžičky",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "holandské kakao",
+                    "quantity": "2",
+                    "unit": "lžíce",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "mléko",
+                    "quantity": "50",
+                    "unit": "ml",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "sůl",
+                    "quantity": "2",
+                    "unit": "špetka",
+                    "description": "",
+                    "category": "Dochucovadla a koření"
+                },
+                {
+                    "name": "bílky",
+                    "quantity": "2",
+                    "unit": "ks",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                }
+            ],
+            "method": "Recept je pro 12 ks dortíků. Dortíky: troubu předehřívejte na 180°C. Máslo utřete s 175 g cukru do pěny. Postupně zašlehejte vejce a kakao. Přidejte na střídačku mouku promíchanou se špetkou soli a práškem do pečiva a mléko. Pečlivě promíchejte a a vlijte do formiček. Pečte 20 minut při 180°C. Po upečení odložte dortíky stranou a nechte je vychladnout. Krém: Bílky šlehejte se špetkou soli na vodní lázni (mísa s bílky se nesmí dotýkat vody a voda v hrnci by měla jen lehce perlit, ne se vařit). Postupně přidejte 120g cukru a šlehejte, dokud nejsou pevné a lesklé. Sundejte mísu z lázně a šlehejte bílky dalších 5 minut, dokud neušleháte velmi tuhý a lesklý sníh. Naplňte zdobící sáček a ozdobte vychladlé dortíky. Na dokončení můžete použít hoblinky čokolády, čokoládovou rýži, nebo jakékoliv jiné zdobení.",
+            "keywords": "muffiny, cupkcakes",
+            "recipeCategory": "Dezerty"
+        },
+        {
+            "id": "r2",
+            "name": "Roláda",
+            "ingredients": [
+                {
+                    "name": "moučkový cukr",
+                    "quantity": "100",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "olej",
+                    "quantity": "80",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "hladká mouka",
+                    "quantity": "100",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "mascarpone",
+                    "quantity": "250",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "smetana ke šlehání",
+                    "quantity": "250",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "marmeláda jahodová",
+                    "quantity": "250",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                }
+            ],
+            "method": "",
+            "amount": "1",
+            "unit": "ks"
+        },
+        {
+            "id": "",
+            "name": "Věnečky",
+            "ingredients": [
+                {
+                    "name": "vanilkový pudink",
+                    "quantity": "2",
+                    "unit": "balení",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "žloutek",
+                    "quantity": "2",
+                    "unit": "ks",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "máslo",
+                    "quantity": "200",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "moučkový cukr",
+                    "quantity": "150",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Přísady na pečení"
+                },
+                {
+                    "name": "horká voda",
+                    "quantity": "2",
+                    "unit": "lžíce",
+                    "description": "",
+                    "category": "Nápoje"
+                },
+                {
+                    "name": "citronová šťáva",
+                    "quantity": "1",
+                    "unit": "lžíce",
+                    "description": "",
+                    "category": "Ovoce"
+                }
+            ],
+            "method": "",
+            "amount": "20",
+            "unit": "ks"
+        },
+        {
+            "id": "",
+            "name": "Cuketové rizoto",
+            "ingredients": [
+                {
+                    "name": "olivový olej",
+                    "quantity": "1",
+                    "unit": "lžíce",
+                    "description": "",
+                    "category": "Oleje a omáčky"
+                },
+                {
+                    "name": "cibule",
+                    "quantity": "1",
+                    "unit": "ks",
+                    "description": "",
+                    "category": "Zelenina"
+                },
+                {
+                    "name": "česnek",
+                    "quantity": "1",
+                    "unit": "stroužek",
+                    "description": "",
+                    "category": "Zelenina"
+                },
+                {
+                    "name": "slanina",
+                    "quantity": "60",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Maso a uzeniny"
+                },
+                {
+                    "name": "rýže na rizoto",
+                    "quantity": "125",
+                    "unit": "g",
+                    "description": "",
+                    "category": "Obiloviny a luštěniny"
+                },
+                {
+                    "name": "zeleninový vývar",
+                    "quantity": "450",
+                    "unit": "ml",
+                    "description": "",
+                    "category": "Dochucovadla a koření"
+                },
+                {
+                    "name": "cuketa",
+                    "quantity": "1",
+                    "unit": "ks",
+                    "description": "",
+                    "category": "Zelenina"
+                },
+                {
+                    "name": "máslo",
+                    "quantity": "1",
+                    "unit": "lžíce",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "čedar",
+                    "quantity": "2",
+                    "unit": "lžíce",
+                    "description": "",
+                    "category": "Mléčné výrobky a vejce"
+                },
+                {
+                    "name": "sůl",
+                    "quantity": "",
+                    "unit": "",
+                    "description": "",
+                    "category": "Dochucovadla a koření"
+                },
+                {
+                    "name": "pepř",
+                    "quantity": "",
+                    "unit": "",
+                    "description": "",
+                    "category": "Dochucovadla a koření"
+                }
+            ],
+            "method": "Na mírném ohni rozehřejte ve velké hlubší pánvi olej. Přidejte cibuli a nechte ji asi 5 minut měknout. Přidejte česnek a slaninu a smažte dalších 5 minut, dokud nezačnou hnědnout. Přisypte rýži a za stálého míchání restujte 5 minut, potom přidejte 150 ml vývaru a mírně vařte dalších 5 minut. Potom přidejte dalších 150 ml vývaru a pomalu vařte, dokud se všechna tekutina neabsorbuje. Přilijte zbývající vývar, přidejte nastrouhanou cuketu a vařte dalších pár minut, dokud rýže nebude měkká a krémová. Sundejte pánev z ohně, přidejte máslo a nastrouhaný sýr. Před podáváním dobře ochuťte.",
+            "amount": "2",
+            "unit": "porce"
+        }
+    ]
+}

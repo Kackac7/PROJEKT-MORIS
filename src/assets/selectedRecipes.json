@@ -1,0 +1,25 @@
+{
+    "selectedRecipes": [
+        {
+            "id": "r1",
+            "quantity": 2
+        },
+        {
+            "id": "r2",
+            "quantity": 1
+        },
+        {
+            "id": "r3",
+            "quantity": 1
+        },
+        {
+            "id": "r4",
+            "quantity": 1
+        },
+        {
+            "id": "r5",
+            "quantity": 1
+        }
+            
+    ]
+}
