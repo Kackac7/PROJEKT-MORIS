@@ -41,12 +41,7 @@ export default {
       ]
     };
   },
-
-  methods: {
-    app(){
-      console.log(this.$vuetify.application.top)}
-  }
-};
+}
 </script>
 
 <style>
