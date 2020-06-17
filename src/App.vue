@@ -3,7 +3,7 @@
 
     <sideMenu />
        
-    <v-app-bar color="white" max-height="60px">
+    <v-app-bar color="white" max-height="60px" class="app-bar">
       <div class="wrapper">
         <div>Logo</div>
 
@@ -31,10 +31,16 @@
            
     <v-main>
 
-      <v-container fluid>
-        <my-recipes />
+      <v-container fluid fill-height class="bg">
+        <v-layout justify-center align-center>
+          <v-flex text-xs-center>
+            <my-recipes />
+          </v-flex>
+        </v-layout>
+      </v-container> 
+        
 
-      </v-container>
+      
 
      
     </v-main>
@@ -86,6 +92,18 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.bg{
+  background: url("./assets/images/pozadi1.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.app-bar {
+  box-shadow: 1px 20px 125px -25px rgba;
 }
 
 
