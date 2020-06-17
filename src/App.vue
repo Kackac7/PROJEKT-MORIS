@@ -2,9 +2,7 @@
   <v-app>
 
     <sideMenu />
-
-     
-  
+       
     <v-app-bar color="white" max-height="60px">
       <div class="wrapper">
         <div>Logo</div>
@@ -30,12 +28,10 @@
         </v-menu>
       </div>
     </v-app-bar>
-
-
            
     <v-main>
 
-      <v-container>
+      <v-container fluid>
         <my-recipes />
 
       </v-container>
@@ -43,14 +39,7 @@
      
     </v-main>
 
-    <v-footer absolute class="font-weight-medium" inset>
-      <v-col class="text-center" cols="12">
-        {{ new Date().getFullYear() }} —
-        <strong>Receptar</strong>
-      </v-col>
-    </v-footer>
-
-    
+       
   </v-app>
 </template>
 

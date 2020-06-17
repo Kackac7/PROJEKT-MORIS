@@ -1,5 +1,5 @@
 <template> 
-    <v-navigation-drawer app absolute clipped-right right permanent color="black" class="list">
+    <v-navigation-drawer app clipped permanent right color="grey" class="list">
         
     </v-navigation-drawer>
 </template>
@@ -17,6 +17,7 @@ export default {
 }
 </script>
 <style>
+
 
 
 </style>

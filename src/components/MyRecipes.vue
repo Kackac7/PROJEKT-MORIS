@@ -6,8 +6,6 @@
       <recipe />
       <recipe />
       <recipe />
-      <recipe />
-      <recipe />
    
   </v-card>
   
