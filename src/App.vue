@@ -1,58 +1,27 @@
 <template>
+  <div id="app">
+  <span class="bg"></span>
   <v-app>
-
-    <sideMenu />
-       
-    <v-app-bar color="white" max-height="60px">
-      <div class="wrapper">
-        <div>Logo</div>
-
-        <div>Title</div>
-
-        <v-menu bottom left offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon x-large v-bind="attrs" v-on="on">
-              <v-icon x-large color="black">mdi-account-circle</v-icon>
-            </v-btn>
-          </template>
-          <v-list>
-            <v-list-item v-for="(navigator, id) in menuNavigators" v-bind:key="id">
-              <v-btn block depressed color="white" x-large class="my-2">
-                <div class="navigator-button">
-                  <v-icon color="black">{{ navigator.icon }}</v-icon>
-                  <span class="navigator-button-text">{{ navigator.label }}</span>
-                </div>
-              </v-btn>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </div>
-    </v-app-bar>
-           
-    <v-main>
-
-      <v-container fluid>
-        <my-recipes />
-
-      </v-container>
-
-     
-    </v-main>
-
-       
+   <appBar />
+   <sideMenu />
+   <myRecipes style="width: 50%"/>
+    
   </v-app>
+  </div>
 </template>
 
 <script>
 import SideMenu from './components/SideMenu.vue';
 import MyRecipes from './components/MyRecipes.vue';
+import Appbar from './components/Appbar.vue';
 
 export default {
   name: "App",
 
   components: {
     sideMenu: SideMenu,
-    myRecipes: MyRecipes
+    myRecipes: MyRecipes,
+    appBar: Appbar
   },
 
   data() {
@@ -87,7 +56,16 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+.bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("./assets/images/pozadi1.jpg") ;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-
+}
 
 </style>
