@@ -10,16 +10,11 @@
         },
         {
             "id": "r3",
-            "quantity": 1
+            "quantity": 3
         },
         {
             "id": "r4",
             "quantity": 1
-        },
-        {
-            "id": "r5",
-            "quantity": 1
         }
-            
     ]
 }

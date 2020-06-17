@@ -1,0 +1,165 @@
+{
+    "recipes": [
+        {
+            "id": "r1",
+            "name": "Kakaové cupcakes",
+            "ingredients": [
+                {
+                    "id": "i1",
+                    "amount": 120
+                },
+                {
+                    "id": "i2",
+                    "amount": 2
+                },
+                {
+                    "id": "i3",
+                    "amount": 295
+                },
+                {
+                    "id": "i4",
+                    "amount": 200
+                },
+                {
+                    "id": "i5",
+                    "amount": 2
+                },
+                {
+                    "id": "i6",
+                    "amount": 2
+                },
+                {
+                    "id": "i7",
+                    "amount": 50
+                },
+                {
+                    "id": "i8",
+                    "amount": 2
+                },
+                {
+                    "id": "i9",
+                    "amount": 2
+                }
+            ],
+            "method": "Recept je pro 12 ks dortíků. Dortíky: troubu předehřívejte na 180°C. Máslo utřete s 175 g cukru do pěny. Postupně zašlehejte vejce a kakao. Přidejte na střídačku mouku promíchanou se špetkou soli a práškem do pečiva a mléko. Pečlivě promíchejte a a vlijte do formiček. Pečte 20 minut při 180°C. Po upečení odložte dortíky stranou a nechte je vychladnout. Krém: Bílky šlehejte se špetkou soli na vodní lázni (mísa s bílky se nesmí dotýkat vody a voda v hrnci by měla jen lehce perlit, ne se vařit). Postupně přidejte 120g cukru a šlehejte, dokud nejsou pevné a lesklé. Sundejte mísu z lázně a šlehejte bílky dalších 5 minut, dokud neušleháte velmi tuhý a lesklý sníh. Naplňte zdobící sáček a ozdobte vychladlé dortíky. Na dokončení můžete použít hoblinky čokolády, čokoládovou rýži, nebo jakékoliv jiné zdobení.",
+            "keywords": "muffiny, cupkcakes",
+            "recipeCategory": "Dezerty"
+        },
+        {
+            "id": "r2",
+            "name": "Roláda",
+            "ingredients": [
+                {
+                    "id": "i10",
+                    "amount": 100
+                },
+                {
+                    "id": "i15",
+                    "amount": 80
+                },
+                {
+                    "id": "i4",
+                    "amount": 100
+                },
+                {
+                    "id": "i12",
+                    "amount": 250
+                },
+                {
+                    "id": "i11",
+                    "amount": 250
+                },
+                {
+                    "id": "i13",
+                    "amount": 250
+                }
+            ],
+            "method": "",
+            "keywords": "muffiny, cupkcakes",
+            "recipeCategory": "Dezerty"
+        },
+        {
+            "id": "r3",
+            "name": "Věnečky",
+            "ingredients": [
+                {
+                    "id": "i14",
+                    "amount": 2
+                },
+                {
+                    "id": "i16",
+                    "amount": 2
+                },
+                {
+                    "id": "i1",
+                    "amount": 200
+                },
+                {
+                    "id": "i10",
+                    "amount": 150
+                },
+                {
+                    "id": "i17",
+                    "amount": 2
+                },
+                {
+                    "id": "i18",
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "id": "r4",
+            "name": "Cuketové rizoto",
+            "ingredients": [
+                {
+                    "id": "i19",
+                    "amount": 1
+                },
+                {
+                    "id": "i20",
+                    "amount": 1
+                },
+                {
+                    "id": "i21",
+                    "amount": 1
+                },
+                {
+                    "id": "i22",
+                    "amount": 60
+                },
+                {
+                    "id": "i23",
+                    "amount": 125
+                },
+                {
+                    "id": "i24",
+                    "amount": 450
+                },
+                {
+                    "id": "i25",
+                    "amount": 1
+                },
+                {
+                    "id": "i1",
+                    "amount": 15
+                },
+                {
+                    "id": "i26",
+                    "amount": 2
+                },
+                {
+                    "id": "i8",
+                    "amount": 1
+                },
+                {
+                    "id": "i27",
+                    "amount": 1
+                }
+            ],
+            "method": "Na mírném ohni rozehřejte ve velké hlubší pánvi olej. Přidejte cibuli a nechte ji asi 5 minut měknout. Přidejte česnek a slaninu a smažte dalších 5 minut, dokud nezačnou hnědnout. Přisypte rýži a za stálého míchání restujte 5 minut, potom přidejte 150 ml vývaru a mírně vařte dalších 5 minut. Potom přidejte dalších 150 ml vývaru a pomalu vařte, dokud se všechna tekutina neabsorbuje. Přilijte zbývající vývar, přidejte nastrouhanou cuketu a vařte dalších pár minut, dokud rýže nebude měkká a krémová. Sundejte pánev z ohně, přidejte máslo a nastrouhaný sýr. Před podáváním dobře ochuťte.",
+            "keywords": "muffiny, cupkcakes",
+            "recipeCategory": "Dezerty"
+        }
+    ]
+}
