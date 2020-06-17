@@ -1,82 +1,79 @@
 <template>
   <v-app>
-    <div>
-      <v-app-bar color="white" height="60">
-        <div class="wrapper">
-          <div>Logo</div>
 
-          <div>Title</div>
+    <sideMenu />
 
-          <v-menu bottom left offset-y>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn icon x-large v-bind="attrs" v-on="on">
-                <v-icon x-large color="black">mdi-account-circle</v-icon>
+     
+  
+    <v-app-bar color="white" max-height="60px">
+      <div class="wrapper">
+        <div>Logo</div>
+
+        <div>Title</div>
+
+        <v-menu bottom left offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn icon x-large v-bind="attrs" v-on="on">
+              <v-icon x-large color="black">mdi-account-circle</v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item v-for="(navigator, id) in menuNavigators" v-bind:key="id">
+              <v-btn block depressed color="white" x-large class="my-2">
+                <div class="navigator-button">
+                  <v-icon color="black">{{ navigator.icon }}</v-icon>
+                  <span class="navigator-button-text">{{ navigator.label }}</span>
+                </div>
               </v-btn>
-            </template>
-          </v-menu>
-        </div>
-      </v-app-bar>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+    </v-app-bar>
+
+
+           
+    <v-main>
+
+      <v-container>
+        <my-recipes />
+
+      </v-container>
+
+     
+    </v-main>
+
+    <v-footer absolute class="font-weight-medium" inset>
+      <v-col class="text-center" cols="12">
+        {{ new Date().getFullYear() }} —
+        <strong>Receptar</strong>
+      </v-col>
+    </v-footer>
 
     
-
-      <v-navigation-drawer permanent app right color="black" class="list">
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-          </v-list-item-avatar>
-
-          <v-list-item-content>
-            <v-list-item-title>John Leider</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider></v-divider>
-
-        <v-list dense>
-          <v-list-item v-for="item in items" :key="item.title" link>
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
-
-      <v-footer
-      absolute
-      class="font-weight-medium"
-      inset
-      >
-        <v-col
-          class="text-center"
-          cols="12"
-        >
-          {{ new Date().getFullYear() }} — <strong>Receptar</strong>
-        </v-col>
-      </v-footer>
-    </div>
-
-
   </v-app>
 </template>
 
 <script>
+import SideMenu from './components/SideMenu.vue';
+import MyRecipes from './components/MyRecipes.vue';
+
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    sideMenu: SideMenu,
+    myRecipes: MyRecipes
+  },
 
   data() {
     return {
       menu: false,
       menuNavigators: [
-        { id: 1, label: "Moje recepty", ikona: "mdi-home" },
-        { id: 2, label: "Moje seznamy", ikona: "mdi-account" },
-        { id: 3, label: "Profil", ikona: "mdi-cellphone-android" },
-        { id: 4, label: "Odhlásit", ikona: "mdi-image-multiple" }
+        { id: 1, label: "Moje recepty", icon: "mdi-home" },
+        { id: 2, label: "Moje seznamy", icon: "mdi-account" },
+        { id: 3, label: "Profil", icon: "mdi-cellphone-android" },
+        { id: 4, label: "Odhlásit", icon: "mdi-image-multiple" }
       ],
 
       drawer: null,
@@ -85,6 +82,11 @@ export default {
         { title: "About", icon: "question_answer" }
       ]
     };
+  },
+
+  methods: {
+    app(){
+      console.log(this.$vuetify.application.top)}
   }
 };
 </script>
@@ -97,8 +99,6 @@ export default {
   align-items: center;
 }
 
-.list {
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
+
+
 </style>
