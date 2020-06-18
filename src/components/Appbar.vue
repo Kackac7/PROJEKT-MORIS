@@ -2,7 +2,7 @@
   <div>
     <v-app-bar color="white" max-height="60px" elevation="24dp">
       <div class="wrapper">
-        <div>Logo</div>
+        <div> <router-link to="/">Logo</router-link></div>
 
         <div>Title</div>
 
@@ -13,7 +13,7 @@
             </v-btn>
           </template>
           <v-list>
-            <v-list-item v-for="(navigator, id) in menuNavigators" v-bind:key="id">
+            <v-list-item v-for="(navigator, id) in menuNavigators" v-bind:key="id" :to="navigator.url">
               <v-btn block depressed color="white" x-large class="my-2">
                 <div class="navigator-button">
                   <v-icon color="black">{{ navigator.icon }}</v-icon>
@@ -33,10 +33,10 @@ export default {
     return {
       menu: false,
       menuNavigators: [
-        { id: 1, label: "Moje recepty", icon: "mdi-home" },
-        { id: 2, label: "Moje seznamy", icon: "mdi-account" },
-        { id: 3, label: "Profil", icon: "mdi-cellphone-android" },
-        { id: 4, label: "Odhlásit", icon: "mdi-image-multiple" }
+        { id: 1, label: "Moje recepty", url: '/mojerecepty' },
+        { id: 2, label: "Moje seznamy", url: '/mojeseznamy' },
+        { id: 3, label: "Profil", url: '/profil' },
+        { id: 4, label: "Odhlásit", url: '/' }
       ]
     };
   }

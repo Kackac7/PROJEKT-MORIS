@@ -6,6 +6,12 @@
       <recipe />
       <recipe />
       <recipe />
+
+      <v-row class="py-5">
+        <router-link to="/">
+          <v-btn>Zpet</v-btn>
+        </router-link>
+      </v-row>
     </v-card>
   </v-container>
 </template>
