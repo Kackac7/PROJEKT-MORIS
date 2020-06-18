@@ -1,4 +1,9 @@
 <template>
+  <div>
+    <v-navigation-drawer app clipped permanent right color="grey" class="list">
+        
+    </v-navigation-drawer>
+    
      <v-app-bar color="white" max-height="60px" elevation="24dp">
       <div class="wrapper">
         <div>Logo</div>
@@ -24,12 +29,21 @@
         </v-menu>
       </div>
     </v-app-bar>
+  </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            
+            menu: false,
+      menuNavigators: [
+        { id: 1, label: "Moje recepty", icon: "mdi-home" },
+        { id: 2, label: "Moje seznamy", icon: "mdi-account" },
+        { id: 3, label: "Profil", icon: "mdi-cellphone-android" },
+        { id: 4, label: "Odhlásit", icon: "mdi-image-multiple" }
+      ],
+
+      
         }
     }
 }

@@ -1,44 +1,35 @@
 <template>
   <div id="app">
-  <span class="bg"></span>
+  
   <v-app>
+    <span class="bg"></span>
    <appBar />
-   <sideMenu />
-   <myRecipes style="width: 50%"/>
+   
+   <v-main>
+    <router-view></router-view>
+   </v-main>
     
   </v-app>
   </div>
 </template>
 
 <script>
-import SideMenu from './components/SideMenu.vue';
-import MyRecipes from './components/MyRecipes.vue';
+
 import Appbar from './components/Appbar.vue';
+
 
 export default {
   name: "App",
 
   components: {
-    sideMenu: SideMenu,
-    myRecipes: MyRecipes,
-    appBar: Appbar
+    
+    appBar: Appbar,
+    
   },
 
   data() {
     return {
-      menu: false,
-      menuNavigators: [
-        { id: 1, label: "Moje recepty", icon: "mdi-home" },
-        { id: 2, label: "Moje seznamy", icon: "mdi-account" },
-        { id: 3, label: "Profil", icon: "mdi-cellphone-android" },
-        { id: 4, label: "Odhlásit", icon: "mdi-image-multiple" }
-      ],
-
-      drawer: null,
-      items: [
-        { title: "Home", icon: "dashboard" },
-        { title: "About", icon: "question_answer" }
-      ]
+      
     };
   },
 }

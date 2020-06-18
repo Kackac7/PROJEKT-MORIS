@@ -1,13 +1,22 @@
 <template>
-  
+    <div>
+     
+        <myRecipes style="width: 50%"/>
+    </div>
+
 </template>
 
 <script>
-export default {
 
-}
+import MyRecipes from './../components/MyRecipes.vue';
+
+export default {
+  components: {
+  
+     myRecipes: MyRecipes,
+  }
+};
 </script>
 
 <style>
-
 </style>

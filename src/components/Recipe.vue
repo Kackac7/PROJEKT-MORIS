@@ -1,3 +1,4 @@
+@@ -1,68 +0,0 @@
 <template>
   <div class="recipe-card">
     <v-card color="teal" class="recept my-5">
