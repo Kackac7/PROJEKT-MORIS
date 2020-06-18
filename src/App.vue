@@ -1,38 +1,37 @@
 <template>
   <div id="app">
-  
-  <v-app>
-    <span class="bg"></span>
-   <appBar />
-   
-   <v-main>
-    <router-view></router-view>
-   </v-main>
-    
-  </v-app>
+    <v-app>
+      <span class="bg"></span>
+      <appBar />
+      
+
+      <v-main>
+        <router-view></router-view>
+      </v-main>
+
+      <foot />
+    </v-app>
   </div>
 </template>
 
 <script>
+import Appbar from "./components/Appbar.vue";
 
-import Appbar from './components/Appbar.vue';
-
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
 
   components: {
-    
     appBar: Appbar,
-    
+   
+    foot: Footer
   },
 
   data() {
-    return {
-      
-    };
-  },
-}
+    return {};
+  }
+};
 </script>
 
 <style>
@@ -48,10 +47,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("./assets/images/pozadi1.jpg") ;
+  background-image: url("./assets/images/pozadi1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-
 }
-
 </style>

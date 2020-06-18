@@ -1,22 +1,21 @@
 <template>
-    <div>
-     
-        <myRecipes style="width: 50%"/>
-    </div>
+  <div>
+    <mainNavigation />
 
+  </div>
 </template>
 
 <script>
+import MainNavigation from "./../components/MainNavigation.vue"
 
-import MyRecipes from './../components/MyRecipes.vue';
 
 export default {
   components: {
-  
-     myRecipes: MyRecipes,
+    mainNavigation: MainNavigation,
   }
 };
 </script>
 
 <style>
+
 </style>
