@@ -18,6 +18,7 @@
           <v-col cols="8">
             <v-row no-gutters justify="center" >
               <v-card-title class="recipe-headline">Kakaove cupcakes</v-card-title>
+              <v-img src="./../assets/images/maso.svg"></v-img>
             </v-row>
             <v-row no-gutters justify="center">
               <v-card-text class="recipe-text">Recept je pro 12 ks dortíků.</v-card-text>
@@ -25,7 +26,7 @@
             <v-row no-gutters justify="center" class="py-5">
               <v-btn class="button-add-recipe">Pridej na nakupni seznam</v-btn>
             </v-row>
-            <v-row no-gutters class="py-5">
+            <v-row no-gutters justify="center" class="py-5">
               <v-text-field label="Pocet porci" type="number" v-model="portion" outlined>
                 <v-icon slot="append" color="red">mdi-plus</v-icon>
                 <v-icon slot="prepend" color="green">mdi-minus</v-icon>
