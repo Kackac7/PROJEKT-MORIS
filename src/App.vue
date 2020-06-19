@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-app>
+    <v-app class="application">
       <span class="bg"></span>
       <appBar />
       
@@ -36,6 +36,17 @@ export default {
 </script>
 
 <style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.application {
+  font-family: "Quicksand";
+}
+
+.v-application .headline {
+  font-family: "Quicksand" !important;
+}
+
 .wrapper {
   width: 100%;
   display: flex;
