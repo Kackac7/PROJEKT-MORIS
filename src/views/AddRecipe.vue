@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-card color="white" class="ma-10 py-5 px-10">
-      <v-row>
+      <v-row> 
         <v-form>
           <v-text-field v-model="name" :rules="nameRules" label="Název receptu*" required outlined></v-text-field>
 
@@ -18,15 +18,18 @@
             <v-col>
                <v-btn icon><v-icon color="black">mdi-trash-can-outline</v-icon></v-btn>
             </v-col>
-          </v-row>
-
+          </v-row >
+          <v-row>
           <v-textarea outlined name="method" label="Postup"></v-textarea>
-          <v-btn> Uložit</v-btn>
+          </v-row>
+          <v-row justify="center">
+          <v-btn color="black"> Uložit</v-btn>
+          </v-row>
         </v-form>
       </v-row>
 
       <v-row class="py-5">
-          <router-link to="/"><v-btn>Zpet</v-btn></router-link>
+          <router-link to="/"><v-btn width="90px" color="black">Zpět</v-btn></router-link>
       </v-row>
     </v-card>
   </v-container>
@@ -48,4 +51,6 @@ export default {
 </script>
 
 <style>
+
+
 </style>

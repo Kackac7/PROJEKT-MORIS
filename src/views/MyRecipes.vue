@@ -3,13 +3,13 @@
     <v-card color="white" class="my-recipes ma-10 py-5 px-10">
       <v-card-title class="headline">Recepty</v-card-title>
 
-      <recipe />
-      <recipe />
-      <recipe />
+      <recipePreview />
+      <recipePreview />
+      <recipePreview />
 
       <v-row class="py-5">
         <router-link to="/">
-          <v-btn>Zpet</v-btn>
+          <v-btn color="black">Zpět</v-btn>
         </router-link>
       </v-row>
     </v-card>
@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import Recipe from "./../components/Recipe.vue";
+import RecipePreview from "./../components/RecipePreview.vue";
 
 export default {
   components: {
-    recipe: Recipe
+    recipePreview: RecipePreview
   }
 };
 </script>

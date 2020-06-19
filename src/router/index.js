@@ -5,6 +5,7 @@ import MyRecipes from '../views/MyRecipes.vue';
 import AddRecipe from '../views/AddRecipe.vue';
 import MyLists from "../views/MyLists.vue";
 import AddList from '../views/AddList.vue';
+import Recipe from '../views/Recipe.vue';
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,11 @@ const routes = [{
         path: '/vytvorseznam',
         name: 'Vytvor seznam',
         component: AddList
+    },
+    {
+        path: '/recept',
+        name: 'Recept',
+        component: Recipe
     }
 
 ]
