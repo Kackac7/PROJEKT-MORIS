@@ -36,3 +36,22 @@
 
      
     </v-main>
+
+
+
+
+     let isDuplicate = false;
+      for (let i = 0; i < this.ingredientList.length - 1; i++) {
+        if (this.ingredientList[i] === this.ingredientList[this.ingredientList.length-1]) {
+          isDuplicate = true;
+          break;
+        }
+      }
+      if (isDuplicate) {
+        alert(this.ingredientList[this.ingredientList.length-1]);
+        this.ingredientList[this.ingredientList.length-1] = null;
+      } else {
+        this.ingredientList.push(null);
+        console.log(this.ingredientList);
+      }
+    }
