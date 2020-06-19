@@ -74,8 +74,8 @@
                     "amount": 250
                 }
             ],
-            "method": "",
-            "keywords": "muffiny, cupkcakes",
+            "method": "Nejprve si připravíme tuhý sníh z bílků (až tvoří špičky). Potom našleháme doběla žloutky s cukrem, do kterých postupně zlehka vmícháme sníh. Teprve potom po lžících zamícháváme polohrubou mouku. Opravdu je lepší po lžících, protože kdyby se přidala najednou, padla by ke dnu. Takto připravené těsto rozetřeme na plech vyložený pečícím papírem. Pečeme do zrůžovění (cca 8 minut, podle trouby) při 180 stupních. Ještě horký piškot překlopíme pomocí navlhčené utěrky z plechu a teplý rolujeme (pokud ho neplníme marmeládou, potom se dá natírat ještě teplý). Po vychladnutí naplníme krémem. Na něj si uvařím pudink a do vychladlého zašlehám máslo. Po zamotání potřeme krémem i na povrchu a posypeme sekanými oříšky nebo kokosem. Dáme vychladit do lednice.",
+            "keywords": "muffiny, cupcakes",
             "recipeCategory": "Dezerty"
         },
         {
@@ -106,7 +106,10 @@
                     "id": "i18",
                     "amount": 1
                 }
-            ]
+            ],
+            "method": "Na mírném ohni, ve vodě a za stálého míchání rozpustíme máslo, přidáme špetku soli (nesmí vařit). Po rozpuštění přidáme mouku (bude se zdát, že se těsto připaluje, ale je to v pořádku) a mícháme 4-5 minut na ohni. Pak necháme vychladnout (občas promícháme) a mixérem vmícháme vejce. Postupně, vždy až jedno zapracujeme, přidáme další. Pytlíkem stříkáme na plech věnečky a pečeme asi na 180-200 stupňů dozlata. Jsou hotové, až když na ně sáhneme a jsou tvrdé, těsto se nepropadává. Ihned po vytažení z trouby rozkrojíme (pak by to nešlo) a necháme vychladnout. Po vychladnutí plníme krémem: uvaříme hustý pudink a necháme vychladnout, pak stáhneme škraloup (rozmícháme mixérem), vmícháme ušlehané máslo, přidáme trochu rumu.",
+            "keywords": "venecky, cukrovi",
+            "recipeCategory":"Dezerty"
         },
         {
             "id": "r4",

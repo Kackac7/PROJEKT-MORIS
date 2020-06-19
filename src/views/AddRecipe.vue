@@ -3,7 +3,12 @@
     <v-card color="white" class="ma-10 py-5 px-10">
       <v-row>
         <v-form>
-          <v-text-field v-model="name" :rules="nameRules" label="Název receptu*" required outlined></v-text-field>
+          <span class="recipe-name">Nazev receptu</span>
+          <v-text-field v-model="name" :rules="nameRules" placeholder="Zadej nazev receptu" required outlined></v-text-field>
+
+          <v-spacer></v-spacer>
+
+          <span class="recipe-subtitles">Ingredience</span>
 
           <v-row id="ingredient-row" v-for="(ing, index) in ingredientList" v-bind:key="index">
             <v-col>
@@ -28,7 +33,16 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-textarea outlined name="method" label="Postup"></v-textarea>
+             <span class="recipe-subtitles">Postup</span>
+          </v-row>
+          <v-row>
+            <v-textarea outlined name="method" placeholder="Napis postup receptu"></v-textarea>
+          </v-row>
+          <v-row>
+            <span class="recipe-subtitles">Foto</span>
+          </v-row>
+          <v-row>
+            <v-file-input label="Pridej foto" outlined append-icon="mdi-camera"></v-file-input>
           </v-row>
           <v-row justify="center">
             <v-btn color="black">Uložit</v-btn>
@@ -63,12 +77,13 @@ export default {
   methods: {
     sayHello() {
       console.log("Hello");
-       this.ingredientList.push(null);
+      this.ingredientList.push(null);
       console.log(this.ingredientList);
-  }
+    }
   }
 };
 </script>
 
 <style>
+
 </style>
