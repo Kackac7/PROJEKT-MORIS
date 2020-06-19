@@ -1,7 +1,7 @@
 @@ -1,68 +0,0 @@
 <template>
   <div class="list-card">
-    <v-card color="yellow" class="list my-5">
+    <v-card color="yellow" class="list my-6">
       <v-container fluid>
         <v-row no gutters justify="center">
         <v-card-title class="list-headline">Muj první seznam</v-card-title>
@@ -20,7 +20,7 @@
         <v-btn class="button-read-list">Přejdi na celý seznam</v-btn>
       </v-container>
     </v-card>
-     <v-card color="yellow" class="list my-5">
+     <v-card color="#F89D79" class="list my-6">
       <v-container fluid>
         <v-row no gutters justify="center">
         <v-card-title class="list-headline">Muj první seznam</v-card-title>
@@ -64,10 +64,17 @@ export default {
 <style>
 
 .list-card {
-    margin: 40px;
-    padding: 70px 100px;
+    margin: 70px 50px;
+    padding: 70px 70px;
     display: flex;  
     justify-content: space-between;
+    
+}
+.container.container--fluid {
+    margin: 50px 30px;
+    
+}
+.list-headline {
     text-align: center;
 }
 

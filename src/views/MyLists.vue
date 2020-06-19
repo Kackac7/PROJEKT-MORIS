@@ -4,7 +4,7 @@
       <v-card-title class="headline">Seznamy</v-card-title>
 
      <savedlists />
-     <savedlists />
+     
 
       <v-row class="py-5">
         <router-link to="/">

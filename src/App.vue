@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 import Appbar from "./components/Appbar.vue";
 
 import Footer from "./components/Footer.vue";
@@ -51,4 +52,5 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 </style>
