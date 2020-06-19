@@ -3,32 +3,43 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import MyRecipes from '../views/MyRecipes.vue';
 import AddRecipe from '../views/AddRecipe.vue';
+import MyLists from "../views/MyLists.vue";
+import AddList from '../views/AddList.vue';
 
 Vue.use(VueRouter)
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/mojerecepty',
-    name: 'Moje recepty',
-    component: MyRecipes
-  },
-  {
-    path: '/pridatrecept',
-    name: 'Pridat recept',
-    component: AddRecipe
-  }
-  
+const routes = [{
+        path: '/',
+        name: 'Home',
+        component: Home
+    },
+    {
+        path: '/mojerecepty',
+        name: 'Moje recepty',
+        component: MyRecipes
+    },
+    {
+        path: '/pridatrecept',
+        name: 'Pridat recept',
+        component: AddRecipe
+    },
+    {
+        path: '/mojeseznamy',
+        name: 'Moje seznamy',
+        component: MyLists
+    },
+    {
+        path: '/vytvorseznam',
+        name: 'Vytvor seznam',
+        component: AddList
+    }
+
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 })
 
 export default router
