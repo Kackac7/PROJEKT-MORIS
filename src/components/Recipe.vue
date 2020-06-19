@@ -1,7 +1,7 @@
 @@ -1,68 +0,0 @@
 <template>
   <div class="recipe-card">
-    <v-card color="teal" class="recept my-5">
+    <v-card class="recept my-5" color="white">
       <v-container fluid>
         <v-row>
           <v-col>
@@ -17,14 +17,14 @@
           </v-col>
           <v-col cols="8">
             <v-row no-gutters justify="center" >
-              <v-card-title class="recipe-headline">Kakaove cupcakes</v-card-title>
-              <v-img src="./../assets/images/maso.svg"></v-img>
+              <v-card-title class="recipe-headline" >Kakaove cupcakes</v-card-title>
+              
             </v-row>
             <v-row no-gutters justify="center">
               <v-card-text class="recipe-text">Recept je pro 12 ks dortíků.</v-card-text>
             </v-row>
             <v-row no-gutters justify="center" class="py-5">
-              <v-btn class="button-add-recipe">Pridej na nakupni seznam</v-btn>
+              <v-btn class="button-add-recipe" color="black">Pridej na nakupni seznam</v-btn>
             </v-row>
             <v-row no-gutters justify="center" class="py-5">
               <v-text-field label="Pocet porci" type="number" v-model="portion" outlined>
@@ -64,7 +64,14 @@ export default {
   text-align: center;
 }
 
-.button-add-recipe {
-  background-color: white;
+.headline {
+  color: white;
+  text-transform: uppercase;
+  
+  }
+
+.v-application .headline {
+  font-size: 34px !important;
 }
+
 </style>

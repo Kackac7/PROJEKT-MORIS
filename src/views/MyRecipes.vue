@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-card color="white" class="my-recipes ma-10 py-5 px-10">
-      <v-card-title class="headline">Recepty</v-card-title>
+    <v-card color="#232222" class="my-recipes ma-10 py-5 px-10">
+      <v-card-title class="headline">Moje Recepty</v-card-title>
 
       <recipe />
       <recipe />
@@ -27,4 +27,5 @@ export default {
 </script>
 
 <style>
+
 </style>

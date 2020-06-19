@@ -2,9 +2,10 @@
   <v-container>
     <v-card color="white" class="my-lists ma-10 py-5 px-10">
       <v-card-title class="headline">Seznamy</v-card-title>
-
+     <div class="cards">
      <savedlists />
-     
+     <savedlists />
+     </div>
 
       <v-row class="py-5">
         <router-link to="/">
@@ -29,5 +30,9 @@ export default {
 .headline {
     justify-content: center;
 
+}
+.cards {
+    display: flex;
+     
 }
 </style>
