@@ -44,9 +44,6 @@
                     </div>
                   </v-btn>
         </v-col>
-        <v-col>
-          <v-btn color="black">Vymazat recept</v-btn>
-        </v-col>
       </v-row>
     </v-card>
   </v-container>

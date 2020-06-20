@@ -78,6 +78,7 @@ export default {
         if (addedIngredient.id === ingredient.id) {
           let previousCount = addedIngredient.amount / ingredient.amount;
           addedIngredient.amount = (previousCount + count) * ingredient.amount;
+          addedIngredient.amount = Math.round(addedIngredient.amount);
           return;
         }
       }
@@ -85,14 +86,14 @@ export default {
       let ingredientBasicUnit = null;
       for (let existingIngredient of this.ingredients) {
         if (existingIngredient.id === ingredient.id) {
-          (ingredientName = existingIngredient.name),
-            (ingredientBasicUnit = existingIngredient.basicUnit);
+          ingredientName = existingIngredient.name,
+          ingredientBasicUnit = existingIngredient.basicUnit;
         }
       }
       let addedIngredient = {
         id: ingredient.id,
         name: ingredientName,
-        amount: count * ingredient.amount,
+        amount: Math.round(count * ingredient.amount),
         unit: ingredientBasicUnit
       };
       this.addedIngredients.push(addedIngredient);
