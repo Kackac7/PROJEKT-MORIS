@@ -4,7 +4,7 @@
     <v-row no-gutters align="center" justify="center">
         <v-col cols="3">
             <v-row justify="center" class="my-10">
-                <router-link to="/mojerecepty"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka" fab color="teal"><div class="text-btn-menu">Moje recepty</div></v-btn></router-link>
+                <router-link to="/mojerecepty"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka" fab color="teal"><div class="text-btn-menu">Recepty</div></v-btn></router-link>
             </v-row >
             
             <v-row justify="center" class="my-10">

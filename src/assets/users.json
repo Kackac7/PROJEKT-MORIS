@@ -1,0 +1,13 @@
+{
+    "users": [
+        {
+            "id": "u1",
+            "quantity": 2
+        },
+        {
+            "id": "u2",
+            "quantity": 1
+        }
+        
+    ]
+}

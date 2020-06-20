@@ -35,9 +35,10 @@ const routes = [{
         component: AddList
     },
     {
-        path: '/recept',
+        path: '/recept/:id',
         name: 'Recept',
-        component: Recipe
+        component: Recipe,
+        props: true
     }
 
 ]

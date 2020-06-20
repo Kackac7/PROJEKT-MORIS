@@ -2,17 +2,14 @@
   <v-container>
     <v-card color="white" class="my-6 pa-5">
       <v-row justify="center">
-        <v-card-title class="recipe-name">Nazev receptu</v-card-title>
+        <v-card-title class="recipe-name">{{recipe.name}}</v-card-title>
       </v-row>
       <v-row class="mx-5">
-         <v-col>
+        <v-col>
           <v-list>
-            <v-list-item>1 ks kokos</v-list-item>
-            <v-list-item>2 kg jahody</v-list-item>
-            <v-list-item>1 ks meloun</v-list-item>
-            <v-list-item>2 ks kokos</v-list-item>
-            <v-list-item>2 ks jahody</v-list-item>
-            <v-list-item>1 kg meloun</v-list-item>
+            <v-list-item v-for="(ingredient, id) in ingredientList" v-bind:key="id">
+              <span>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}</span>
+            </v-list-item>
           </v-list>
         </v-col>
         <v-divider vertical></v-divider>
@@ -24,9 +21,6 @@
             :aspect-ratio="4/3"
           ></v-img>
         </v-col>
-        
-       
-        
       </v-row>
       <v-divider></v-divider>
       <v-spacer></v-spacer>
@@ -34,15 +28,12 @@
         <v-card-subtitle class="recipe-subtitles">Postup</v-card-subtitle>
       </v-row>
       <v-row class="mx-5">
-        <v-card-text class="recipe-method-text">Snez kokos, jahody a meloun. Presne v tomto poradi.</v-card-text>
+        <v-card-text class="recipe-method-text">{{recipe.method}}</v-card-text>
       </v-row>
       <v-spacer></v-spacer>
       <v-row class="ma-5">
         <v-col>
           <v-btn color="black">Pridat na nakupni seznam</v-btn>
-        </v-col>
-        <v-col>
-          <v-btn color="black">Upravit recept</v-btn>
         </v-col>
         <v-col>
           <v-btn color="black">Vymazat recept</v-btn>
@@ -53,7 +44,95 @@
 </template>
 
 <script>
-export default {};
+import App from "./../App.vue";
+
+export default {
+  props: ["id"],
+
+  data() {
+    return {
+      recipes: [],
+      recipe: null,
+      ingredients: [],
+      ingredientList: []
+    };
+  },
+
+  methods: {
+    findRecipe() {
+      for (let recipe of this.recipes) {
+        if (recipe.id === this.id) {
+          this.recipe = recipe;
+          return;
+        }
+      }
+    },
+
+    resolveIngredients() {
+      let ingredientList = [];
+      for (let recipeIngredient of this.recipe.ingredients) {
+        for (let fetchedIngredient of this.ingredients) {
+          if (recipeIngredient.id === fetchedIngredient.id) {
+            let ingredient = {
+              id: fetchedIngredient.id,
+              name: fetchedIngredient.name,
+              amount: fetchedIngredient.minQuantity * recipeIngredient.amount,
+              unit: fetchedIngredient.basicUnit
+            };
+            ingredientList.push(ingredient);
+          }
+        }
+      }
+      this.ingredientList = ingredientList;
+    },
+
+    fetchData(resource) {
+      fetch(
+        "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/" + resource
+      )
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw Error("Ooops, něco je špatně");
+          }
+        })
+        .then(data => {
+          if (data.length > 0) {
+            return data[0];
+          }
+        })
+        .then(data => {
+          if (data !== undefined) {
+            if (resource === "recipes") {
+              return data.recipes;
+            } else if (resource === "ingredients") {
+              return data.ingredients;
+            } else {
+              throw Error("Unknown resource");
+            }
+          } else {
+            throw Error("Databáze " + resource + " neexistuje, ty kokos!");
+          }
+        })
+        .then(data => {
+          if (resource === "recipes") {
+            this.recipes = data;
+            this.findRecipe();
+          } else if (resource === "ingredients") {
+            this.ingredients = data;
+            this.resolveIngredients();
+          } else {
+            throw Error("Unknown resource");
+          }
+        });
+    }
+  },
+  created() {
+    this.fetchData("recipes");
+    this.fetchData("ingredients");
+  }
+};
 </script>
 
 <style>

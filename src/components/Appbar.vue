@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <v-app-bar color="white" max-height="60px" elevation="24dp">
+    <v-app-bar color="white" max-height="60px" elevation="24dp" app>
       <div class="wrapper">
         <div> <router-link to="/">Logo</router-link></div>
 
@@ -25,7 +24,6 @@
         </v-menu>
       </div>
     </v-app-bar>
-  </div>
 </template>
 <script>
 export default {
