@@ -33,7 +33,16 @@
       <v-spacer></v-spacer>
       <v-row class="ma-5">
         <v-col>
-          <v-btn color="black">Pridat na nakupni seznam</v-btn>
+           <v-btn color="black" class="button-add-recipe" min-width="auto" v-on:click="addRecipe(id)">
+                    <div>
+                      <span class="button-text">+</span>
+                    </div>
+                  </v-btn>
+                  <v-btn color="black" class="button-remove-recipe" min-width="auto" v-on:click="removeRecipe(id)">
+                    <div>
+                      <span class="button-text">-</span>
+                    </div>
+                  </v-btn>
         </v-col>
         <v-col>
           <v-btn color="black">Vymazat recept</v-btn>
@@ -45,6 +54,7 @@
 
 <script>
 import App from "./../App.vue";
+import Bus from "./../assets/bus.js";
 
 export default {
   props: ["id"],
@@ -84,6 +94,13 @@ export default {
         }
       }
       this.ingredientList = ingredientList;
+    },
+    addRecipe(id) {
+      Bus.$emit('receptPridan', id);
+    },
+    
+    removeRecipe(id) {
+      Bus.$emit('receptOdebran', id);
     },
 
     fetchData(resource) {

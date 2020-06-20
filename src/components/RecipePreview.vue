@@ -31,7 +31,12 @@
                 <v-col cols="4">
                   <v-btn color="black" class="button-add-recipe" min-width="auto" v-on:click="addRecipe(id)">
                     <div>
-                      <span class="button-text">Přidej na nákupní seznam</span>
+                      <span class="button-text">+</span>
+                    </div>
+                  </v-btn>
+                  <v-btn color="black" class="button-remove-recipe" min-width="auto" v-on:click="removeRecipe(id)">
+                    <div>
+                      <span class="button-text">-</span>
                     </div>
                   </v-btn>
                 </v-col>
@@ -81,6 +86,10 @@ export default {
 
     addRecipe(id) {
       Bus.$emit('receptPridan', id);
+    },
+    
+    removeRecipe(id) {
+      Bus.$emit('receptOdebran', id);
     }
   }
 };
