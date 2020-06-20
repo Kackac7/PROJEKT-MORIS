@@ -1,6 +1,5 @@
 {
-    "ingredients": [
-        {
+    "ingredients": [{
             "id": "i1",
             "name": "máslo",
             "minQuantity": 1,
@@ -133,7 +132,8 @@
             "basicUnit": "lžíce",
             "category": "Oleje a omáčky"
         },
-        {   "id": "i20",
+        {
+            "id": "i20",
             "name": "cibule",
             "minQuantity": 1,
             "basicUnit": "ks",
