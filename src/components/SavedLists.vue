@@ -1,8 +1,10 @@
 @@ -1,68 +0,0 @@
 <template>
   <div class="list-card">
-    <v-card class="list my-6" color="yellow" opacity="0.4">
+    <v-card class="list my-5" color="#F0EC92">
+
       <v-container fluid>
+      
         <v-row no gutters justify="center">
         <v-card-title class="list-headline">Muj první seznam</v-card-title>
         </v-row>
@@ -19,11 +21,11 @@
         </v-row>
      
         <v-row justify="center">
-    <v-dialog v-model="dialog" width="600px">
+    <v-dialog v-model="dialog" width="600px" class="open-dialog">
       <template v-slot:activator="{ on, attrs }">
         <v-btn class="button-read-list" color="#232222" v-bind="attrs" v-on="on"><div class="text-btn-list">Přejdi na celý seznam</div></v-btn>
       </template>
-      <v-card>
+      <v-card justify="center">
         <v-card-title>
        
           <span class="dialog-list">Název seznamu</span>
@@ -40,6 +42,7 @@
       </v-card>
     </v-dialog>
   </v-row>
+ 
       </v-container>
     </v-card>
     
@@ -75,10 +78,9 @@ export default {
     text-align: center;
     }
 
-.text-btn-list {
-    color: white;
-}
-.dialog-list {
-    text-align: center;
+
+.open-dialog {
+    display: flex;
+    justify-content: center;
 }
 </style>

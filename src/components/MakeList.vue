@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card color="white" class="ma-10 py-5 px-10">
+    <v-card color="#F0EC92" class="card-makelist ma-12 py-6 px-12">
       <v-row>
         <v-form>
           <v-text-field v-model="name" :rules="nameRules" label="Název seznamu*" required outlined width="150px"></v-text-field>
@@ -9,14 +9,16 @@
             <v-col cols="6">
               <v-autocomplete label="Surovina" outlined v-model="ingredient"></v-autocomplete>
             </v-col>
-            <v-col>
+            <v-col cols="2">
               <v-text-field v-model="quantity" label="Množství" outlined></v-text-field>
             </v-col>
-            <v-col>
+            <v-col cols="3">
                <v-autocomplete label="Jednotka" outlined v-model="units"></v-autocomplete>
             </v-col>
-            <v-col>
+            <v-col cols="1">
+            
                <v-btn icon><v-icon color="black">mdi-trash-can-outline</v-icon></v-btn>
+            
             </v-col>
           </v-row>
 
@@ -24,10 +26,10 @@
             <v-col cols="6">
               <v-autocomplete label="Surovina" outlined v-model="ingredient"></v-autocomplete>
             </v-col>
-            <v-col>
+            <v-col cols="2">
               <v-text-field v-model="quantity" label="Množství" outlined></v-text-field>
             </v-col>
-            <v-col>
+            <v-col cols="3">
                <v-autocomplete label="Jednotka" outlined v-model="units"></v-autocomplete>
             </v-col>
             <v-col>
@@ -38,7 +40,7 @@
          <v-btn v-on:click="add" icon class="add-item-to-list"><v-icon color="black">mdi-plus-box</v-icon></v-btn>
          </v-row>
          <v-row justify="center">
-          <v-btn> Uložit</v-btn>
+          <v-btn color="black"><div class="txt-btn-makelist">Uložit</div></v-btn>
          </v-row>
         </v-form>
       </v-row>
@@ -71,5 +73,8 @@ export default {
 </script>
 
 <style>
+.txt-btn-makelist {
+  color: white;
+}
 
 </style>
