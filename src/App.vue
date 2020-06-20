@@ -10,7 +10,7 @@
         <router-view></router-view>
         
       </v-main>
-      <list @receptPridan="receptPridan($event)"/>
+      <list />
 
       <foot />
     </v-app>

@@ -29,7 +29,7 @@
             <v-row no-gutters justify="center">
               <div>
                 <v-col cols="4">
-                  <v-btn color="black" class="button-add-recipe" min-width="auto" v-on:click="receptPridan">
+                  <v-btn color="black" class="button-add-recipe" min-width="auto" v-on:click="addRecipe(id)">
                     <div>
                       <span class="button-text">Přidej na nákupní seznam</span>
                     </div>
@@ -57,6 +57,8 @@
 <script>
 //import Data from "./../assets/Data.js";
 
+import Bus from "./../assets/bus.js";
+
 export default {
 
   props: ['id', 'name', 'method'],
@@ -78,7 +80,7 @@ export default {
     },
 
     addRecipe(id) {
-
+      Bus.$emit('receptPridan', id);
     }
   }
 };
