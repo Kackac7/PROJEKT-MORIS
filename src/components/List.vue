@@ -3,7 +3,7 @@
     <span>Ingredience</span>
 
     <v-list>
-      <v-list-item>kokos</v-list-item>
+      <v-list-item v-for="(addedIngredient, id) in addedIngredients" v-bind:key="id">{{addedIngredient.amount}} {{addedIngredient.unit}} {{addedIngredient.name}}</v-list-item>
     </v-list>
 
     <v-divider></v-divider>
@@ -11,7 +11,7 @@
     <span>Pouzite recepty</span>
 
     <v-list>
-      <v-list-item>Kokosove smoothie</v-list-item>
+      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">{{addedRecipe.name}} {{addedRecipe.amount}}x</v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -25,19 +25,73 @@ export default {
       drawer: null,
       recipes: [],
       ingredients: [],
-      addedRecipes: []
+      addedRecipes: [],
+      addedIngredients: []
     };
   },
-
+  watch: {
+    addedRecipes: {
+      deep: true,
+      handler() {
+        this.addedIngredients= [];
+        for (let addedRecipe of this.addedRecipes) {
+          let recipe= null;
+          for (let recipe of this.recipes) {
+            if (recipe.id === addedRecipe.id) {
+              for (let ingredient of recipe.ingredients) {
+                this.addIngredient(ingredient, addedRecipe.amount);
+              }
+            }
+          }
+        }
+      }  
+    }
+  },
   methods: {
-    receptPridan(id) {
-      let alreadyAddedRecipe = null;
-      for (let recipe of addedRecipes) {
-        if (recipe.id === id) {
-          alreadyAddedRecipe = recipe;
+    addIngredient(ingredient, count) {
+      for (let addedIngredient of this.addedIngredients) {
+        if (addedIngredient.id === ingredient.id) {
+          let previousCount = addedIngredient.amount / ingredient.amount;
+          addedIngredient.amount = (previousCount + count) * ingredient.amount;
+          return;
         }
       }
-      this.addedRecipes.push(id);
+      let ingredientName= null;
+      let ingredientBasicUnit= null;
+      for (let existingIngredient of this.ingredients) {
+        if (existingIngredient.id === ingredient.id) {
+            ingredientName= existingIngredient.name,
+            ingredientBasicUnit= existingIngredient.basicUnit
+        }
+      }
+      let addedIngredient= {
+        id: ingredient.id,
+        name: ingredientName,
+        amount: count * ingredient.amount,
+        unit: ingredientBasicUnit
+      };
+      this.addedIngredients.push(addedIngredient);
+    },
+    receptPridan(pridavaneId) {
+      for (let recipe of this.addedRecipes) {
+        if (recipe.id === pridavaneId) {
+          recipe.amount++;
+           return
+        }
+      }
+      let recipeName= null;
+      for (let recipe of this.recipes) { 
+        if (recipe.id === pridavaneId) {
+           recipeName=recipe.name;
+        }
+      }
+      let addedRecipe={
+        id: pridavaneId,
+        amount: 1,
+        name: recipeName,
+      };
+      console.log(addedRecipe);
+      this.addedRecipes.push(addedRecipe);
     },
 
     fetchData(resource) {
