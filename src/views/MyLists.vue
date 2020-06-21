@@ -1,12 +1,12 @@
 <template>
-  <v-container class="seznamy-kart odsazeni-od-appbar">
-    <v-card color="white" class="my-6 ma-10 py-5 px-10 pa-5"> 
+  <v-container class="odsazeni-od-appbar">
+    <v-card color="#232222" class="my-6 ma-10 py-5 px-10 pa-5"> 
       <v-card-title class="headline">Seznamy</v-card-title>
      <div class="cards">
      
      <v-row><savedlists /></v-row>
     <v-row> <savedlists /> </v-row>
-    <v-row> <savedlists /></v-row>
+    
      
      </div>
 
@@ -32,14 +32,10 @@ export default {
 <style>
 .headline {
     justify-content: center;
-
 }
 .cards {
     display: flex;
      
 }
-.seznamy-kart {
-  display: flex;
-  justify-content: space-between;
-}
+
 </style>

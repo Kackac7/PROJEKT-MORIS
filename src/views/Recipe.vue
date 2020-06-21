@@ -21,31 +21,45 @@
             src="./../assets/images/cupcakes.jpg"
             alt="Cupcakes"
             :aspect-ratio="4/3"
+          
           ></v-img>
         </v-col>
       </v-row>
       <v-divider></v-divider>
       <v-spacer></v-spacer>
-      <v-row class="mx-5">
+      <v-row class="mx-5" justify="center">
         <v-card-subtitle class="recipe-subtitles">Postup</v-card-subtitle>
       </v-row>
       <v-row class="mx-5">
         <v-card-text class="recipe-method-text">{{recipe.method}}</v-card-text>
       </v-row>
       <v-spacer></v-spacer>
-      <v-row class="ma-5">
-        <v-col>
-           <v-btn color="black" class="button-add-recipe" min-width="auto" v-on:click="addRecipe(id)">
-                    <div>
-                      <span class="button-text">+</span>
-                    </div>
-                  </v-btn>
-                  <v-btn color="black" class="button-remove-recipe" min-width="auto" v-on:click="removeRecipe(id)">
-                    <div>
-                      <span class="button-text">-</span>
-                    </div>
-                  </v-btn>
-        </v-col>
+      <v-row no-gutters justify="end" align="center" class="mx-10 my-5">
+              <v-col cols="4"> 
+                <div class="amount-recipe">Počet porcí</div>
+              </v-col>
+              <v-col cols="1" class="pr-1">
+                <v-btn
+                  color="black"
+                  class="button-add-recipe"
+                  fab
+                  x-small
+                  v-on:click="addRecipe(id)"
+                >
+                  <span class="button-text">+</span>
+                </v-btn>
+              </v-col>
+              
+              <v-col cols="1" class="pl-1">
+                <v-btn
+                  color="black"
+                  class="button-remove-recipe"
+                  fab
+                  x-small
+                  v-on:click="removeRecipe(id)" >
+                  <span class="button-text">-</span>
+                </v-btn>
+                </v-col>
       </v-row>
     </v-card>
   </v-container>
@@ -149,12 +163,14 @@ export default {
 <style>
 .recipe-name {
   font-size: 20px;
-  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .recipe-subtitles {
   font-size: 16px;
-  font-weight: 700;
+  color: black !important;
+  text-transform: uppercase;
+ 
 }
 
 .recipe-method-text {
@@ -166,5 +182,15 @@ export default {
 }
 .odsazeni-od-appbar {
   padding-top: 75px;
+}
+
+.button-text-list {
+  font-size: 16px;
+}
+.button-remove-recipes {
+  margin-left: 0px;
+}
+.amount-recipe {
+  margin-left: 150px;
 }
 </style>

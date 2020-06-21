@@ -1,11 +1,10 @@
 @@ -1,68 +0,0 @@
 <template>
-  <div class="list-card">
-    <v-card class="list my-5" color="#F0EC92">
-
-      <v-container fluid class="odsazeni-od-appbar">
-      
-        <v-row no gutters justify="center">
+ 
+  <v-container fluid class="odsazeni-od-appbar">
+    <v-card class="my-6 ma-10 py-5 px-10 pa-5" color="white">
+       
+       <v-row no gutters justify="center">
         <v-card-title class="list-headline">Muj první seznam</v-card-title>
         </v-row>
         <v-row no gutters justify="center">
@@ -43,10 +42,10 @@
     </v-dialog>
   </v-row>
  
-      </v-container>
+      
     </v-card>
-    
-  </div>
+    </v-container>
+  
 </template>
 
 <script>
@@ -65,19 +64,6 @@ export default {
 </script>
 
 <style>
-
-.list-card {
-  
-    padding: 70px 70px;
-      
-    justify-content: space-between;
-    
-}
-.container.container--fluid {
-    
-    text-align: center;
-    }
-
 
 .open-dialog {
     display: flex;

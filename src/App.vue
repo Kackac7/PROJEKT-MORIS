@@ -66,4 +66,8 @@ export default {
   background-repeat: repeat;
 }
 
+.v-navigation-drawer--fixed {
+    z-index: 1;
+}
+
 </style>

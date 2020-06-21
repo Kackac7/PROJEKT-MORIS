@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="pa-3">
+  <v-footer class="main-footer pa-3">
     <v-spacer></v-spacer>
     <div>&copy; {{ new Date().getFullYear() }}</div>
   </v-footer>
@@ -10,4 +10,7 @@ export default {};
 </script>
 
 <style>
+.main-footer {
+ box-shadow: 6px 55px 55px -22px rgba(0,0,0,0.75);
+}
 </style>

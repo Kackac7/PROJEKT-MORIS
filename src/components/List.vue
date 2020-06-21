@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app right class="seznam-bocni pa-5" width="350px" permanent color="#F0EC92">
+  <v-navigation-drawer v-model="drawer" app right class="seznam-bocni pa-2" width="350px" permanent color="#F0EC92">
   <div class="list-headline">Nákupní seznam</div>
   <v-divider></v-divider>
     <div class="list-ingredients">Ingredience</div>
@@ -12,31 +12,24 @@
     </v-list>
 
     <v-divider></v-divider>
-
+    
     <div class="list-recipes">Použité recepty</div>
-
+    
     <v-list>
-      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id"> {{addedRecipe.amount}}x {{addedRecipe.name}} 
+      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id"> {{addedRecipe.name}} 
+       
        <v-btn
           color="black"
           class="button-add-recipes"
           fab x-small
-          v-on:click="receptPridan(addedRecipe.id)"
-        >
-          <div>
-            <span class="button-text-list">+</span>
-          </div>
-        </v-btn>
+          v-on:click="receptPridan(addedRecipe.id)"><div><span class="button-text-list">+</span></div></v-btn>
+          <div class="pocet-porci"> {{addedRecipe.amount}}</div>
+        
         <v-btn
           color="black"
           class="button-remove-recipes"
           fab x-small
-          v-on:click="receptOdebran(addedRecipe.id)"
-        >
-          <div>
-            <span class="button-text-list">-</span>
-          </div>
-        </v-btn>
+          v-on:click="receptOdebran(addedRecipe.id)"><div><span class="button-text-list">-</span></div></v-btn>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -189,22 +182,24 @@ export default {
   text-align: center;
 }
 .list-ing-list {
-  margin: -10px;
+  margin-bottom: -10px;
 }
 .button-add-recipes {
-  margin-left: 50px;
-  position: fixed;
-  left: 200px;
+  margin-left: 70px;
 }
 .button-text-list {
   font-size: 16px;
 }
 .button-remove-recipes {
- position: fixed;
-  left: 300px;
+  margin-left: 0px;
 }
 .seznam-bocni {
 top: 60px !important; 
 }
-
+.pocet-porci {
+ padding: 7px;
+ font-size: 18px;
+ font-weight: 500;
+ 
+}
 </style>

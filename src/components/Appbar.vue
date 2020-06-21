@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar color="white" max-height="60px" elevation="24dp" fixed>
+    <v-app-bar class="main-header" color="#F5F0F0" max-height="60px" elevation="24dp" fixed>
       <div class="wrapper">
         <div> <router-link to="/">Logo</router-link></div>
 
@@ -40,4 +40,5 @@ export default {
 };
 </script>
 <style>
+
 </style>
