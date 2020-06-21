@@ -22,8 +22,6 @@ import Appbar from "./components/Appbar.vue";
 
 import Footer from "./components/Footer.vue";
 
-import Data from "./assets/Data.js";
-
 import List from "./components/List.vue"
 
 
@@ -36,64 +34,6 @@ export default {
     foot: Footer,
 
     list: List
-  },
-
-  data() {
-    return {
-      
-
-    };
-  },
-
-  methods: {
-    fetchData(resource) {
-      fetch("https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/" + resource)
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw Error("Ooops, něco je špatně");
-          }
-        })
-        .then(data => {
-          if (data.length > 0) {
-            //console.log(data[0]);
-            return data[0];
-          }
-        })
-        .then(data => {
-          if (data !== undefined) {
-            if (resource === 'recipes') {
-              return data.recipes;
-            } else if (resource === 'ingredients') {
-              return data.ingredients;
-            } else {
-              throw Error('Unknown resource')
-            } 
-          } else {
-            throw Error("Databáze " + resource + " neexistuje, ty kokos!");
-          }
-        })
-        .then(data => {
-          if (resource === 'recipes') {
-            Data.recipes = data;
-            this.$emit('noveRecepty');
-            //console.log(resource + ":");
-            //console.log(Data.recipes);
-          } else if (resource === 'ingredients') {
-            Data.ingredients = data;
-            this.$emit('noveIngredience');
-            //console.log(resource + ":");
-            //console.log(Data.ingredients);
-          } else {
-            throw Error('Unknown resource');
-          }
-        }); 
-    }
-  },
-  created() {
-    this.fetchData('ingredients');
-    this.fetchData('recipes');
   }
 };
 </script>

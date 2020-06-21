@@ -62,7 +62,7 @@
 </template>
 
 <script>
-//import Data from "./../assets/Data.js";
+
 
 import Bus from "./../assets/bus.js";
 
@@ -77,13 +77,6 @@ export default {
   },
 
   methods: {
-    increase() {
-      this.portion = this.portion++;
-    },
-
-    decrease() {
-      this.portion = this.portion--;
-    },
 
     addRecipe(id) {
       Bus.$emit("receptPridan", id);
