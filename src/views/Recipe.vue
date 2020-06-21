@@ -1,6 +1,6 @@
 <template>
   <v-container class="odsazeni-od-appbar">
-    <v-card color="white" class="my-6 pa-5">
+    <v-card color="white" class="my-6 ma-10 py-5 px-10 pa-5">
       <v-row justify="center">
         <v-card-title class="recipe-name">{{recipe.name}}</v-card-title>
       </v-row>

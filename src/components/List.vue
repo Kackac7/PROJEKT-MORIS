@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app right class="seznam-bocni pa-5" width="350px" color="#F0EC92">
+  <v-navigation-drawer v-model="drawer" app right class="seznam-bocni pa-5" width="350px" permanent color="#F0EC92">
   <div class="list-headline">Nákupní seznam</div>
   <v-divider></v-divider>
     <div class="list-ingredients">Ingredience</div>
@@ -7,7 +7,7 @@
     <v-list>
       <v-list-item class="list-ing-list"
         v-for="(addedIngredient, id) in addedIngredients"
-        v-bind:key="id"
+        v-bind:key="id" scroll
       >{{addedIngredient.amount}} {{addedIngredient.unit}} {{addedIngredient.name}}</v-list-item>
     </v-list>
 
@@ -223,6 +223,6 @@ export default {
 }
 .seznam-bocni {
 top: 60px !important; 
-
 }
+
 </style>

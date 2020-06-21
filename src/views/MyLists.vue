@@ -1,6 +1,6 @@
 <template>
   <v-container class="seznamy-kart odsazeni-od-appbar">
-    <v-card color="white" class="my-lists ma-10 py-5 px-10"> 
+    <v-card color="white" class="my-6 ma-10 py-5 px-10 pa-5"> 
       <v-card-title class="headline">Seznamy</v-card-title>
      <div class="cards">
      

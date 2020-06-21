@@ -2,7 +2,7 @@
 
 <div >
   <v-container class="odsazeni-od-appbar">
-    <v-card color="#232222" class="my-recipes ma-10 py-5 px-10">
+    <v-card color="#232222" class=" ma-10 py-5 px-10 my-6 pa-5">
       <v-card-title class="headline">Moje Recepty</v-card-title>
 
       <recipePreview 
@@ -95,5 +95,8 @@ export default {
 </script>
 
 <style>
-
+.headline {
+  color: white;
+  text-transform: uppercase;
+}
 </style>
