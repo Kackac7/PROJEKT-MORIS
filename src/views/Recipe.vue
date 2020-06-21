@@ -1,6 +1,8 @@
 <template>
-  <v-container class="odsazeni-od-appbar">
+   <v-container class="odsazeni-od-appbar" v-if="recipe !== null && ingredientList.length > 0">
     <v-card color="white" class="my-6 ma-10 py-5 px-10 pa-5">
+ 
+    
       <v-row justify="center">
         <v-card-title class="recipe-name">{{recipe.name}}</v-card-title>
       </v-row>
@@ -52,6 +54,7 @@
 <script>
 import App from "./../App.vue";
 import Bus from "./../assets/bus.js";
+import Vue from 'vue';
 
 export default {
   props: ["id"],
@@ -66,7 +69,7 @@ export default {
   },
 
   methods: {
-    findRecipe() {
+    resolveRecipe() {
       for (let recipe of this.recipes) {
         if (recipe.id === this.id) {
           this.recipe = recipe;
@@ -91,6 +94,7 @@ export default {
         }
       }
       this.ingredientList = ingredientList;
+      //this.$forceUpdate();
     },
     addRecipe(id) {
       Bus.$emit('receptPridan', id);
@@ -118,23 +122,17 @@ export default {
         })
         .then(data => {
           if (data !== undefined) {
-            if (resource === "recipes") {
-              return data.recipes;
-            } else if (resource === "ingredients") {
-              return data.ingredients;
-            } else {
-              throw Error("Unknown resource");
-            }
+            return data[resource];
           } else {
             throw Error("Databáze " + resource + " neexistuje, ty kokos!");
           }
         })
         .then(data => {
+          this[resource] = data;
           if (resource === "recipes") {
-            this.recipes = data;
-            this.findRecipe();
+            this.resolveRecipe();
+            this.fetchData("ingredients")
           } else if (resource === "ingredients") {
-            this.ingredients = data;
             this.resolveIngredients();
           } else {
             throw Error("Unknown resource");
@@ -144,7 +142,6 @@ export default {
   },
   created() {
     this.fetchData("recipes");
-    this.fetchData("ingredients");
   }
 };
 </script>

@@ -117,7 +117,6 @@ export default {
         amount: 1,
         name: recipeName
       };
-      console.log(addedRecipe);
       this.addedRecipes.push(addedRecipe);
     },
     receptOdebran(odebiraneId) {
@@ -144,35 +143,18 @@ export default {
         })
         .then(data => {
           if (data.length > 0) {
-            //console.log(data[0]);
             return data[0];
           }
         })
         .then(data => {
           if (data !== undefined) {
-            if (resource === "recipes") {
-              return data.recipes;
-            } else if (resource === "ingredients") {
-              return data.ingredients;
-            } else {
-              throw Error("Unknown resource");
-            }
+            return data[resource];
           } else {
             throw Error("Databáze " + resource + " neexistuje, ty kokos!");
           }
         })
         .then(data => {
-          if (resource === "recipes") {
-            this.recipes = data;
-            //console.log(resource + ":");
-            //console.log(Data.recipes);
-          } else if (resource === "ingredients") {
-            this.ingredients = data;
-            //console.log(resource + ":");
-            //console.log(Data.ingredients);
-          } else {
-            throw Error("Unknown resource");
-          }
+          this[resource] = data;
         });
     }
   },

@@ -1,6 +1,6 @@
 <template>
 
-<div >
+
   <v-container class="odsazeni-od-appbar">
     <v-card color="#232222" class=" ma-10 py-5 px-10 my-6 pa-5">
       <v-card-title class="headline">Moje Recepty</v-card-title>
@@ -24,20 +24,15 @@
     
   </v-container>
     
-</div>
 </template>
 
 <script>
 import RecipePreview from "./../components/RecipePreview.vue";
 import App from "./../App.vue";
-import Vue from 'vue';
-
-
 
 export default {
   components: {
-    recipePreview: RecipePreview,
-    
+    recipePreview: RecipePreview
   },
 
   data() {
@@ -58,39 +53,24 @@ export default {
         })
         .then(data => {
           if (data.length > 0) {
-            //console.log(data[0]);
             return data[0];
           }
         })
         .then(data => {
           if (data !== undefined) {
-            if (resource === 'recipes') {
-              return data.recipes;
-            } else if (resource === 'ingredients') {
-              return data.ingredients;
-            } else {
-              throw Error('Unknown resource')
-            } 
+            return data[resource];
           } else {
             throw Error("Databáze " + resource + " neexistuje, ty kokos!");
           }
         })
         .then(data => {
-          if (resource === 'recipes') {
-            this.recipes = data;
-          } else if (resource === 'ingredients') {
-            this.ingredients = data;
-          } else {
-            throw Error('Unknown resource');
-          }
+          this[resource] = data;
         }); 
     }
   },
   created() {
     this.fetchData('recipes');
   }
-
-  
 };
 </script>
 
