@@ -115,9 +115,9 @@ export default {
 }
 
 .text-btn-menu {
-    color: black;
+    
     font-size: 22px;
-  color: white;
+  color: black;
 }
 a {
   text-decoration: none;

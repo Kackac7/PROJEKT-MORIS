@@ -33,8 +33,7 @@
     <div class="list-recipes">Použité recepty</div>
     
     <v-list>
-      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">
-        {{addedRecipe.amount}}x {{addedRecipe.name}}
+      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">{{addedRecipe.name}}
         <v-btn
           color="black"
           class="button-add-recipes"
@@ -42,10 +41,12 @@
           x-small
           v-on:click="receptPridan(addedRecipe.id)"
         >
-          <div>
+          
             <span class="button-text-list">+</span>
-          </div>
+        
+          
         </v-btn>
+        <div class="pocet-porci"> {{addedRecipe.amount}}</div>
         <v-btn
           color="black"
           class="button-remove-recipes"
