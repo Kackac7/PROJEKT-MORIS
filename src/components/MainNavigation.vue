@@ -1,24 +1,20 @@
 <template>
   <v-container fill-height fluid color="transparent" class="odsazeni-od-appbar">
   
-    <v-row no-gutters align="center" justify="center">
-        <v-col cols="3">
+    <v-row no-gutters align="center" justify="center" class="hlavne-menu">
+        
             <v-row justify="center" class="my-10">
                 <router-link to="/recepty"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka" fab color="teal"><div class="text-btn-menu">Recepty</div></v-btn></router-link>
             </v-row >
-            
+         
             <v-row justify="center" class="my-10">
                 <router-link to="/pridatrecept"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka"  fab  color="#E8E544" ><div class="text-btn-menu">Přidat recept</div></v-btn></router-link>
             </v-row>
-        </v-col>
-        <v-col cols="3">
+        
             <v-row justify="center" class="my-10">
                 <router-link to="/mojeseznamy"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka"  fab  color="#F89D79"><div class="text-btn-menu">Moje seznamy</div></v-btn></router-link>
             </v-row>
-            <v-row justify="center" class="my-10">
-                <router-link to="/vytvorseznam"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka" fab color="#232222"><div class="text-btn-menu">Přidat seznam</div></v-btn></router-link>
-            </v-row>
-        </v-col>
+        
       
     </v-row>
   </v-container>
@@ -77,5 +73,8 @@ export default {
 }
 a {
   text-decoration: none;
+}
+.hlavne-menu {
+  margin: 150px auto;
 }
 </style>

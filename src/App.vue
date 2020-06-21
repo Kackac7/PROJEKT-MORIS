@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app class="application">
-      <span class="bg"></span>
+      <div class="bg"></div>
       
       <appBar />
 
@@ -62,8 +62,8 @@ export default {
   top: 0;
   left: 0;
   background-image: url("./assets/images/pozadi1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: 100%;
+  background-repeat: repeat;
 }
 
 </style>

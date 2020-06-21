@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-card color="white" class="ma-10 py-5 px-10">
+  <v-container class="odsazeni-od-appbar">
+    <v-card color="white" class="ma-10 py-5 px-10 my-6 pa-5">
       <v-row>
         <v-form>
           <span class="recipe-name">Nazev receptu</span>
