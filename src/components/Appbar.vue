@@ -31,10 +31,9 @@ export default {
     return {
       menu: false,
       menuNavigators: [
-        { id: 1, label: "Moje recepty", url: '/mojerecepty' },
+        { id: 1, label: "Recepty", url: '/recepty' },
         { id: 2, label: "Moje seznamy", url: '/mojeseznamy' },
-        { id: 3, label: "Profil", url: '/profil' },
-        { id: 4, label: "Odhlásit", url: '/' }
+        { id: 3, label: "Odhlásit", url: '/' }
       ]
     };
   }

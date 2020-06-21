@@ -15,8 +15,8 @@ const routes = [{
         component: Home
     },
     {
-        path: '/mojerecepty',
-        name: 'Moje recepty',
+        path: '/recepty',
+        name: 'Recepty',
         component: MyRecipes
     },
     {
