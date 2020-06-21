@@ -84,8 +84,7 @@ export default {
   },
   computed: {
     saveButtonDisabled: function() {
-      // return this.addedRecipes.length < 1 || !this.userLoggedIn;
-      return false;
+      return this.addedRecipes.length < 1 || !this.userLoggedIn;
     },
 
     dialogSaveButtonDisabled: function() {
@@ -286,12 +285,6 @@ export default {
   },
 
   created() {
-    // SMAZAT NASLEDUJICI 4 RADKY
-    this.userLoggedIn = true;
-    this.user = {
-      id: "u1"
-    };
-
     this.fetchData("recipes");
     this.fetchData("ingredients");
     Bus.$on("receptPridan", id => {
