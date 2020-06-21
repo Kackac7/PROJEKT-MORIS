@@ -40,7 +40,7 @@ export default {
 
   created() {
     console.log('nastavuji promennou');
-    userStore.store().user = 'kokos';
+    //userStore.store().user = 'kokos';
   }
 };
 </script>
