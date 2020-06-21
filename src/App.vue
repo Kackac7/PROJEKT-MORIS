@@ -22,7 +22,9 @@ import Appbar from "./components/Appbar.vue";
 
 import Footer from "./components/Footer.vue";
 
-import List from "./components/List.vue"
+import List from "./components/List.vue";
+
+import userStore from "./assets/user.js";
 
 
 export default {
@@ -34,6 +36,11 @@ export default {
     foot: Footer,
 
     list: List
+  },
+
+  created() {
+    console.log('nastavuji promennou');
+    userStore.store().user = 'kokos';
   }
 };
 </script>

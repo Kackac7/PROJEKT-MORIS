@@ -29,6 +29,7 @@
 <script>
 import RecipePreview from "./../components/RecipePreview.vue";
 import App from "./../App.vue";
+import userStore from "./../assets/user.js"
 
 export default {
   components: {
@@ -70,6 +71,8 @@ export default {
   },
   created() {
     this.fetchData('recipes');
+    console.log('ctu promennou');
+    console.log(userStore.store().user);
   }
 };
 </script>

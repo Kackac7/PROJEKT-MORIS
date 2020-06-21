@@ -1,18 +1,26 @@
 <template>
-    <v-app-bar color="white" max-height="60px" elevation="24dp" fixed>
-      <div class="wrapper">
-        <div> <router-link to="/">Logo</router-link></div>
+  <v-app-bar color="white" max-height="60px" elevation="24dp" fixed>
+    <div class="wrapper">
+      <div>
+        <router-link to="/">Logo</router-link>
+      </div>
 
-        <div>Title</div>
+      <div>Receptář</div>
 
-        <v-menu bottom left offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon x-large v-bind="attrs" v-on="on">
-              <v-icon x-large color="black">mdi-account-circle</v-icon>
-            </v-btn>
-          </template>
+      <v-menu bottom left offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon x-large v-bind="attrs" v-on="on">
+            <v-icon x-large color="black">mdi-account-circle</v-icon>
+          </v-btn>
+        </template>
+
+        <template v-if="">
           <v-list>
-            <v-list-item v-for="(navigator, id) in menuNavigators" v-bind:key="id" :to="navigator.url">
+            <v-list-item
+              v-for="(navigator, id) in menuNavigators"
+              v-bind:key="id"
+              :to="navigator.url"
+            >
               <v-btn block depressed color="white" x-large class="my-2">
                 <div class="navigator-button">
                   <v-icon color="black">{{ navigator.icon }}</v-icon>
@@ -21,19 +29,22 @@
               </v-btn>
             </v-list-item>
           </v-list>
-        </v-menu>
-      </div>
-    </v-app-bar>
+        </template>
+      </v-menu>
+    </div>
+  </v-app-bar>
 </template>
 <script>
+
 export default {
   data() {
     return {
       menu: false,
+
       menuNavigators: [
-        { id: 1, label: "Recepty", url: '/recepty' },
-        { id: 2, label: "Moje seznamy", url: '/mojeseznamy' },
-        { id: 3, label: "Odhlásit", url: '/' }
+        { id: 1, label: "Recepty", url: "/recepty" },
+        { id: 2, label: "Moje seznamy", url: "/mojeseznamy" },
+        { id: 3, label: "Odhlásit", url: "/" }
       ]
     };
   }
