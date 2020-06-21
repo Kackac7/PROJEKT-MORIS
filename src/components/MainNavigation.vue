@@ -1,5 +1,5 @@
 <template>
-  <v-container fill-height fluid color="transparent">
+  <v-container fill-height fluid color="transparent" class="odsazeni-od-appbar">
   
     <v-row no-gutters align="center" justify="center">
         <v-col cols="3">

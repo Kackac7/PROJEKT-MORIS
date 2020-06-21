@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar color="white" max-height="60px" elevation="24dp" app>
+    <v-app-bar color="white" max-height="60px" elevation="24dp" fixed>
       <div class="wrapper">
         <div> <router-link to="/">Logo</router-link></div>
 

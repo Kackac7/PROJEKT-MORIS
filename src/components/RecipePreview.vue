@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-preview">
     <v-card color="white" class="recipe-card my-5 d-flex">
-      <v-container fluid class="ma-0">
+      <v-container fluid class="odsazeni-od-appbar ma-0">
         <v-row no-gutters justify="center">
           <router-link v-bind:to="`/recept/${id}`">
           <v-card-title class="recipe-headline">{{name}}</v-card-title>

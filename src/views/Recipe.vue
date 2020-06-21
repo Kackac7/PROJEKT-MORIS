@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="odsazeni-od-appbar">
     <v-card color="white" class="my-6 pa-5">
       <v-row justify="center">
         <v-card-title class="recipe-name">{{recipe.name}}</v-card-title>
@@ -166,5 +166,8 @@ export default {
 
 .recipe-card-image {
   max-width: 300px;
+}
+.odsazeni-od-appbar {
+  padding-top: 75px;
 }
 </style>

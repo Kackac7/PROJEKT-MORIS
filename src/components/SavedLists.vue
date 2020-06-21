@@ -3,7 +3,7 @@
   <div class="list-card">
     <v-card class="list my-5" color="#F0EC92">
 
-      <v-container fluid>
+      <v-container fluid class="odsazeni-od-appbar">
       
         <v-row no gutters justify="center">
         <v-card-title class="list-headline">Muj první seznam</v-card-title>

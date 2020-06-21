@@ -1,9 +1,11 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app right class="pa-5">
-    <span>Ingredience</span>
+  <v-navigation-drawer v-model="drawer" app right class="seznam-bocni pa-5" width="350px" color="#F0EC92">
+  <div class="list-headline">Nákupní seznam</div>
+  <v-divider></v-divider>
+    <div class="list-ingredients">Ingredience</div>
 
     <v-list>
-      <v-list-item
+      <v-list-item class="list-ing-list"
         v-for="(addedIngredient, id) in addedIngredients"
         v-bind:key="id"
       >{{addedIngredient.amount}} {{addedIngredient.unit}} {{addedIngredient.name}}</v-list-item>
@@ -11,29 +13,28 @@
 
     <v-divider></v-divider>
 
-    <span>Pouzite recepty</span>
+    <div class="list-recipes">Použité recepty</div>
 
     <v-list>
-      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">
-        <v-btn
+      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id"> {{addedRecipe.amount}}x {{addedRecipe.name}} 
+       <v-btn
           color="black"
-          class="button-add-recipe"
-          min-width="auto"
+          class="button-add-recipes"
+          fab x-small
           v-on:click="receptPridan(addedRecipe.id)"
         >
           <div>
-            <span class="button-text">+</span>
+            <span class="button-text-list">+</span>
           </div>
         </v-btn>
-        {{addedRecipe.name}} {{addedRecipe.amount}}x
         <v-btn
           color="black"
-          class="button-remove-recipe"
-          min-width="auto"
+          class="button-remove-recipes"
+          fab x-small
           v-on:click="receptOdebran(addedRecipe.id)"
         >
           <div>
-            <span class="button-text">-</span>
+            <span class="button-text-list">-</span>
           </div>
         </v-btn>
       </v-list-item>
@@ -190,4 +191,38 @@ export default {
 </script>
 
 <style>
+.list-headline {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+.list-ingredients {
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.list-recipes {
+  text-transform: uppercase;
+  margin-top: 30px;
+  text-align: center;
+}
+.list-ing-list {
+  margin: -10px;
+}
+.button-add-recipes {
+  margin-left: 50px;
+  position: fixed;
+  left: 200px;
+}
+.button-text-list {
+  font-size: 16px;
+}
+.button-remove-recipes {
+ position: fixed;
+  left: 300px;
+}
+.seznam-bocni {
+top: 60px !important; 
+
+}
 </style>

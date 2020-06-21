@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="odsazeni-od-appbar">
     <v-card color="white" class="my-lists ma-10 py-5 px-10">
       <v-card-title class="headline">Vytvor si seznam</v-card-title>
 
