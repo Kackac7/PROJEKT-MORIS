@@ -7,33 +7,45 @@
 
       <div>Receptář</div>
 
-      <v-menu bottom left offset-y v-bind:close-on-content-click="false">
+      <span v-if="userLoggedIn">{{username}}</span>
+
+      <v-menu bottom left offset-y v-bind:close-on-content-click="false" v-model="menu"> 
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon x-large v-bind="attrs" v-on="on">
             <v-icon x-large color="black">mdi-account-circle</v-icon>
           </v-btn>
         </template>
 
-        <template v-if="user === null">
+        <template v-if="!userLoggedIn">
           <v-form ref="form" class="white pa-5">
-            <v-text-field v-model="username" label="Přihlašovací jméno" required></v-text-field>
-            <v-text-field v-model="password" label="Heslo" required></v-text-field>
+            <span class="red--text" v-if="validationError">Chybné údaje</span>
+            <v-text-field v-model="username" label="Přihlašovací jméno" required v-on:keyup.enter="login"></v-text-field>
+            <v-text-field :type="'password'" v-model="password" label="Heslo" required v-on:keyup.enter="login"></v-text-field>
 
             <v-btn color="success" class="mr-4" v-on:click="login">Přihlásit</v-btn>
           </v-form>
         </template>
 
-        <template v-if="user !== null">
+        <template v-if="userLoggedIn">
           <v-list>
-            <v-list-item
-              v-for="(navigator, id) in menuNavigators"
-              v-bind:key="id"
-              :to="navigator.url"
-            >
-              <v-btn block depressed color="white" x-large class="my-2">
+            <v-list-item>
+              <v-btn block depressed color="black" x-large class="my-2">
                 <div class="navigator-button">
-                  <v-icon color="black">{{ navigator.icon }}</v-icon>
-                  <span class="navigator-button-text">{{ navigator.label }}</span>
+                  <router-link to="/recepty"><span class="navigator-button-text">Recepty</span></router-link>
+                </div>
+              </v-btn>
+            </v-list-item>
+            <v-list-item>
+              <v-btn block depressed color="black" x-large class="my-2">
+                <div class="navigator-button">
+                  <router-link to="/mojeseznamy"><span class="navigator-button-text">Moje seznamy</span></router-link>
+                </div>
+              </v-btn>
+            </v-list-item>
+            <v-list-item>
+              <v-btn block depressed color="black" x-large class="my-2" v-on:click="logout">
+                <div class="navigator-button">
+                  <span class="navigator-button-text">Odhlásit</span>
                 </div>
               </v-btn>
             </v-list-item>
@@ -45,35 +57,37 @@
 </template>
 <script>
 import userStore from "./../assets/user.js";
+import Bus from "./../assets/bus.js";
+import App from "./../App.vue";
 
 export default {
   data() {
     return {
       menu: false,
 
-      menuNavigators: [
-        { id: 1, label: "Recepty", url: "/recepty" },
-        { id: 2, label: "Moje seznamy", url: "/mojeseznamy" },
-        { id: 3, label: "Odhlásit", url: "/" }
-      ],
-
       username: "",
       password: "",
 
-    };
-  },
+      validationError: false,
 
-  computed: {
-    user: function() {
-      return userStore.store().user;
-    }
+      userLoggedIn: false,
+      user: null
+    };
   },
 
   methods: {
 
+    logout() {
+      userStore.store().user = null;
+      Bus.$emit('userLoggedOut');
+
+      this.userLoggedIn = false;
+      this.user = null;
+
+      this.menu = false;
+    },
+
     login() {
-      //let users = async () => this.fetchUsers();
-      //console.log(users);
       const getUsers = async () => {
         const response = await fetch(
           "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/users"
@@ -92,11 +106,30 @@ export default {
     },
 
     validateUser(users) {
-      let filteredUsers = users.filter(user => user.username === this.username);
+      let filteredUsers = users.filter(user => {
+          return user.username === this.username && user.password === this.password;
+      });
       console.log(filteredUsers);
+      if (filteredUsers.length === 1) {
+        console.log(filteredUsers[0]);
+        userStore.store().user = filteredUsers[0];
+        Bus.$emit('userLoggedIn');
+
+        this.user = filteredUsers[0];
+        this.userLoggedIn = true;
+
+        this.validationError = false;
+        this.menu= false;
+      } else {
+        this.validationError = true;
+      }
     }
   }
 };
 </script>
 <style>
+.hide {
+  display: none;
+}
+
 </style>

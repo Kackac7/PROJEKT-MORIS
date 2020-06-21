@@ -1,13 +1,26 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app right class="seznam-bocni pa-5" width="350px" permanent color="#F0EC92">
-  <div class="list-headline">Nákupní seznam</div>
-  <v-divider></v-divider>
+  <v-navigation-drawer
+    v-model="drawer"
+    app
+    right
+    class="seznam-bocni pa-5"
+    width="350px"
+    permanent
+    color="#F0EC92"
+  >
+    <div class="list-headline">Nákupní seznam</div>
+    <v-btn dark :disabled="saveButtonDisabled" v-on:click="saveList">
+      <v-icon dark>mdi-content-save</v-icon>
+    </v-btn>
+    <v-divider></v-divider>
     <div class="list-ingredients">Ingredience</div>
 
     <v-list>
-      <v-list-item class="list-ing-list"
+      <v-list-item
+        class="list-ing-list"
         v-for="(addedIngredient, id) in addedIngredients"
-        v-bind:key="id" scroll
+        v-bind:key="id"
+        scroll
       >{{addedIngredient.amount}} {{addedIngredient.unit}} {{addedIngredient.name}}</v-list-item>
     </v-list>
 
@@ -16,11 +29,13 @@
     <div class="list-recipes">Použité recepty</div>
 
     <v-list>
-      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id"> {{addedRecipe.amount}}x {{addedRecipe.name}} 
-       <v-btn
+      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">
+        {{addedRecipe.amount}}x {{addedRecipe.name}}
+        <v-btn
           color="black"
           class="button-add-recipes"
-          fab x-small
+          fab
+          x-small
           v-on:click="receptPridan(addedRecipe.id)"
         >
           <div>
@@ -30,7 +45,8 @@
         <v-btn
           color="black"
           class="button-remove-recipes"
-          fab x-small
+          fab
+          x-small
           v-on:click="receptOdebran(addedRecipe.id)"
         >
           <div>
@@ -44,6 +60,7 @@
 
 <script>
 import Bus from "./../assets/bus.js";
+import userStore from "./../assets/user.js";
 
 export default {
   data() {
@@ -51,9 +68,18 @@ export default {
       drawer: null,
       recipes: [],
       ingredients: [],
+      lists: [],
       addedRecipes: [],
-      addedIngredients: []
+      addedIngredients: [],
+      userLoggedIn: false,
+      user: null
     };
+  },
+  computed: {
+    saveButtonDisabled: function() {
+      // return this.addedRecipes.length < 1 || !this.userLoggedIn;
+      return false;
+    }
   },
   watch: {
     addedRecipes: {
@@ -87,8 +113,8 @@ export default {
       let ingredientBasicUnit = null;
       for (let existingIngredient of this.ingredients) {
         if (existingIngredient.id === ingredient.id) {
-          ingredientName = existingIngredient.name,
-          ingredientBasicUnit = existingIngredient.basicUnit;
+          (ingredientName = existingIngredient.name),
+            (ingredientBasicUnit = existingIngredient.basicUnit);
         }
       }
       let addedIngredient = {
@@ -130,6 +156,96 @@ export default {
       });
     },
 
+    /*saveList() {
+      this.fetchData('lists');
+      console.log(this.lists);
+    },*/
+
+    saveList() {
+      const getLists = async () => {
+        const response = await fetch(
+          "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists"
+        );
+        const json = await response.json();
+        if (json.length > 0) {
+          return json[0];
+        }
+      };
+
+      getLists().then(object => {
+        let novyList = this.vytvorList();
+        console.log(novyList);
+
+        // priprava dat
+        let _id = null;
+        let data = null;
+        if (object === undefined) {
+          // listy jeste neexistuji
+          data = {
+            lists: [novyList]
+          };
+        } else {
+          // listy uz existuji
+          _id = object._id;
+          data = {
+            lists: object.lists.filter(
+              list =>
+                list.userId !== novyList.userId && list.name !== novyList.name
+            )
+          };
+          data.lists.push(novyList);
+        }
+
+        // ulozeni seznamu
+        if (_id === null) {
+          // nove seznamy
+          this.ulozNovySeznam(data);
+        } else {
+          // existujici seznamy
+          this.ulozExistujiciSeznam(_id, data);
+        }
+      });
+    },
+
+    vytvorList() {
+      return {
+        id: Date.now().toString(),
+        userId: this.user.id,
+        name: "Nazev seznamu",
+        addedRecipes: this.addedRecipes
+      };
+    },
+
+    ulozNovySeznam(data) {
+      console.log("ukladam novy seznam");
+     // console.log(JSON.stringify(data));
+
+      fetch("https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+    },
+
+    ulozExistujiciSeznam(_id, data) {
+      console.log("ukladam existujici seznam");
+      //console.log(_id);
+      //console.log(JSON.stringify(data));
+      fetch(
+        "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists/" +
+          _id,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+    },
+
     fetchData(resource) {
       fetch(
         "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/" + resource
@@ -160,6 +276,12 @@ export default {
   },
 
   created() {
+    // SMAZAT NASLEDUJICI 4 RADKY
+    this.userLoggedIn = true;
+    this.user = {
+      id: "u1"
+    };
+
     this.fetchData("recipes");
     this.fetchData("ingredients");
     Bus.$on("receptPridan", id => {
@@ -168,6 +290,16 @@ export default {
     Bus.$on("receptOdebran", id => {
       this.receptOdebran(id);
     });
+
+    Bus.$on("userLoggedIn", () => {
+      this.userLoggedIn = true;
+      this.user = userStore.store().user;
+    });
+    Bus.$on("userLoggedOut", () => {
+      this.userLoggedIn = false;
+      this.user = null;
+    });
+    this.userLoggedIn = userStore.store().user !== null;
   }
 };
 </script>
@@ -200,11 +332,10 @@ export default {
   font-size: 16px;
 }
 .button-remove-recipes {
- position: fixed;
+  position: fixed;
   left: 300px;
 }
 .seznam-bocni {
-top: 60px !important; 
+  top: 60px !important;
 }
-
 </style>
