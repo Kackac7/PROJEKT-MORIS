@@ -16,7 +16,7 @@
                 <router-link to="/mojeseznamy"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka"  fab  color="#F89D79"><div class="text-btn-menu">Moje seznamy</div></v-btn></router-link>
             </v-row>
             <v-row justify="center" class="my-10">
-                <router-link to="/vytvorseznam"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka" fab color="#232222" v-bind="btnSize"><div class="text-btn-menu">Přidat seznam</div></v-btn></router-link>
+                <router-link to="/vytvorseznam"><v-btn v-bind:min-width="sirkaTlacitka" v-bind:min-height="vyskaTlacitka" fab color="#232222"><div class="text-btn-menu">Přidat seznam</div></v-btn></router-link>
             </v-row>
         </v-col>
       
