@@ -85,6 +85,11 @@ export default {
       this.user = null;
 
       this.menu = false;
+
+      Bus.$emit('showSnackbar', {
+          text: 'Odhlášení úspěšné', 
+          timeout: 3000
+        })
     },
 
     login() {
@@ -109,9 +114,7 @@ export default {
       let filteredUsers = users.filter(user => {
           return user.username === this.username && user.password === this.password;
       });
-      console.log(filteredUsers);
       if (filteredUsers.length === 1) {
-        console.log(filteredUsers[0]);
         userStore.store().user = filteredUsers[0];
         Bus.$emit('userLoggedIn');
 

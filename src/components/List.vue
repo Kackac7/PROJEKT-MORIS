@@ -9,9 +9,13 @@
     color="#F0EC92"
   >
     <div class="list-headline">Nákupní seznam</div>
-    <v-btn dark :disabled="saveButtonDisabled" v-on:click="saveList">
+    <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
       <v-icon dark>mdi-content-save</v-icon>
     </v-btn>
+    <v-dialog v-model="dialog">
+      <v-text-field label="Název seznamu" v-model="listName"></v-text-field>
+      <v-btn :disabled="dialogSaveButtonDisabled" v-on:click="saveList" >Uložit</v-btn>
+    </v-dialog>
     <v-divider></v-divider>
     <div class="list-ingredients">Ingredience</div>
 
@@ -72,13 +76,19 @@ export default {
       addedRecipes: [],
       addedIngredients: [],
       userLoggedIn: false,
-      user: null
+      user: null,
+      dialog: false,
+      listName: ''
     };
   },
   computed: {
     saveButtonDisabled: function() {
       // return this.addedRecipes.length < 1 || !this.userLoggedIn;
       return false;
+    },
+
+    dialogSaveButtonDisabled: function() {
+      return this.listName === '';
     }
   },
   watch: {
@@ -156,11 +166,6 @@ export default {
       });
     },
 
-    /*saveList() {
-      this.fetchData('lists');
-      console.log(this.lists);
-    },*/
-
     saveList() {
       const getLists = async () => {
         const response = await fetch(
@@ -174,7 +179,6 @@ export default {
 
       getLists().then(object => {
         let novyList = this.vytvorList();
-        console.log(novyList);
 
         // priprava dat
         let _id = null;
@@ -189,8 +193,7 @@ export default {
           _id = object._id;
           data = {
             lists: object.lists.filter(
-              list =>
-                list.userId !== novyList.userId && list.name !== novyList.name
+              list => list.userId !== novyList.userId || list.name !== novyList.name
             )
           };
           data.lists.push(novyList);
@@ -204,6 +207,15 @@ export default {
           // existujici seznamy
           this.ulozExistujiciSeznam(_id, data);
         }
+
+        // uklid po ulozeni
+        this.listName = '';
+        this.dialog = false;
+
+        Bus.$emit('showSnackbar', {
+          text: 'Seznam byl úspěšně uložen', 
+          timeout: 3000
+        })
       });
     },
 
@@ -211,14 +223,13 @@ export default {
       return {
         id: Date.now().toString(),
         userId: this.user.id,
-        name: "Nazev seznamu",
+        name: this.listName,
         addedRecipes: this.addedRecipes
       };
     },
 
     ulozNovySeznam(data) {
       console.log("ukladam novy seznam");
-     // console.log(JSON.stringify(data));
 
       fetch("https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists", {
         method: "POST",
@@ -231,8 +242,6 @@ export default {
 
     ulozExistujiciSeznam(_id, data) {
       console.log("ukladam existujici seznam");
-      //console.log(_id);
-      //console.log(JSON.stringify(data));
       fetch(
         "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists/" +
           _id,

@@ -2,13 +2,15 @@
   <div id="app">
     <v-app class="application">
       <div class="bg"></div>
-      
+
       <appBar />
 
       <v-main>
-
         <router-view></router-view>
-        
+
+        <v-snackbar v-model="snackbar" :timeout="snackbarTimeout">
+          {{snackbarText}}
+        </v-snackbar>
       </v-main>
       <list />
 
@@ -26,9 +28,18 @@ import List from "./components/List.vue";
 
 import userStore from "./assets/user.js";
 
+import Bus from "./assets/bus.js";
 
 export default {
   name: "App",
+
+  data() {
+    return {
+      snackbar: false,
+      snackbarTimeout: 2000,
+      snackbarText: ''
+    }
+  },
 
   components: {
     appBar: Appbar,
@@ -39,8 +50,11 @@ export default {
   },
 
   created() {
-    console.log('nastavuji promennou');
-    //userStore.store().user = 'kokos';
+    Bus.$on('showSnackbar', (snackbarParams) => {
+      this.snackbarText = snackbarParams.text;
+      this.snackbarTimeout = snackbarParams.timeout;
+      this.snackbar = true;
+    });
   }
 };
 </script>
@@ -74,7 +88,6 @@ export default {
 }
 
 .v-navigation-drawer--fixed {
-    z-index: 1;
+  z-index: 1;
 }
-
 </style>
