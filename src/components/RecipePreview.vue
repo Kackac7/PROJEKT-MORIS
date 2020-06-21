@@ -4,7 +4,7 @@
       <v-container fluid class="ma-0">
         <v-row no-gutters justify="center">
           <router-link v-bind:to="`/recept/${id}`">
-          <v-card-title class="recipe-headline">{{name}}</v-card-title>
+            <v-card-title class="recipe-headline">{{name}}</v-card-title>
           </router-link>
         </v-row>
 
@@ -17,7 +17,6 @@
                 alt="Cupcakes"
                 :aspect-ratio="4/3"
               ></v-img>
-              
             </v-row>
           </v-col>
 
@@ -26,37 +25,40 @@
               <v-card-text class="recipe-text">{{method}}</v-card-text>
             </v-row>
 
-            <v-row no-gutters justify="center">
-              <div>
-                <v-col cols="4">
-                  <v-btn color="black" class="button-add-recipe" min-width="auto" v-on:click="addRecipe(id)">
-                    <div>
-                      <span class="button-text">+</span>
-                    </div>
-                  </v-btn>
-                  <v-btn color="black" class="button-remove-recipe" min-width="auto" v-on:click="removeRecipe(id)">
-                    <div>
-                      <span class="button-text">-</span>
-                    </div>
-                  </v-btn>
-                </v-col>
-                <v-col>
-                  <v-text-field
-                    label="Pocet porci"
-                    type="number"
-                    v-model="portion"
-                    outlined
-                    class="shrink"
-                  ></v-text-field>
-                </v-col>
-              </div>
+            <v-row no-gutters justify="end" align="center" class="mx-10 my-5">
+              <v-col cols="4"> 
+                <span>Počet porcí</span>
+              </v-col>
+              <v-col cols="1" class="pr-2">
+                <v-btn
+                  color="black"
+                  class="button-add-recipe"
+                  fab
+                  x-small
+                  v-on:click="addRecipe(id)"
+                >
+                  <span class="button-text">+</span>
+                </v-btn>
+              </v-col>
+
+              <v-col cols="1" class="pl-2">
+                <v-btn
+                  color="black"
+                  class="button-remove-recipe"
+                  fab
+                  x-small
+                  v-on:click="removeRecipe(id)"
+                >
+                  <span class="button-text">-</span>
+                </v-btn>
+              </v-col>
             </v-row>
           </v-col>
         </v-row>
       </v-container>
     </v-card>
   </div>
-  </template>
+</template>
 </template>
 
 <script>
@@ -65,8 +67,7 @@
 import Bus from "./../assets/bus.js";
 
 export default {
-
-  props: ['id', 'name', 'method'],
+  props: ["id", "name", "method"],
 
   data() {
     return {
@@ -85,11 +86,11 @@ export default {
     },
 
     addRecipe(id) {
-      Bus.$emit('receptPridan', id);
+      Bus.$emit("receptPridan", id);
     },
-    
+
     removeRecipe(id) {
-      Bus.$emit('receptOdebran', id);
+      Bus.$emit("receptOdebran", id);
     }
   }
 };
@@ -101,5 +102,9 @@ export default {
 }
 .recipe-text {
   text-align: center;
+}
+
+.button-text {
+  font-size: 16px;
 }
 </style>
