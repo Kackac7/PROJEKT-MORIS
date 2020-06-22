@@ -22,7 +22,7 @@
             <v-text-field v-model="username" label="Přihlašovací jméno" required v-on:keyup.enter="login"></v-text-field>
             <v-text-field :type="'password'" v-model="password" label="Heslo" required v-on:keyup.enter="login"></v-text-field>
 
-            <v-btn color="success" class="mr-4" v-on:click="login">Přihlásit</v-btn>
+            <v-btn color=#302F2F class="mr-4" v-on:click="login">Přihlásit</v-btn>
           </v-form>
         </template>
 

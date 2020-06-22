@@ -1,44 +1,44 @@
 <template>
   <v-container fluid color="transparent" class="odsazeni-od-appbar pa-0 mt-13">
     <v-row no-gutters align="center" class="mx-10">
-        
-      <v-col cols="2" class="mr-10"  v-if="userLoggedIn">
-        <router-link to="/recepty">
-          <v-btn
-            v-bind:min-width="sirkaTlacitka"
-            v-bind:min-height="vyskaTlacitka"
-            fab
-            color="#302F2F"
-          >
-            <div class="text-btn-menu">Recepty</div>
-          </v-btn>
-        </router-link>
-      </v-col>
+      <v-col>  
+        <v-row class="mx-10 my-10"  v-if="userLoggedIn">
+          <router-link to="/recepty">
+            <v-btn class="btn-logged-in"
+              v-bind:min-width="sirkaTlacitka"
+              v-bind:min-height="vyskaTlacitka"
+              color="#302F2F"
+            >
+              <div class="text-btn-menu">Moje recepty</div>
+            </v-btn>
+          </router-link>
+        </v-row>
 
-      <v-col cols="2" class="mr-10"  v-if="userLoggedIn">
-        <router-link to="/pridatrecept">
-          <v-btn
-            v-bind:min-width="sirkaTlacitka"
-            v-bind:min-height="vyskaTlacitka"
-            fab
-            color="#302F2F"
-          >
-            <div class="text-btn-menu" >Přidat recept</div>
-          </v-btn>
-        </router-link>
-      </v-col>
+        <v-row class="mx-10 my-10"  v-if="userLoggedIn">
+          <router-link to="/pridatrecept">
+            <v-btn
+              class="btn-logged-in"
+              v-bind:min-width="sirkaTlacitka"
+              v-bind:min-height="vyskaTlacitka"
+              color="#302F2F"
+            >
+              <div class="text-btn-menu" >Přidat recept</div>
+            </v-btn>
+          </router-link>
+        </v-row>
 
-      <v-col cols="2" class="mr-10" v-if="userLoggedIn">
-        <router-link to="/mojeseznamy">
-          <v-btn
-            v-bind:min-width="sirkaTlacitka"
-            v-bind:min-height="vyskaTlacitka"
-            fab
-            color="#302F2F"
-          >
-            <div class="text-btn-menu">Moje seznamy</div>
-          </v-btn>
-        </router-link>
+        <v-row class="mx-10 my-10" v-if="userLoggedIn">
+          <router-link to="/mojeseznamy">
+            <v-btn
+              class="btn-logged-in"
+              v-bind:min-width="sirkaTlacitka"
+              v-bind:min-height="vyskaTlacitka"
+              color="#302F2F"
+            >
+              <div class="text-btn-menu">Moje seznamy</div>
+            </v-btn>
+          </router-link>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -84,15 +84,15 @@ export default {
     vyskaTlacitka() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return "100px";
+          return "40px";
         case "sm":
-          return "120px";
+          return "40px";
         case "md":
-          return "150px";
+          return "40px";
         case "lg":
-          return "150px";
+          return "40px";
         case "xl":
-          return "150px";
+          return "40px";
       }
     }
   },
@@ -123,5 +123,9 @@ a {
 }
 .hlavne-menu {
   margin: 150px auto;
+}
+.btn-logged-in{
+  width: 200px;
+  min-height: 40px;
 }
 </style>
