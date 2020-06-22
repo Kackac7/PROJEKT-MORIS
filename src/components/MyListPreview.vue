@@ -1,4 +1,3 @@
-@@ -1,68 +0,0 @@
 <template>
   <v-container fluid class="odsazeni-od-appbar">
     <v-card class="my-6 ma-10 py-5 px-10 pa-5" color="white">

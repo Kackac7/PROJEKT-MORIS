@@ -181,7 +181,7 @@ export default {
   max-width: 300px;
 }
 .odsazeni-od-appbar {
-  padding-top: 75px;
+  padding-top: 85px;
 }
 
 .button-text-list {

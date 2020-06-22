@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <v-app class="application">
-      <div class="bg"></div>
 
       <appBar />
 
@@ -75,16 +74,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url("./assets/images/pozadi1.jpg");
-  background-size: 100%;
-  background-repeat: repeat;
 }
 
 .v-navigation-drawer--fixed {
