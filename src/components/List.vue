@@ -5,7 +5,7 @@
     right
     class="seznam-bocni pa-5"
     width="350px"
-    permanent
+    temporary
     color="#F0EC92"
   >
     <div class="list-headline">Nákupní seznam</div>

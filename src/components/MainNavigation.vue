@@ -1,44 +1,45 @@
 <template>
-  <v-container fill-height fluid color="transparent" class="odsazeni-od-appbar">
-    <v-row no-gutters align="center" justify="center" class="hlavne-menu">
-      <v-row justify="center" class="my-10">
+  <v-container fluid color="transparent" class="odsazeni-od-appbar pa-0 mt-13">
+    <v-row no-gutters align="center" class="mx-10">
+        
+      <v-col cols="2" class="mr-10"  v-if="userLoggedIn">
         <router-link to="/recepty">
           <v-btn
             v-bind:min-width="sirkaTlacitka"
             v-bind:min-height="vyskaTlacitka"
             fab
-            color="teal"
+            color="#302F2F"
           >
             <div class="text-btn-menu">Recepty</div>
           </v-btn>
         </router-link>
-      </v-row>
+      </v-col>
 
-      <v-row justify="center" class="my-10">
+      <v-col cols="2" class="mr-10"  v-if="userLoggedIn">
         <router-link to="/pridatrecept">
           <v-btn
             v-bind:min-width="sirkaTlacitka"
             v-bind:min-height="vyskaTlacitka"
             fab
-            color="#E8E544"
+            color="#302F2F"
           >
-            <div class="text-btn-menu">Přidat recept</div>
+            <div class="text-btn-menu" >Přidat recept</div>
           </v-btn>
         </router-link>
-      </v-row>
+      </v-col>
 
-      <v-row justify="center" class="my-10" v-if="userLoggedIn">
+      <v-col cols="2" class="mr-10" v-if="userLoggedIn">
         <router-link to="/mojeseznamy">
           <v-btn
             v-bind:min-width="sirkaTlacitka"
             v-bind:min-height="vyskaTlacitka"
             fab
-            color="#F89D79"
+            color="#302F2F"
           >
             <div class="text-btn-menu">Moje seznamy</div>
           </v-btn>
         </router-link>
-      </v-row>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -69,29 +70,29 @@ export default {
     sirkaTlacitka() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return "50px";
+          return "100px";
         case "sm":
           return "120px";
         case "md":
-          return "220px";
+          return "150px";
         case "lg":
-          return "220px";
+          return "150px";
         case "xl":
-          return "220px";
+          return "150px";
       }
     },
     vyskaTlacitka() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return "50px";
+          return "100px";
         case "sm":
           return "120px";
         case "md":
-          return "220px";
+          return "150px";
         case "lg":
-          return "220px";
+          return "150px";
         case "xl":
-          return "220px";
+          return "150px";
       }
     }
   },
@@ -104,7 +105,6 @@ export default {
       this.userLoggedIn = false;
     });
     this.userLoggedIn = userStore.store().user !== null;
-    
   }
 };
 </script>
@@ -115,9 +115,8 @@ export default {
 }
 
 .text-btn-menu {
-    
-    font-size: 22px;
-  color: black;
+  font-size: 16px;
+  color: white;
 }
 a {
   text-decoration: none;
