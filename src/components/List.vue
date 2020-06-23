@@ -228,8 +228,10 @@ export default {
 
         Bus.$emit("showSnackbar", {
           text: "Seznam byl úspěšně uložen",
-          timeout: 3000
+          timeout: 5000
         });
+
+        this.addedRecipes = [];
       });
     },
 
