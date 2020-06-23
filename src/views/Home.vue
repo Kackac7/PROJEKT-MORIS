@@ -7,7 +7,8 @@
         class="main-page-subtitle mx-10 ma-5"
       >Válejí se ti všude papíry s recepty ale ten co hledáš, nemůžeš najít? Registruj se a vytvoř si svůj vlastní receptář.</div>
 
-      <div class="main-page-subtitle mx-10"><p>S MORISEM je to snadné</p>
+      <div class="main-page-subtitle mx-10">
+      <p class="subtitle-main">S <strong>MORISEM</strong> je to snadné</p>
       <p>- Zapiš si svuj recept.</p>
       <p>- Ulož ho. </p>
       <p>- Přidej na nákupní seznam.</p>
@@ -16,7 +17,7 @@
 
       <v-row no-gutters class="my-15 mx-10">
         <v-col cols="3">
-          <v-btn class="main-page-button white--text" color="#302F2F">Registrovat</v-btn>
+          <v-btn class="main-page-button white--text" color="#302F2F" bottom>Registrovat</v-btn>
         </v-col>
         <v-col cols="3">
           <v-dialog max-width="250px">
@@ -27,6 +28,7 @@
                 v-bind="attrs"
                 v-on="on" 
                 v-on:click="validationError=false"
+                bottom
               >Přihlásit</v-btn>
             </template>
             <v-form ref="form" class="white pa-5">
@@ -156,14 +158,26 @@ export default {
 
 <style>
 .main-page {
-  background: url("./../assets/images/main-pozadi.jpg");
+  background: url("./../assets/images/main-pozadi5.jpg");
   background-size: cover;
+  margin-top: -40px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .main-page-button {
   width: 180px;
   min-height: 40px;
+  margin-left: 150px;
+  position: absolute;
+  bottom: 60px;
+}
+.subtitle-main {
+  font-size: 30px;
+  margin-left: 250px;
+}
+.main-page-subtitle p {
+  font-size: 20px;
+  margin-left: 250px;
 }
 </style>
