@@ -9,7 +9,7 @@
       <v-main>
         <router-view></router-view>
 
-        <v-snackbar class="snackbar-okno" v-model="snackbar" :timeout="snackbarTimeout">
+        <v-snackbar class="snackbar-okno" centered v-model="snackbar" :timeout="snackbarTimeout">
           {{snackbarText}}
         </v-snackbar>
       </v-main>
@@ -95,6 +95,10 @@ export default {
 .snackbar-okno {
   height: 200px;
   width: 200px;
+  color: white;
+  font-style: 'Quicksand';
+  
+
 }
 
 </style>
