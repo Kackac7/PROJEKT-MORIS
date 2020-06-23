@@ -9,7 +9,7 @@
       <v-main>
         <router-view></router-view>
 
-        <v-snackbar v-model="snackbar" :timeout="snackbarTimeout">
+        <v-snackbar class="snackbar-okno" v-model="snackbar" :timeout="snackbarTimeout">
           {{snackbarText}}
         </v-snackbar>
       </v-main>
@@ -88,9 +88,13 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("./assets/images/pozadi-bile.jpg");
-  background-size: 100%;
+  background-image: url("./assets/images/bg.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
+}
+.snackbar-okno {
+  height: 200px;
+  width: 200px;
 }
 
 </style>

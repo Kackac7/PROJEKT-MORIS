@@ -5,11 +5,11 @@
         <router-link to="/">Logo</router-link>
       </div>
 
-      <div>Receptář</div>
+      <div>MORIS</div>
 
-      <span v-if="userLoggedIn">{{username}}</span>
-
-      <v-menu bottom left offset-y v-bind:close-on-content-click="false" v-model="menu"> 
+      
+      <div class="user-jmeno" v-if="userLoggedIn">{{username}}</div>
+      <v-menu class="user-menu" bottom left offset-y v-bind:close-on-content-click="false" v-model="menu"> 
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon x-large v-bind="attrs" v-on="on">
             <v-icon x-large color="black">mdi-account-circle</v-icon>
