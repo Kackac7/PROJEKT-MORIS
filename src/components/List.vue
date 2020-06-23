@@ -36,10 +36,10 @@
     <v-divider></v-divider>
 
     <div class="list-recipes">Použité recepty</div>
-
-    <v-list>
-      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">
-        {{addedRecipe.name}}
+    
+    <v-list class="buttons-list">
+      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">{{addedRecipe.name}}
+        <div class="buttons">
         <v-btn
           color="#302F2F"
           class="button-add-recipes"
@@ -61,6 +61,7 @@
             <v-icon class="icon-add-recipe">mdi-minus</v-icon>
           </div>
         </v-btn>
+        </div>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -334,24 +335,27 @@ export default {
   margin-bottom: -10px;
   font-size: 12px;
 }
-.button-add-recipes {
-  margin-left: 70px;
-}
+
 .button-text-list {
   font-size: 16px;
 }
-.button-remove-recipes {
-  margin-left: 0px;
-  position: fixed;
-  left: 300px;
+.buttons-list {
+  right: 0px;
+  position: relative;
+  
 }
 
 .seznam-bocni {
   top: 60px !important;
+  max-height: calc(100% - 100px) !important;
 }
 .pocet-porci {
-  padding: 7px;
-  font-size: 18px;
-  font-weight: 500;
+ padding: 7px;
+ font-size: 18px;
+ font-weight: 500;
+ }
+.buttons {
+  right: 0px;
+  float: right;
 }
 </style>
