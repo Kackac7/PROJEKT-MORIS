@@ -9,20 +9,7 @@
               v-bind:min-height="vyskaTlacitka"
               color="#302F2F"
             >
-              <div class="text-btn-menu">Moje recepty</div>
-            </v-btn>
-          </router-link>
-        </v-row>
-
-        <v-row class="mx-10 my-10"  v-if="userLoggedIn">
-          <router-link to="/pridatrecept">
-            <v-btn
-              class="btn-logged-in"
-              v-bind:min-width="sirkaTlacitka"
-              v-bind:min-height="vyskaTlacitka"
-              color="#302F2F"
-            >
-              <div class="text-btn-menu" >Přidat recept</div>
+              <div class="text-btn-menu">Recepty</div>
             </v-btn>
           </router-link>
         </v-row>
@@ -36,6 +23,19 @@
               color="#302F2F"
             >
               <div class="text-btn-menu">Moje seznamy</div>
+            </v-btn>
+          </router-link>
+        </v-row>
+
+        <v-row class="mx-10 my-10"  v-if="userLoggedIn">
+          <router-link to="/pridatrecept">
+            <v-btn
+              class="btn-logged-in"
+              v-bind:min-width="sirkaTlacitka"
+              v-bind:min-height="vyskaTlacitka"
+              color="#302F2F"
+            >
+              <div class="text-btn-menu" >Přidat recept</div>
             </v-btn>
           </router-link>
         </v-row>
