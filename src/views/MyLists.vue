@@ -11,6 +11,7 @@
         v-bind:id="myList.id"
         v-bind:userId="myList.userId"
         v-bind:name="myList.name"
+        v-bind:addedRecipes="myList.addedRecipes"
         v-bind:recipes="myList.recipes"
      /></v-row>    
      </div>
@@ -119,12 +120,14 @@ export default {
           let myListId = list.id;
           let myListUserId = list.userId;
           let myListName = list.name;
+          let myListAddedRecipes = list.addedRecipes;
           let myListRecipes = this.resolveRecipes(list.addedRecipes);
 
           let myList = {
             id: myListId,
             userId: myListUserId,
             name: myListName,
+            addedRecipes: myListAddedRecipes,
             recipes: myListRecipes
           }
           this.myLists.push(myList);

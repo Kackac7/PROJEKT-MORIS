@@ -319,6 +319,10 @@ export default {
     });
     this.userLoggedIn = userStore.store().user !== null;
     this.user = userStore.store().user;
+
+    Bus.$on("listRestored", (addedRecipes) => {
+      this.addedRecipes = addedRecipes;
+    })
   }
 };
 </script>
