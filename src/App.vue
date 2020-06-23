@@ -15,7 +15,7 @@
           :timeout="snackbarTimeout"
         >{{snackbarText}}</v-snackbar>
       </v-main>
-      <list v-if="addRecipe(id)" />
+      <list />
     </v-app>
     <foot class="footer"/>
   </div>
@@ -50,11 +50,6 @@ export default {
     foot: Footer,
 
     list: List
-  },
-  methods: {
-      addRecipe(id) {
-      Bus.$emit("receptPridan", id);
-    }
   },
 
   created() {

@@ -70,7 +70,6 @@ import userStore from "./../assets/user.js";
 export default {
   data() {
     return {
-      drawer: null,
       recipes: [],
       ingredients: [],
       lists: [],
@@ -83,6 +82,9 @@ export default {
     };
   },
   computed: {
+     drawer: function() {
+      return this.addedRecipes.length > 0;
+     },
     saveButtonDisabled: function() {
       return this.addedRecipes.length < 1 || !this.userLoggedIn;
     },
