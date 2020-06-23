@@ -8,11 +8,8 @@
     color="#FAF9F9"
     scrollable
   >
-    <div class="list-headline pb-5">
-      <div>Nákupní seznam</div>
-      <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
-        <span>Uložit</span>
-      </v-btn>
+    <div class="list-headline">
+      <span>Nákupní seznam</span>
     </div>
     <v-dialog v-model="dialog" class="save-list-dialog" width="500px" height="300px">
       <v-card class="pa-10">
@@ -43,8 +40,7 @@
           <div class="leva-cast">{{addedRecipe.name | truncate(20)}}</div>
 
           <div class="prava-cast">
-
-             <v-btn
+            <v-btn
               color="#302F2F"
               class="button-remove-recipes"
               fab
@@ -55,7 +51,7 @@
                 <v-icon class="icon-add-recipe">mdi-minus</v-icon>
               </div>
             </v-btn>
-            
+
             <span class="pocet-porci">{{addedRecipe.amount}}</span>
             <v-btn
               color="#302F2F"
@@ -66,10 +62,13 @@
             >
               <v-icon class="icon-add-recipe">mdi-plus</v-icon>
             </v-btn>
-
-           
           </div>
         </v-list-item>
+      </div>
+      <div class="save-button">
+        <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true" bottom>
+          <div color="black">ULOŽIT</div>
+        </v-btn>
       </div>
     </v-list>
   </v-navigation-drawer>
@@ -341,12 +340,8 @@ export default {
   text-align: center;
 }
 .list-ing-list {
-  margin-bottom: -10px;
-  font-size: 16px;
-}
-
-.button-text-list {
-  font-size: 16px;
+  margin-bottom: -17px;
+  font-size: 15px;
 }
 .seznam-bocni {
   top: 60px !important;
@@ -365,11 +360,17 @@ export default {
   flex-basis: 2;
 }
 .leva-cast {
- position: absolute;
- left: 0px;
+  position: absolute;
+  left: 0px;
 }
 .prava-cast {
   position: absolute;
   right: 0px;
+}
+.save-button {
+  display: flex;
+  font-family: "Quicksand", sans-serif !important;
+  justify-content: center;
+  padding-top: 20px;
 }
 </style>

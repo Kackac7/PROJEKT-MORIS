@@ -1,8 +1,9 @@
 <template>
-  <v-card class="my-6 ma-5 py-5 px-10 pa-5" color="white">
+  <v-card class="my-6 ma-5 py-5 px-10 pa-5" color="white" max-width="300px" min-height="300px">
     <v-row no gutters justify="center">
       <v-card-title class="list-headline">{{name}}</v-card-title>
     </v-row>
+    
     <v-row no gutters justify="center">
       <v-card-subtitle
         class="list-subtitle"
@@ -10,19 +11,7 @@
         v-bind:key="id"
       >{{recipe.name}}</v-card-subtitle>
     </v-row>
-    <v-row no gutters justify="center">
-      <v-card-text class="list-text">
-        <ul class="ingredients-list">
-          
-            <li
-              v-for="(ingredient, inId) in addedIngredients"
-              v-bind:key="inId"
-            >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
-          
-        </ul>
-      </v-card-text>
-    </v-row>
-    <v-row justify="center">
+     <v-row justify="center">
       <v-dialog v-model="dialog" width="600px" class="open-dialog">
         <template v-slot:activator="{ on, attrs }">
           <v-btn class="button-read-list" color="#232222" v-bind="attrs" v-on="on">
@@ -39,6 +28,7 @@
                 <div v-for="(recipe,id) in recipes" v-bind:key="id">
                   <li
                     v-for="(ingredient, inId) in recipe.ingredients"
+                    
                     v-bind:key="inId"
                   >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
                 </div>
@@ -58,6 +48,19 @@
         </v-card>
       </v-dialog>
     </v-row>
+    <v-row no gutters justify="center">
+      <v-card-text class="list-text">
+        <ul class="ingredients-list">
+          
+            <li
+              v-for="(ingredient, inId) in addedIngredients"
+              v-bind:key="inId"
+            > {{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}} </li>
+          
+        </ul>
+      </v-card-text>
+    </v-row>
+   
   </v-card>
 </template>
 
