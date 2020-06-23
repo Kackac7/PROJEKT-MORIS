@@ -1,25 +1,33 @@
 <template>
   <div fill-height class="main-page odsazeni-od-appbar" style="max-height: 100vh;">
-
     <div v-if="!userLoggedIn">
       <div class="main-page-header ma-10">MORIS - místo pro tvoje recepty i seznamy</div>
 
-      <div class="main-page-subtitle mx-10 ma-5">Nenos papirky, pouzivej moderni technologie, ty kokos</div>
+      <div
+        class="main-page-subtitle mx-10 ma-5"
+      >Válejí se ti všude papíry s recepty ale ten co hledáš, nemůžeš najít? Registruj se a vytvoř si svůj vlastní receptář.</div>
 
-      <div class="main-page-subtitle mx-10">Vyber recept, pridej na seznam a nakupuj</div>
-
+      <div class="main-page-subtitle mx-10"><p>S MORISEM je to snadné</p>
+      <p>- Zapiš si svuj recept.</p>
+      <p>- Ulož ho. </p>
+      <p>- Přidej na nákupní seznam.</p>
+      <p>- Hurá do obchodu!</p></div>
+      
 
       <v-row no-gutters class="my-15 mx-10">
-
-        <v-col cols="3"> 
+        <v-col cols="3">
           <v-btn class="main-page-button white--text" color="#302F2F">Registrovat</v-btn>
         </v-col>
         <v-col cols="3">
-        
-        <v-dialog max-width="250px">
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn class="main-page-button white--text" color="#302F2F" v-bind="attrs" v-on="on">Přihlásit</v-btn>
-          </template>
+          <v-dialog max-width="250px">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                class="main-page-button white--text"
+                color="#302F2F"
+                v-bind="attrs"
+                v-on="on"
+              >Přihlásit</v-btn>
+            </template>
             <v-form ref="form" class="white pa-5">
               <span class="red--text" v-if="validationError">Chybné údaje</span>
               <v-text-field
@@ -37,21 +45,16 @@
               ></v-text-field>
               <v-btn color="#302F2F" class="mr-4" v-on:click="login">Přihlásit</v-btn>
             </v-form>
-        </v-dialog>
+          </v-dialog>
         </v-col>
-
       </v-row>
-
     </div>
 
-      <mainNavigation />
- 
-
+    <mainNavigation />
   </div>
 </template>
 
 <script>
-
 import MainNavigation from "./../components/MainNavigation.vue";
 
 import Bus from "./../assets/bus.js";
@@ -59,10 +62,10 @@ import Bus from "./../assets/bus.js";
 import userStore from "./../assets/user.js";
 
 export default {
-  name: 'Home',
+  name: "Home",
 
   components: {
-    mainNavigation: MainNavigation,
+    mainNavigation: MainNavigation
   },
 
   data() {
@@ -75,10 +78,10 @@ export default {
       username: "",
       password: "",
 
-      validationError: false,
-    }
+      validationError: false
+    };
   },
-   methods: {
+  methods: {
     logout() {
       userStore.store().user = null;
       Bus.$emit("userLoggedOut");
@@ -133,7 +136,7 @@ export default {
     }
   },
 
-   created() {
+  created() {
     Bus.$on("userLoggedIn", () => {
       this.userLoggedIn = true;
     });
@@ -143,16 +146,14 @@ export default {
     this.userLoggedIn = userStore.store().user !== null;
   }
 };
-
 </script>
 
 <style>
-
 .main-page {
-  background: url('./../assets/images/main-pozadi.jpg');
+  background: url("./../assets/images/main-pozadi.jpg");
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .main-page-button {

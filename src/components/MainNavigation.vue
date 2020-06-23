@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid color="transparent" class="odsazeni-od-appbar pa-0 mt-13">
+  <v-container fluid color="transparent" class="odsazeni-od-appbar styl-button pa-0 mt-13">
     <v-row no-gutters align="center" class="mx-10">
       <v-col>  
         <v-row class="mx-10 my-10"  v-if="userLoggedIn">
@@ -127,5 +127,10 @@ a {
 .btn-logged-in{
   width: 200px;
   min-height: 40px;
+}
+.styl-button {
+  display:flex;
+  justify-content: center;
+  margin-left: 230px;
 }
 </style>

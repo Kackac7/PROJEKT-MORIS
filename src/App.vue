@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <v-app class="application">
-
       <div class="bg"></div>
 
       <appBar />
@@ -9,15 +8,18 @@
       <v-main>
         <router-view></router-view>
 
-        <v-snackbar class="snackbar-okno" centered v-model="snackbar" :timeout="snackbarTimeout">
-          {{snackbarText}}
-        </v-snackbar>
+        <v-snackbar
+          class="snackbar-okno"
+          centered
+          v-model="snackbar"
+          :timeout="snackbarTimeout"
+        >{{snackbarText}}</v-snackbar>
       </v-main>
-      <list />
-
-      <foot />
+      <list v-if="addRecipe(id)" />
     </v-app>
+    <foot class="footer"/>
   </div>
+  
 </template>
 
 <script>
@@ -38,8 +40,8 @@ export default {
     return {
       snackbar: false,
       snackbarTimeout: 2000,
-      snackbarText: ''
-    }
+      snackbarText: ""
+    };
   },
 
   components: {
@@ -49,9 +51,14 @@ export default {
 
     list: List
   },
+  methods: {
+      addRecipe(id) {
+      Bus.$emit("receptPridan", id);
+    }
+  },
 
   created() {
-    Bus.$on('showSnackbar', (snackbarParams) => {
+    Bus.$on("showSnackbar", snackbarParams => {
       this.snackbarText = snackbarParams.text;
       this.snackbarTimeout = snackbarParams.timeout;
       this.snackbar = true;
@@ -96,9 +103,7 @@ export default {
   height: 200px;
   width: 200px;
   color: white;
-  font-style: 'Quicksand';
-  
-
+  font-style: "Quicksand";
 }
 
 </style>

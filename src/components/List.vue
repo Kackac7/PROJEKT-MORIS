@@ -6,7 +6,7 @@
     class="seznam-bocni pa-5"
     width="350px"
     color="#FAF9F9"
-    v-if="userLoggedIn"
+    
   >
     <div class="list-headline">Nákupní seznam</div>
     <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
