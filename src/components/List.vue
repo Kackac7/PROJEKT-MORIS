@@ -8,10 +8,10 @@
     color="#FAF9F9"
     scrollable
   >
-    <div class="list-headline">
-      <span>Nákupní seznam</span>
+    <div class="list-headline pb-5">
+      <div>Nákupní seznam</div>
       <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
-        <v-icon dark>mdi-content-save</v-icon>
+        <span>Uložit</span>
       </v-btn>
     </div>
     <v-dialog v-model="dialog" class="save-list-dialog" width="500px" height="300px">
@@ -43,17 +43,8 @@
           <div class="leva-cast">{{addedRecipe.name}}</div>
 
           <div class="prava-cast">
-            <v-btn
-              color="#302F2F"
-              class="button-add-recipes"
-              fab
-              x-small
-              v-on:click="receptPridan(addedRecipe.id)"
-            >
-              <v-icon class="icon-add-recipe">mdi-plus</v-icon>
-            </v-btn>
-            <span class="pocet-porci">{{addedRecipe.amount}}</span>
-            <v-btn
+
+             <v-btn
               color="#302F2F"
               class="button-remove-recipes"
               fab
@@ -64,6 +55,19 @@
                 <v-icon class="icon-add-recipe">mdi-minus</v-icon>
               </div>
             </v-btn>
+            
+            <span class="pocet-porci">{{addedRecipe.amount}}</span>
+            <v-btn
+              color="#302F2F"
+              class="button-add-recipes"
+              fab
+              x-small
+              v-on:click="receptPridan(addedRecipe.id)"
+            >
+              <v-icon class="icon-add-recipe">mdi-plus</v-icon>
+            </v-btn>
+
+           
           </div>
         </v-list-item>
       </div>
@@ -338,7 +342,7 @@ export default {
 }
 .list-ing-list {
   margin-bottom: -10px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .button-text-list {

@@ -35,6 +35,18 @@
               <v-col cols="1" class="pr-3">
                 <v-btn
                   color="#302F2F"
+                  class="button-remove-recipe"
+                  fab
+                  x-small
+                  v-on:click="removeRecipe(id)"
+                >
+                  <v-icon class="icon-add-recipe">mdi-minus</v-icon>
+                </v-btn>
+              </v-col>
+
+              <v-col cols="1" class="pl-3">
+                <v-btn
+                  color="#302F2F"
                   class="button-add-recipe"
                   fab
                   x-small
@@ -44,17 +56,6 @@
                 </v-btn>
               </v-col>
 
-              <v-col cols="1" class="pl-3">
-                <v-btn
-                  color="#302F2F"
-                  class="button-remove-recipe"
-                  fab
-                  x-small
-                  v-on:click="removeRecipe(id)"
-                >
-                  <v-icon class="icon-add-recipe">mdi-minus</v-icon>
-                </v-btn>
-              </v-col>
             </v-row>
           </v-col>
         </v-row>
