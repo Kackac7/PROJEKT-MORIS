@@ -30,20 +30,24 @@
             </v-btn>
           </template>
           <v-card justify="center">
+            <div id="printMe">
             <v-card-title>
-              <span class="dialog-list"></span>
+              <span class="dialog-list">{{name}}</span>
             </v-card-title>
             <v-card-text>
               <ul class="ingredients-list">
-                <li>banán</li>
-                <li>jahudka</li>
+                <div v-for="(recipe,id) in recipes" v-bind:key="id">
+                  <li v-for="(ingredient, inId) in recipe.ingredients" v-bind:key="inId">{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
+                </div>
               </ul>
             </v-card-text>
+            </div>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn class="dialog-btn" @click="dialog = false">Vytisknout</v-btn>
-              <v-btn class="dialog-btn" @click="dialog = false">Použít znovu</v-btn>
+              <v-btn class="dialog-btn" color="#302F2F" @click="dialog = false" v-on:click="print">Vytisknout</v-btn>
+              <v-btn class="dialog-btn"  color="#302F2F" @click="dialog = false">Použít znovu</v-btn>
             </v-card-actions>
+            
           </v-card>
         </v-dialog>
       </v-row>
@@ -52,6 +56,9 @@
 
 <script>
 import Bus from "./../assets/bus.js";
+import VueHtmlToPaper from 'vue-html-to-paper';
+
+
 
 export default {
   props: {
@@ -63,17 +70,28 @@ export default {
 
   data() {
     return {
-      dialog: false
+      dialog: false,
+
+      output: null
     };
   },
 
-  methods: {}
-};
+  methods: {
+    print () {
+      // Pass the element id here
+      this.$htmlToPaper('printMe');
+  }
+}
+}
 </script>
 
 <style>
 .open-dialog {
   display: flex;
   justify-content: center;
+}
+
+.dialog-bnt{
+  max-height: 40px;
 }
 </style>

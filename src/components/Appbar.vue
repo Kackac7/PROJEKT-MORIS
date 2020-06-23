@@ -7,51 +7,77 @@
 
       <div>MORIS</div>
 
-      
-      <div class="user-jmeno" v-if="userLoggedIn">{{username}}</div>
-      <v-menu class="user-menu" bottom left offset-y v-bind:close-on-content-click="false" v-model="menu"> 
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn icon x-large v-bind="attrs" v-on="on">
-            <v-icon x-large color="black">mdi-account-circle</v-icon>
-          </v-btn>
-        </template>
+      <div>
+        
 
-        <template v-if="!userLoggedIn">
-          <v-form ref="form" class="white pa-5">
-            <span class="red--text" v-if="validationError">Chybné údaje</span>
-            <v-text-field v-model="username" label="Přihlašovací jméno" required v-on:keyup.enter="login"></v-text-field>
-            <v-text-field :type="'password'" v-model="password" label="Heslo" required v-on:keyup.enter="login"></v-text-field>
 
-            <v-btn color=#302F2F class="mr-4" v-on:click="login">Přihlásit</v-btn>
-          </v-form>
-        </template>
+        
 
-        <template v-if="userLoggedIn">
-          <v-list>
-            <v-list-item>
-              <v-btn block depressed color="#302F2F" x-large class="my-2">
-                <div class="navigator-button">
-                  <router-link to="/recepty"><span class="navigator-button-text">Recepty</span></router-link>
-                </div>
-              </v-btn>
-            </v-list-item>
-            <v-list-item>
-              <v-btn block depressed color="#302F2F" x-large class="my-2">
-                <div class="navigator-button">
-                  <router-link to="/mojeseznamy"><span class="navigator-button-text">Moje seznamy</span></router-link>
-                </div>
-              </v-btn>
-            </v-list-item>
-            <v-list-item>
-              <v-btn block depressed color="#302F2F" x-large class="my-2" v-on:click="logout">
-                <div class="navigator-button">
-                  <span class="navigator-button-text">Odhlásit</span>
-                </div>
-              </v-btn>
-            </v-list-item>
-          </v-list>
-        </template>
-      </v-menu>
+        
+        <v-menu bottom left offset-y v-bind:close-on-content-click="false" v-model="menu">
+          <template v-slot:activator="{ on, attrs }">
+            
+            <v-btn block depressed color="transparent" large v-bind="attrs" v-on="on" >
+
+              <span v-if="!userLoggedIn" class="px-3 black--text">Přihlásit</span>
+              <span class="px-3 black--text" v-if="userLoggedIn">{{username}}</span>
+              <v-icon x-large color="black">mdi-account-circle</v-icon>
+              
+            </v-btn>
+          </template>
+
+          <template v-if="!userLoggedIn">
+            <v-form ref="form" class="white pa-5">
+              <span class="red--text" v-if="validationError">Chybné údaje</span>
+              <v-text-field
+                v-model="username"
+                label="Přihlašovací jméno"
+                required
+                v-on:keyup.enter="login"
+              ></v-text-field>
+              <v-text-field
+                :type="'password'"
+                v-model="password"
+                label="Heslo"
+                required
+                v-on:keyup.enter="login"
+              ></v-text-field>
+
+              <v-btn color="#302F2F" class="mr-4" v-on:click="login">Přihlásit</v-btn>
+            </v-form>
+          </template>
+
+          <template v-if="userLoggedIn">
+            <v-list>
+              <v-list-item>
+                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2">
+                  <div class="navigator-button">
+                    <router-link to="/recepty">
+                      <span class="navigator-button-text">Recepty</span>
+                    </router-link>
+                  </div>
+                </v-btn>
+              </v-list-item>
+              <v-list-item>
+                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2">
+                  <div class="navigator-button">
+                    <router-link to="/mojeseznamy">
+                      <span class="navigator-button-text">Moje seznamy</span>
+                    </router-link>
+                  </div>
+                </v-btn>
+              </v-list-item>
+              <v-list-item>
+                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2" v-on:click="logout">
+                  <div class="navigator-button">
+                    <router-link to="/"><span class="navigator-button-text">Odhlásit</span></router-link>
+                  </div>
+                </v-btn>
+              </v-list-item>
+            </v-list>
+          </template>
+        </v-menu>
+      </div>
     </div>
   </v-app-bar>
 </template>
@@ -76,20 +102,19 @@ export default {
   },
 
   methods: {
-
     logout() {
       userStore.store().user = null;
-      Bus.$emit('userLoggedOut');
+      Bus.$emit("userLoggedOut");
 
       this.userLoggedIn = false;
       this.user = null;
 
       this.menu = false;
 
-      Bus.$emit('showSnackbar', {
-          text: 'Odhlášení úspěšné', 
-          timeout: 3000
-        })
+      Bus.$emit("showSnackbar", {
+        text: "Odhlášení úspěšné",
+        timeout: 3000
+      });
     },
 
     login() {
@@ -99,30 +124,32 @@ export default {
         );
         const json = await response.json();
         if (json.length > 0) {
-          if(json[0] !== undefined) {
+          if (json[0] !== undefined) {
             return json[0].users;
-          };
+          }
         }
       };
 
       getUsers().then(users => {
-        this.validateUser(users);  
+        this.validateUser(users);
       });
     },
 
     validateUser(users) {
       let filteredUsers = users.filter(user => {
-          return user.username === this.username && user.password === this.password;
+        return (
+          user.username === this.username && user.password === this.password
+        );
       });
       if (filteredUsers.length === 1) {
         userStore.store().user = filteredUsers[0];
-        Bus.$emit('userLoggedIn');
+        Bus.$emit("userLoggedIn");
 
         this.user = filteredUsers[0];
         this.userLoggedIn = true;
 
         this.validationError = false;
-        this.menu= false;
+        this.menu = false;
       } else {
         this.validationError = true;
       }
