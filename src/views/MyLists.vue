@@ -14,9 +14,9 @@
      /></v-row>    
      </div>
 
-      <v-row class="py-5">
+      <v-row class="py-5 recipe-preview">
         <router-link to="/">
-          <v-btn color="#302F2F"><div class="btn-back">Zpět</div></v-btn>
+          <v-btn color="#302F2F"><div class="btn-back ">Zpět</div></v-btn>
         </router-link>
       </v-row>
     </v-card>

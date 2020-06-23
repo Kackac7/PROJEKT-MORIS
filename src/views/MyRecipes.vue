@@ -21,7 +21,7 @@
         v-bind:method="recipe.method"
       />
 
-      <v-row class="py-5">
+      <v-row no-gutters class="py-5 recipe-preview">
         <router-link to="/">
           <v-btn color="#302F2F">
             <div class="btn-back">Zpět</div>
