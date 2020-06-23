@@ -314,6 +314,7 @@ export default {
       this.user = null;
     });
     this.userLoggedIn = userStore.store().user !== null;
+    this.user = userStore.store().user;
   }
 };
 </script>
