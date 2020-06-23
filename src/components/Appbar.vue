@@ -53,9 +53,8 @@
                   v-on:click="logout"
                 >
                   <div class="navigator-button">
-                    <router-link to="/">
                       <span class="navigator-button-text">Odhlásit</span>
-                    </router-link>
+                    
                   </div>
                 </v-btn>
               </v-list-item>

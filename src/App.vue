@@ -52,6 +52,9 @@ export default {
   },
 
   created() {
+    Bus.$on("userLoggedOut",() => {
+      this.$router.push('/');
+    });
     Bus.$on("showSnackbar", snackbarParams => {
       this.snackbarText = snackbarParams.text;
       this.snackbarTimeout = snackbarParams.timeout;
