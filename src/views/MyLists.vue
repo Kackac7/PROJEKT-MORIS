@@ -1,6 +1,6 @@
 <template>
-  <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0 && lists.length > 0">
-    <v-card color="#9DDDD1" class="my-6 ma-10 py-5 px-10 pa-5"> 
+  <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0">
+    <v-card color="#9DDDD1" class="my-6 ma-10 py-5 px-10 pa-5" just> 
       <v-card-title class="headline">Moje seznamy</v-card-title>
      <div class="cards">
      
@@ -49,18 +49,6 @@ export default {
   },
 
   watch: {
-    recipes: {
-      deep: true,
-      handler() {
-        this.renderLists();
-      }
-    },
-    ingredients: {
-      deep: true,
-      handler() {
-        this.renderLists();
-      }
-    },
     lists: {
       deep: true,
       handler() {
@@ -76,11 +64,12 @@ export default {
 
   methods: {
     renderLists(){
-       if (!this.userLoggedIn || this.recipes.length < 1 || this.ingredients.length < 1 || this.lists.length < 1) {
+       if (!this.userLoggedIn) {
           return;
         }
         this.myLists = [];
         let userLists = this.lists.filter(list => list.userId === this.user.id);
+        console.log(userLists);
         for (let list of userLists) {
           let myListId = list.id;
           let myListUserId = list.userId;
@@ -95,6 +84,7 @@ export default {
           }
           this.myLists.push(myList);
         }
+        console.log(this.myLists);
     },
 
     resolveRecipes(addedRecipes) {
@@ -104,7 +94,7 @@ export default {
         let myRecipe = {
           id: existingRecipe.id,
           name: existingRecipe.name,
-          amount: addedRecipe.amount,
+          amount: existingRecipe.amount,
           ingredients: this.resolveIngredients(existingRecipe.ingredients)
         }
         myListRecipes.push(myRecipe);
