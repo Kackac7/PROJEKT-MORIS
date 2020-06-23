@@ -98,7 +98,6 @@ export default {
       }
       else {
         this.ingredientList.push(null);
-        console.log(this.ingredientList);
       }
     },
 

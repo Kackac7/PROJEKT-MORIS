@@ -245,7 +245,6 @@ export default {
     },
 
     ulozNovySeznam(data) {
-      console.log("ukladam novy seznam");
 
       fetch("https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists", {
         method: "POST",
@@ -257,7 +256,6 @@ export default {
     },
 
     ulozExistujiciSeznam(_id, data) {
-      console.log("ukladam existujici seznam");
       fetch(
         "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists/" +
           _id,

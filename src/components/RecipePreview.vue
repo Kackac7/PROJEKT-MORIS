@@ -72,7 +72,6 @@ export default {
 
   data() {
     return {
-      //recipes: Data.recipes,
       portion: 1
     };
   },

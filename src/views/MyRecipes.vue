@@ -80,8 +80,6 @@ export default {
   },
   created() {
     this.fetchData("recipes");
-    console.log("ctu promennou");
-    console.log(userStore.store().user);
   }
 };
 </script>

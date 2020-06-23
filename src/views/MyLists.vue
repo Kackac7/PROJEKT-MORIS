@@ -82,9 +82,7 @@ export default {
 
   methods: {
     deleteList(id) {
-      console.log('Mazu id' + id);
       let updatedLists = this.lists.filter(list => list.id !== id);
-      console.log(updatedLists);
       let requestList = {
         lists: updatedLists
       }
@@ -95,7 +93,6 @@ export default {
     },
 
     ulozExistujiciSeznam(_id, data) {
-      console.log("ukladam existujici seznam");
       fetch(
         "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists/" +
           _id,
@@ -115,7 +112,6 @@ export default {
         }
         this.myLists = [];
         let userLists = this.lists.filter(list => list.userId === this.user.id);
-        console.log(userLists);
         for (let list of userLists) {
           let myListId = list.id;
           let myListUserId = list.userId;
@@ -132,7 +128,6 @@ export default {
           }
           this.myLists.push(myList);
         }
-        console.log(this.myLists);
     },
 
     resolveRecipes(addedRecipes) {
@@ -160,8 +155,6 @@ export default {
           amount: ingredientReference.amount * existingIngredient.minQuantity, // opravit undefined zde
           basicUnit: existingIngredient.basicUnit
         }
-        console.log('a');
-        console.log(ingredient.basicUnit);
         ingredients.push(ingredient);
       }
       return ingredients;
@@ -195,14 +188,11 @@ export default {
           if (data !== undefined) {
             this[resource + 'Id'] = data['_id'];
             this[resource] = data[resource];
-            //return data[resource];
           } else {
             throw Error("Databáze " + resource + " neexistuje, ty kokos!");
           }
         })
-        /*.then(data => {
-          this[resource] = data;
-        });*/
+        
     }
   },
 
