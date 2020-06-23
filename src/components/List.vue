@@ -10,9 +10,9 @@
   >
     <div class="list-headline">
       <span>Nákupní seznam</span>
-    <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
-      <v-icon dark>mdi-content-save</v-icon>
-    </v-btn>
+      <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
+        <v-icon dark>mdi-content-save</v-icon>
+      </v-btn>
     </div>
     <v-dialog v-model="dialog" class="save-list-dialog" width="500px" height="300px">
       <v-card class="pa-10">
@@ -36,33 +36,37 @@
     <v-divider></v-divider>
 
     <div class="list-recipes">Použité recepty</div>
-    
-    <v-list class="buttons-list">
-      <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">{{addedRecipe.name}}
-        <div class="buttons">
-        <v-btn
-          color="#302F2F"
-          class="button-add-recipes"
-          fab
-          x-small
-          v-on:click="receptPridan(addedRecipe.id)"
-        >
-          <v-icon class="icon-add-recipe">mdi-plus</v-icon>
-        </v-btn>
-        <div class="pocet-porci">{{addedRecipe.amount}}</div>
-        <v-btn
-          color="#302F2F"
-          class="button-remove-recipes"
-          fab
-          x-small
-          v-on:click="receptOdebran(addedRecipe.id)"
-        >
-          <div>
-            <v-icon class="icon-add-recipe">mdi-minus</v-icon>
+
+    <v-list>
+      <div class="vypis-recepty">
+        <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">
+          <div class="leva-cast">{{addedRecipe.name}}</div>
+
+          <div class="prava-cast">
+            <v-btn
+              color="#302F2F"
+              class="button-add-recipes"
+              fab
+              x-small
+              v-on:click="receptPridan(addedRecipe.id)"
+            >
+              <v-icon class="icon-add-recipe">mdi-plus</v-icon>
+            </v-btn>
+            <span class="pocet-porci">{{addedRecipe.amount}}</span>
+            <v-btn
+              color="#302F2F"
+              class="button-remove-recipes"
+              fab
+              x-small
+              v-on:click="receptOdebran(addedRecipe.id)"
+            >
+              <div>
+                <v-icon class="icon-add-recipe">mdi-minus</v-icon>
+              </div>
+            </v-btn>
           </div>
-        </v-btn>
-        </div>
-      </v-list-item>
+        </v-list-item>
+      </div>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -339,23 +343,28 @@ export default {
 .button-text-list {
   font-size: 16px;
 }
-.buttons-list {
-  right: 0px;
-  position: relative;
-  
-}
-
 .seznam-bocni {
   top: 60px !important;
   max-height: calc(100% - 100px) !important;
 }
 .pocet-porci {
- padding: 7px;
- font-size: 18px;
- font-weight: 500;
- }
-.buttons {
+  padding: 7px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.vypis-recepty {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  flex-basis: 2;
+}
+.leva-cast {
+ position: absolute;
+ left: 0px;
+}
+.prava-cast {
+  position: absolute;
   right: 0px;
-  float: right;
 }
 </style>
