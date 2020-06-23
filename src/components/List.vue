@@ -40,7 +40,7 @@
     <v-list>
       <div class="vypis-recepty">
         <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">
-          <div class="leva-cast">{{addedRecipe.name}}</div>
+          <div class="leva-cast">{{addedRecipe.name | truncate(20)}}</div>
 
           <div class="prava-cast">
 
