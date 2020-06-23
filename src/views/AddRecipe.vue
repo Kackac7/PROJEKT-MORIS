@@ -16,16 +16,14 @@
                 label="Surovina"
                 outlined
                 v-model="ingredientList[index]"
-                :items="ingredient"
+                :items="getIngredientName"
                 v-on:change="addLine()"
               ></v-autocomplete>
             </v-col>
             <v-col>
               <v-text-field v-model="quantity" label="Množství" outlined></v-text-field>
             </v-col>
-            <v-col>
-              <v-autocomplete label="Jednotka" outlined v-model="units"></v-autocomplete>
-            </v-col>
+           
             <v-col>
               <v-btn icon>
                 <v-icon color="black">mdi-trash-can-outline</v-icon>
@@ -66,7 +64,7 @@ export default {
       name: "",
       nameRules: [v => !!v || "Name is required"],
       model: [null],
-      ingredient: ["kokos", "losos", "meloun"],
+      ingredients: [],
       quantity: null,
       units: [],
       method: null,
@@ -74,12 +72,69 @@ export default {
     };
   },
 
+  computed: {
+    getIngredientName() {
+      let ingredientNames = [];
+      for (let ingredient of this.ingredients) {
+        ingredientNames.push(ingredient.name + ' (' + ingredient.basicUnit + ')');
+      } return ingredientNames;
+    },
+  },
+
   methods: {
     addLine() {
-      console.log("Hello");
-      this.ingredientList.push(null);
-      console.log(this.ingredientList);
+      
+    let isDuplicate = false;
+      for (let i = 0; i < this.ingredientList.length - 1; i++) {
+        if (this.ingredientList[i] === this.ingredientList[this.ingredientList.length-1]) {
+          isDuplicate = true;
+          break;
+        }
+      }
+      if (isDuplicate) {
+        alert('Položka ' + this.ingredientList[this.ingredientList.length-1] + ' už je přidána.');
+        this.ingredientList[this.ingredientList.length-1] = null;
+      } else if(this.ingredientList[this.ingredientList.length-1] === null) {
+      }
+      else {
+        this.ingredientList.push(null);
+        console.log(this.ingredientList);
+      }
+    },
+
+    
+
+     fetchData(resource) {
+      fetch(
+        "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/" + resource
+      )
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw Error("Ooops, něco je špatně");
+          }
+        })
+        .then(data => {
+          if (data.length > 0) {
+            return data[0];
+          }
+        })
+        .then(data => {
+          if (data !== undefined) {
+            return data[resource];
+          } else {
+            throw Error("Databáze " + resource + " neexistuje, ty kokos!");
+          }
+        })
+        .then(data => {
+          this[resource] = data;
+        });
     }
+  },
+
+  created() {
+    this.fetchData("ingredients");
   }
 };
 </script>
