@@ -316,6 +316,7 @@ export default {
     Bus.$on("userLoggedOut", () => {
       this.userLoggedIn = false;
       this.user = null;
+      this.addedRecipes = [];
     });
     this.userLoggedIn = userStore.store().user !== null;
     this.user = userStore.store().user;

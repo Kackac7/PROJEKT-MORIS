@@ -1,5 +1,5 @@
 <template>
-  <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0 && lists.length > 0">
+  <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0">
     <v-card color="#9DDDD1" class="my-6 ma-10 py-5 px-10 pa-5">  
       <v-card-title class="headline">Moje seznamy</v-card-title>
      <div class="cards">
@@ -57,24 +57,24 @@ export default {
      recipes: {
       deep: true,
       handler() {
-        this.renderLists();
+        this.renderLists(false);
       }
     },
     ingredients: {
       deep: true,
       handler() {
-        this.renderLists();
+        this.renderLists(false);
       }
     },
     lists: {
       deep: true,
       handler() {
-        this.renderLists();
+        this.renderLists(false);
       }
     },
     userLoggedIn: function() {
       if (this.userLoggedIn){
-        this.renderLists();
+        this.renderLists(false);
       }
     }
   },
@@ -87,8 +87,10 @@ export default {
       let requestList = {
         lists: updatedLists
       }
-      this.ulozExistujiciSeznam(this.listsId, requestList);
       this.lists = updatedLists;
+      this.ulozExistujiciSeznam(this.listsId, requestList);
+      this.renderLists(true);
+
     },
 
     ulozExistujiciSeznam(_id, data) {
@@ -106,8 +108,8 @@ export default {
       );
     },
 
-    renderLists(){
-        if (!this.userLoggedIn || this.recipes.length < 1 || this.ingredients.length < 1 || this.lists.length < 1) {
+    renderLists(forceRender){
+        if (forceRender === false && (!this.userLoggedIn || this.recipes.length < 1 || this.ingredients.length < 1 || this.lists.length < 1)) {
           return;
         }
         this.myLists = [];

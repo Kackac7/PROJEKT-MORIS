@@ -92,6 +92,7 @@ export default {
   methods: {
     deleteList() {
       Bus.$emit("listSmazan", this.id);
+      this.deleteDialog = false;
     },
 
     print() {

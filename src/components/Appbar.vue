@@ -25,7 +25,7 @@
           <template v-if="userLoggedIn">
             <v-list>
               <v-list-item>
-                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2">
+                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2" v-on:click="menu = false">
                   <div class="navigator-button">
                     <router-link to="/recepty">
                       <span class="navigator-button-text">Recepty</span>
@@ -34,7 +34,7 @@
                 </v-btn>
               </v-list-item>
               <v-list-item>
-                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2">
+                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2" v-on:click="menu = false">
                   <div class="navigator-button">
                     <router-link to="/mojeseznamy">
                       <span class="navigator-button-text">Moje seznamy</span>
