@@ -1,5 +1,5 @@
 <template>
-  <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0 && lists.length > 0">
+  <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0">
     <v-card color="#9DDDD1" class="my-6 ma-10 py-5 px-10 pa-5">  
       <v-card-title class="headline">Moje seznamy</v-card-title>
      <div class="cards">
@@ -11,6 +11,7 @@
         v-bind:id="myList.id"
         v-bind:userId="myList.userId"
         v-bind:name="myList.name"
+        v-bind:addedRecipes="myList.addedRecipes"
         v-bind:recipes="myList.recipes"
      /></v-row>    
      </div>
@@ -57,24 +58,24 @@ export default {
      recipes: {
       deep: true,
       handler() {
-        this.renderLists();
+        this.renderLists(false);
       }
     },
     ingredients: {
       deep: true,
       handler() {
-        this.renderLists();
+        this.renderLists(false);
       }
     },
     lists: {
       deep: true,
       handler() {
-        this.renderLists();
+        this.renderLists(false);
       }
     },
     userLoggedIn: function() {
       if (this.userLoggedIn){
-        this.renderLists();
+        this.renderLists(false);
       }
     }
   },
@@ -87,8 +88,10 @@ export default {
       let requestList = {
         lists: updatedLists
       }
-      this.ulozExistujiciSeznam(this.listsId, requestList);
       this.lists = updatedLists;
+      this.ulozExistujiciSeznam(this.listsId, requestList);
+      this.renderLists(true);
+
     },
 
     ulozExistujiciSeznam(_id, data) {
@@ -106,8 +109,8 @@ export default {
       );
     },
 
-    renderLists(){
-        if (!this.userLoggedIn || this.recipes.length < 1 || this.ingredients.length < 1 || this.lists.length < 1) {
+    renderLists(forceRender){
+        if (forceRender === false && (!this.userLoggedIn || this.recipes.length < 1 || this.ingredients.length < 1 || this.lists.length < 1)) {
           return;
         }
         this.myLists = [];
@@ -117,12 +120,14 @@ export default {
           let myListId = list.id;
           let myListUserId = list.userId;
           let myListName = list.name;
+          let myListAddedRecipes = list.addedRecipes;
           let myListRecipes = this.resolveRecipes(list.addedRecipes);
 
           let myList = {
             id: myListId,
             userId: myListUserId,
             name: myListName,
+            addedRecipes: myListAddedRecipes,
             recipes: myListRecipes
           }
           this.myLists.push(myList);

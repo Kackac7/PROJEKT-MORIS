@@ -228,8 +228,10 @@ export default {
 
         Bus.$emit("showSnackbar", {
           text: "Seznam byl úspěšně uložen",
-          timeout: 3000
+          timeout: 5000
         });
+
+        this.addedRecipes = [];
       });
     },
 
@@ -315,9 +317,14 @@ export default {
     Bus.$on("userLoggedOut", () => {
       this.userLoggedIn = false;
       this.user = null;
+      this.addedRecipes = [];
     });
     this.userLoggedIn = userStore.store().user !== null;
     this.user = userStore.store().user;
+
+    Bus.$on("listRestored", (addedRecipes) => {
+      this.addedRecipes = addedRecipes;
+    })
   }
 };
 </script>
