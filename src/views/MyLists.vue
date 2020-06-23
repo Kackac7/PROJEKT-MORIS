@@ -1,18 +1,22 @@
 <template>
   <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0">
     <v-card color="#232222" class="my-6 ma-10 py-5 px-10 pa-5"> 
-      <v-card-title class="headline">Seznamy</v-card-title>
+      <v-card-title class="headline">Moje seznamy</v-card-title>
      <div class="cards">
      
-     <v-row><mylistpreview /></v-row>
-    <v-row> <mylistpreview /> </v-row>
-    
-     
+     <v-row><mylistpreview 
+        v-for="myList in myLists"
+        v-bind:key="myList.id"
+        v-bind:id="myList.id"
+        v-bind:userId="myList.userId"
+        v-bind:name="myList.name"
+        v-bind:recipes="myList.recipes"
+     /></v-row>    
      </div>
 
       <v-row class="py-5">
         <router-link to="/">
-          <v-btn>Zpet</v-btn>
+          <v-btn><div class="btn-back">Zpět</div></v-btn>
         </router-link>
       </v-row>
     </v-card>
@@ -28,6 +32,10 @@ import Bus from "./../assets/bus.js";
 
 export default {
 
+  components: {
+    mylistpreview: MyListPreview
+  },
+
   data() {
     return {
       userLoggedIn: false,
@@ -38,10 +46,6 @@ export default {
       lists: [],
       myLists: [],
     }
-  },
-
-  components: {
-    mylistpreview: MyListPreview
   },
 
   watch: {

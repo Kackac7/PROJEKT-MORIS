@@ -29,21 +29,21 @@
         <template v-if="userLoggedIn">
           <v-list>
             <v-list-item>
-              <v-btn block depressed color="black" x-large class="my-2">
+              <v-btn block depressed color="#302F2F" x-large class="my-2">
                 <div class="navigator-button">
                   <router-link to="/recepty"><span class="navigator-button-text">Recepty</span></router-link>
                 </div>
               </v-btn>
             </v-list-item>
             <v-list-item>
-              <v-btn block depressed color="black" x-large class="my-2">
+              <v-btn block depressed color="#302F2F" x-large class="my-2">
                 <div class="navigator-button">
                   <router-link to="/mojeseznamy"><span class="navigator-button-text">Moje seznamy</span></router-link>
                 </div>
               </v-btn>
             </v-list-item>
             <v-list-item>
-              <v-btn block depressed color="black" x-large class="my-2" v-on:click="logout">
+              <v-btn block depressed color="#302F2F" x-large class="my-2" v-on:click="logout">
                 <div class="navigator-button">
                   <span class="navigator-button-text">Odhlásit</span>
                 </div>
@@ -133,6 +133,10 @@ export default {
 <style>
 .hide {
   display: none;
+}
+
+.navigator-button-text {
+  color: white;
 }
 
 </style>

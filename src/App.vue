@@ -88,8 +88,9 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("./assets/images/pozadi1.jpg");
+  background-image: url("./assets/images/pozadi-bile.jpg");
   background-size: 100%;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
 }
+
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div fill-height class="main-page odsazeni-od-appbar" style="max-height: 100vh;">
 
-    <div v-if="userLoggedIn === false">
+    <div v-if="!userLoggedIn">
       <div class="main-page-header ma-10">NEJUZASNEJSI APLIKACE</div>
 
       <div class="main-page-subtitle mx-10 ma-5">Nenos papirky, pouzivej moderni technologie, ty kokos</div>
@@ -15,7 +15,7 @@
           <v-btn class="main-page-button white--text" color="#302F2F">Registrace</v-btn>
         </v-col>
         <v-col cols="3">
-         <v-btn class="main-page-button white--text" color="#302F2F">Přihlásit</v-btn>
+         <v-btn class="main-page-button white--text" color="#302F2F" v-on:click="login">Přihlásit</v-btn>
         </v-col>
 
       </v-row>

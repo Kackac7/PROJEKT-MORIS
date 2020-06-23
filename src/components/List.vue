@@ -35,7 +35,7 @@
     <v-list>
       <v-list-item v-for="(addedRecipe, id) in addedRecipes" v-bind:key="id">{{addedRecipe.name}}
         <v-btn
-          color="black"
+          color="#302F2F"
           class="button-add-recipes"
           fab
           x-small
@@ -48,7 +48,7 @@
         </v-btn>
         <div class="pocet-porci"> {{addedRecipe.amount}}</div>
         <v-btn
-          color="black"
+          color="#302F2F"
           class="button-remove-recipes"
           fab
           x-small

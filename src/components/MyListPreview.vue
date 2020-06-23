@@ -1,21 +1,27 @@
 <template>
-  <v-container fluid class="odsazeni-od-appbar">
-    <v-card class="my-6 ma-10 py-5 px-10 pa-5" color="white">
+    <v-card
+      class="my-6 ma-10 py-5 px-10 pa-5 "
+      color="white">
+
       <v-row no gutters justify="center">
-        <v-card-title class="list-headline">Muj první seznam</v-card-title>
+        <v-card-title class="list-headline">{{name}}</v-card-title>
       </v-row>
       <v-row no gutters justify="center">
-        <v-card-subtitle class="list-subtitle">Z receptu kakaové cupcakes</v-card-subtitle>
+        <v-card-subtitle
+          class="list-subtitle"
+          v-for="(recipe, id) in recipes"
+          v-bind:key="id"
+        >{{recipe.name}}</v-card-subtitle>
       </v-row>
       <v-row no gutters justify="center">
         <v-card-text class="list-text">
           <ul class="ingredients-list">
-            <li>banán</li>
-            <li>jahudka</li>
+            <div v-for="(recipe,id) in recipes" v-bind:key="id">
+              <li v-for="(ingredient, inId) in recipe.ingredients" v-bind:key="inId">{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
+            </div>           
           </ul>
         </v-card-text>
       </v-row>
-
       <v-row justify="center">
         <v-dialog v-model="dialog" width="600px" class="open-dialog">
           <template v-slot:activator="{ on, attrs }">
@@ -25,7 +31,7 @@
           </template>
           <v-card justify="center">
             <v-card-title>
-              <span class="dialog-list">Název seznamu</span>
+              <span class="dialog-list"></span>
             </v-card-title>
             <v-card-text>
               <ul class="ingredients-list">
@@ -35,18 +41,26 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="black" text @click="dialog = false">Vytisknout</v-btn>
-              <v-btn color="black" text @click="dialog = false">Použít znovu</v-btn>
+              <v-btn class="dialog-btn" @click="dialog = false">Vytisknout</v-btn>
+              <v-btn class="dialog-btn" @click="dialog = false">Použít znovu</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
       </v-row>
     </v-card>
-  </v-container>
 </template>
 
 <script>
+import Bus from "./../assets/bus.js";
+
 export default {
+  props: {
+    id: String,
+    name: String,
+    recipes: Array,
+    userId: String
+  },
+
   data() {
     return {
       dialog: false

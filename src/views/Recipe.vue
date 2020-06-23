@@ -40,7 +40,7 @@
               </v-col>
               <v-col cols="1" class="pr-1">
                 <v-btn
-                  color="black"
+                  color="#302F2F"
                   class="button-add-recipe"
                   fab
                   x-small
@@ -52,7 +52,7 @@
               
               <v-col cols="1" class="pl-1">
                 <v-btn
-                  color="black"
+                  color="#302F2F"
                   class="button-remove-recipe"
                   fab
                   x-small
