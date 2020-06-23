@@ -1,8 +1,7 @@
 <template>
-   <v-container class="odsazeni-od-appbar" v-if="recipe !== null && ingredientList.length > 0">
-    <v-card color="white" class="my-6 ma-10 py-10 px-10">
-  
-      <v-row justify="center" no-gutters="">
+  <v-container class="odsazeni-od-appbar" v-if="recipe !== null && ingredientList.length > 0">
+    <v-card color="white" class="my-5 ma-12 pa-12">
+      <v-row justify="center" no-gutters>
         <v-card-title class="recipe-name mb-5">{{recipe.name}}</v-card-title>
       </v-row>
       <v-row no-gutters>
@@ -20,11 +19,9 @@
             src="./../assets/images/cupcakes.jpg"
             alt="Cupcakes"
             :aspect-ratio="4/3"
-          
           ></v-img>
         </v-col>
       </v-row>
-      <v-divider></v-divider>
       <v-spacer></v-spacer>
       <v-row no-gutters class="mt-5" justify="center">
         <v-card-subtitle class="recipe-subtitles">Postup</v-card-subtitle>
@@ -34,31 +31,32 @@
       </v-row>
       <v-spacer></v-spacer>
       <v-row no-gutters justify="end" align="center" class="mx-10 my-5">
-              <v-col cols="6"> 
-                <div class="amount-recipe">Přidat na seznam</div>
-              </v-col>
-              <v-col cols="1" class="pr-1">
-                <v-btn
-                  color="#302F2F"
-                  class="button-add-recipe"
-                  fab
-                  x-small
-                  v-on:click="addRecipe(id)"
-                >
-                  <span class="button-text">+</span>
-                </v-btn>
-              </v-col>
-              
-              <v-col cols="1" class="pl-1">
-                <v-btn
-                  color="#302F2F"
-                  class="button-remove-recipe"
-                  fab
-                  x-small
-                  v-on:click="removeRecipe(id)" >
-                  <span class="button-text">-</span>
-                </v-btn>
-                </v-col>
+        
+          <span class="amount-recipe mr-10">Přidat na seznam</span>
+        
+        <v-col cols="1" class="pr-1">
+          <v-btn color="#302F2F" class="button-add-recipe" fab x-small v-on:click="addRecipe(id)">
+            <v-icon class="icon-add-recipe">mdi-plus</v-icon>
+          </v-btn>
+        </v-col>
+
+        <v-col cols="1" class="pl-1">
+          <v-btn
+            color="#302F2F"
+            class="button-remove-recipe"
+            fab
+            x-small
+            v-on:click="removeRecipe(id)"
+          >
+            <v-icon class="icon-add-recipe">mdi-minus</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters class="recipe-preview">
+        <router-link to="/recepty">
+          <v-btn color="#302F2F"><div class="btn-back">Zpět</div></v-btn>
+        </router-link>
       </v-row>
     </v-card>
   </v-container>
@@ -67,7 +65,7 @@
 <script>
 import App from "./../App.vue";
 import Bus from "./../assets/bus.js";
-import Vue from 'vue';
+import Vue from "vue";
 
 export default {
   props: ["id"],
@@ -110,11 +108,11 @@ export default {
       //this.$forceUpdate();
     },
     addRecipe(id) {
-      Bus.$emit('receptPridan', id);
+      Bus.$emit("receptPridan", id);
     },
-    
+
     removeRecipe(id) {
-      Bus.$emit('receptOdebran', id);
+      Bus.$emit("receptOdebran", id);
     },
 
     fetchData(resource) {
@@ -144,7 +142,7 @@ export default {
           this[resource] = data;
           if (resource === "recipes") {
             this.resolveRecipe();
-            this.fetchData("ingredients")
+            this.fetchData("ingredients");
           } else if (resource === "ingredients") {
             this.resolveIngredients();
           } else {
@@ -169,7 +167,6 @@ export default {
   font-size: 16px;
   color: black !important;
   text-transform: uppercase;
- 
 }
 
 .recipe-method-text {
@@ -191,7 +188,6 @@ export default {
   margin-left: 0px;
 }
 .amount-recipe {
-  margin-left: 150px;
   font-weight: 600;
 }
 </style>

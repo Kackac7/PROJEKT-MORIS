@@ -8,7 +8,7 @@
      
 
       <v-row class="py-5">
-        <router-link to="/">
+        <router-link to="/recepty">
           <v-btn>Zpet</v-btn>
         </router-link>
       </v-row>

@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-preview">
     <v-card color="white" class="recipe-card my-5 d-flex">
-      <v-container fluid class=" ma-0">
+      <v-container fluid class="ma-0">
         <v-row no-gutters justify="center">
           <router-link v-bind:to="`/recept/${id}`">
             <v-card-title class="recipe-headline">{{name}}</v-card-title>
@@ -9,29 +9,29 @@
         </v-row>
 
         <v-row no-gutters justify="center">
-          
           <v-col cols="5">
-            <router-link v-bind:to="`/recept/${id}`"><v-row no-gutters>
-              
-              <v-img
-                class="recipe-img ma-5 rounded"
-                src="./../assets/images/cupcakes.jpg"
-                alt="Cupcakes"
-                :aspect-ratio="4/3"
-              ></v-img>
-            
-            </v-row></router-link>
-          </v-col>  
+            <router-link v-bind:to="`/recept/${id}`">
+              <v-row no-gutters>
+                <v-img
+                  class="recipe-img ma-5 rounded"
+                  src="./../assets/images/cupcakes.jpg"
+                  alt="Cupcakes"
+                  :aspect-ratio="4/3"
+                ></v-img>
+              </v-row>
+            </router-link>
+          </v-col>
 
           <v-col cols="7">
-            <router-link v-bind:to="`/recept/${id}`"><v-row no-gutters justify="center">
-              <v-card-text class="recipe-text">{{method}}</v-card-text>
-            </v-row></router-link>
+            <router-link v-bind:to="`/recept/${id}`">
+              <v-row no-gutters justify="center">
+                <v-card-text class="recipe-text">{{method}}</v-card-text>
+              </v-row>
+            </router-link>
 
             <v-row no-gutters justify="end" align="center" class="mx-10 my-5">
-              <v-col cols="6"> 
-                <span class="amount-recipe">Přidat na seznam</span>
-              </v-col>
+              <span class="amount-recipe mr-10">Přidat na seznam</span>
+
               <v-col cols="1" class="pr-3">
                 <v-btn
                   color="#302F2F"
@@ -43,7 +43,7 @@
                   <v-icon class="icon-add-recipe">mdi-plus</v-icon>
                 </v-btn>
               </v-col>
-              
+
               <v-col cols="1" class="pl-3">
                 <v-btn
                   color="#302F2F"
@@ -64,12 +64,10 @@
 </template>
 
 <script>
-
-
 import Bus from "./../assets/bus.js";
 
 export default {
-  props: ['id', 'name', 'method'],
+  props: ["id", "name", "method"],
 
   data() {
     return {
@@ -79,7 +77,6 @@ export default {
   },
 
   methods: {
-
     addRecipe(id) {
       Bus.$emit("receptPridan", id);
     },
@@ -95,13 +92,12 @@ export default {
 .recipe-headline {
   color: black;
   text-transform: uppercase;
-  
 }
 .recipe-preview {
   padding: 10px;
 }
 .recipe-text {
-  text-align: center;
+  text-align: justify;
   color: black;
 }
 

@@ -6,15 +6,21 @@
     class="seznam-bocni pa-5"
     width="350px"
     color="#FAF9F9"
-    
+    scrollable
   >
-    <div class="list-headline">Nákupní seznam</div>
+    <div class="list-headline">
+      <span>Nákupní seznam</span>
     <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
       <v-icon dark>mdi-content-save</v-icon>
     </v-btn>
-    <v-dialog v-model="dialog">
-      <v-text-field label="Název seznamu" v-model="listName"></v-text-field>
-      <v-btn :disabled="dialogSaveButtonDisabled" v-on:click="saveList" >Uložit</v-btn>
+    </div>
+    <v-dialog v-model="dialog" class="save-list-dialog" width="500px" height="300px">
+      <v-card class="pa-10">
+        <v-text-field label="Název seznamu" v-model="listName"></v-text-field>
+        <v-row no-gutters justify="center">
+          <v-btn :disabled="dialogSaveButtonDisabled" v-on:click="saveList" color="#302F2F">Uložit</v-btn>
+        </v-row>
+      </v-card>
     </v-dialog>
     <v-divider></v-divider>
     <div class="list-ingredients">Ingredience</div>
@@ -24,12 +30,11 @@
         class="list-ing-list"
         v-for="(addedIngredient, id) in addedIngredients"
         v-bind:key="id"
-        scroll
       >{{addedIngredient.amount}} {{addedIngredient.unit}} {{addedIngredient.name}}</v-list-item>
     </v-list>
 
     <v-divider></v-divider>
-    
+
     <div class="list-recipes">Použité recepty</div>
     
     <v-list class="buttons-list">
@@ -42,12 +47,9 @@
           x-small
           v-on:click="receptPridan(addedRecipe.id)"
         >
-          
-            <v-icon class="icon-add-recipe">mdi-plus</v-icon>
-        
-          
+          <v-icon class="icon-add-recipe">mdi-plus</v-icon>
         </v-btn>
-        <div class="pocet-porci"> {{addedRecipe.amount}}</div>
+        <div class="pocet-porci">{{addedRecipe.amount}}</div>
         <v-btn
           color="#302F2F"
           class="button-remove-recipes"
@@ -80,19 +82,19 @@ export default {
       userLoggedIn: false,
       user: null,
       dialog: false,
-      listName: ''
+      listName: ""
     };
   },
   computed: {
-     drawer: function() {
+    drawer: function() {
       return this.addedRecipes.length > 0;
-     },
+    },
     saveButtonDisabled: function() {
       return this.addedRecipes.length < 1 || !this.userLoggedIn;
     },
 
     dialogSaveButtonDisabled: function() {
-      return this.listName === '';
+      return this.listName === "";
     }
   },
   watch: {
@@ -179,7 +181,6 @@ export default {
         if (json.length > 0) {
           return json[0];
         }
-        
       };
 
       getLists().then(object => {
@@ -198,7 +199,8 @@ export default {
           _id = object._id;
           data = {
             lists: object.lists.filter(
-              list => list.userId !== novyList.userId || list.name !== novyList.name
+              list =>
+                list.userId !== novyList.userId || list.name !== novyList.name
             )
           };
           data.lists.push(novyList);
@@ -214,13 +216,13 @@ export default {
         }
 
         // uklid po ulozeni
-        this.listName = '';
+        this.listName = "";
         this.dialog = false;
 
-        Bus.$emit('showSnackbar', {
-          text: 'Seznam byl úspěšně uložen', 
+        Bus.$emit("showSnackbar", {
+          text: "Seznam byl úspěšně uložen",
           timeout: 3000
-        })
+        });
       });
     },
 
@@ -287,7 +289,6 @@ export default {
           this[resource] = data;
         });
     }
-       
   },
 
   created() {
@@ -317,7 +318,8 @@ export default {
 .list-headline {
   text-align: center;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .list-ingredients {
   text-align: center;
@@ -331,6 +333,7 @@ export default {
 }
 .list-ing-list {
   margin-bottom: -10px;
+  font-size: 12px;
 }
 
 .button-text-list {
@@ -341,6 +344,7 @@ export default {
   position: relative;
   
 }
+
 .seznam-bocni {
   top: 60px !important;
   max-height: calc(100% - 100px) !important;
