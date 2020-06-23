@@ -2,13 +2,15 @@
 
   <v-container class="odsazeni-od-appbar">
     <v-card color="#9DDDD1" class=" ma-10 py-5 px-10 my-6 pa-5">
-     <v-col>
-     <v-row><router-link to="/pridatrecept"><v-btn color="#302F2F" class="btn-add-rec"><div class="text-add-recipe">Přidat recept</div></v-btn></router-link> 
-      </v-row>
+      <v-card-text style="position: relative">
+        <router-link to="/pridatrecept"><v-btn absolute top color="#302F2F" class="btn-add-rec"><div class="text-add-recipe">Přidat nový recept</div></v-btn></router-link> 
+      </v-card-text>
+    
+     
      <v-row justify="center"> 
      <v-card-title class="headline">Moje Recepty</v-card-title></v-row>
       
-      </v-col>
+    
       <recipePreview 
         v-for="recipe in recipes"
         v-bind:key="recipe.id"
@@ -20,7 +22,7 @@
 
       <v-row class="py-5">
         <router-link to="/">
-          <v-btn><div class="btn-back">Zpět</div></v-btn>
+          <v-btn color="#302F2F"><div class="btn-back">Zpět</div></v-btn>
         </router-link>
       </v-row>
     </v-card>
@@ -87,7 +89,7 @@ export default {
   text-transform: uppercase;
 }
 .btn-back {
-  color: #302F2F;
+  color: white;
 }
 .btn-add-rec {
 margin-left: 800px;

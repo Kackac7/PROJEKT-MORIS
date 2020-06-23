@@ -1,6 +1,6 @@
 <template>
   <v-container class="odsazeni-od-appbar" v-if="recipes.length > 0 && ingredients.length > 0">
-    <v-card color="#232222" class="my-6 ma-10 py-5 px-10 pa-5"> 
+    <v-card color="#9DDDD1" class="my-6 ma-10 py-5 px-10 pa-5"> 
       <v-card-title class="headline">Moje seznamy</v-card-title>
      <div class="cards">
      
@@ -16,7 +16,7 @@
 
       <v-row class="py-5">
         <router-link to="/">
-          <v-btn><div class="btn-back">Zpět</div></v-btn>
+          <v-btn color="#302F2F"><div class="btn-back">Zpět</div></v-btn>
         </router-link>
       </v-row>
     </v-card>

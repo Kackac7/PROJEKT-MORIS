@@ -8,24 +8,18 @@
       <div>MORIS</div>
 
       <div>
-        
-
-
-        
-
-        
-        <v-menu bottom left offset-y v-bind:close-on-content-click="false" v-model="menu">
+        <v-menu bottom left offset-y v-bind:close-on-content-click="false" v-model="menu" v-if="userLoggedIn">
           <template v-slot:activator="{ on, attrs }">
+
+            <span>{{username}}</span>
             
             <v-btn block depressed color="transparent" large v-bind="attrs" v-on="on" >
-
-              <span v-if="!userLoggedIn" class="loggin-button-text px-3">Přihlásit</span>
-              <span class="px-3 loggin-button-text" v-if="userLoggedIn">{{username}}</span>
+              
               <v-icon x-large color="black">mdi-account-circle</v-icon>
               
             </v-btn>
           </template>
-
+<!--
           <template v-if="!userLoggedIn">
             <v-form ref="form" class="white pa-5">
               <span class="red--text" v-if="validationError">Chybné údaje</span>
@@ -45,7 +39,7 @@
 
               <v-btn color="#302F2F" class="mr-4" v-on:click="login">Přihlásit</v-btn>
             </v-form>
-          </template>
+          </template> -->
 
           <template v-if="userLoggedIn">
             <v-list>
@@ -86,7 +80,9 @@ import userStore from "./../assets/user.js";
 import Bus from "./../assets/bus.js";
 import App from "./../App.vue";
 
+
 export default {
+
   data() {
     return {
       menu: false,
@@ -154,6 +150,16 @@ export default {
         this.validationError = true;
       }
     }
+  },
+
+   created() {
+    Bus.$on("userLoggedIn", () => {
+      this.userLoggedIn = true;
+    });
+    Bus.$on("userLoggedOut", () => {
+      this.userLoggedIn = false;
+    });
+    this.userLoggedIn = userStore.store().user !== null;
   }
 };
 </script>

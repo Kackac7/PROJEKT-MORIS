@@ -69,7 +69,7 @@
 import Bus from "./../assets/bus.js";
 
 export default {
-  props: ["id", "name", "method"],
+  props: ['id', 'name', 'method'],
 
   data() {
     return {

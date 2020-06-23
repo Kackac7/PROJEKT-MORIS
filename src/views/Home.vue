@@ -16,7 +16,7 @@
         </v-col>
         <v-col cols="3">
         
-        <v-dialog max-width="214px">
+        <v-dialog max-width="250px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn class="main-page-button white--text" color="#302F2F" v-bind="attrs" v-on="on">Přihlásit</v-btn>
           </template>
