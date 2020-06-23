@@ -42,7 +42,7 @@
           v-on:click="receptPridan(addedRecipe.id)"
         >
           
-            <span class="button-text-list">+</span>
+            <v-icon class="icon-add-recipe">mdi-plus</v-icon>
         
           
         </v-btn>
@@ -55,7 +55,7 @@
           v-on:click="receptOdebran(addedRecipe.id)"
         >
           <div>
-            <span class="button-text-list">-</span>
+            <v-icon class="icon-add-recipe">mdi-minus</v-icon>
           </div>
         </v-btn>
       </v-list-item>
