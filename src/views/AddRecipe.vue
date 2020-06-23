@@ -17,7 +17,7 @@
                 outlined
                 v-model="ingredientList[index]"
                 :items="ingredient"
-                v-on:change="sayHello()"
+                v-on:change="addLine()"
               ></v-autocomplete>
             </v-col>
             <v-col>
@@ -75,7 +75,7 @@ export default {
   },
 
   methods: {
-    sayHello() {
+    addLine() {
       console.log("Hello");
       this.ingredientList.push(null);
       console.log(this.ingredientList);

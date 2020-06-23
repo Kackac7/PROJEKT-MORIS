@@ -19,8 +19,8 @@
             
             <v-btn block depressed color="transparent" large v-bind="attrs" v-on="on" >
 
-              <span v-if="!userLoggedIn" class="px-3 black--text">Přihlásit</span>
-              <span class="px-3 black--text" v-if="userLoggedIn">{{username}}</span>
+              <span v-if="!userLoggedIn" class="loggin-button-text px-3">Přihlásit</span>
+              <span class="px-3 loggin-button-text" v-if="userLoggedIn">{{username}}</span>
               <v-icon x-large color="black">mdi-account-circle</v-icon>
               
             </v-btn>
@@ -164,6 +164,11 @@ export default {
 
 .navigator-button-text {
   color: white;
+}
+
+.loggin-button-text {
+ color: rgba(0, 0, 0, 0.87) !important;
+ text-transform: capitalize;
 }
 
 </style>
