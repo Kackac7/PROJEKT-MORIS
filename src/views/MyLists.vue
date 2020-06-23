@@ -45,6 +45,10 @@ export default {
       recipes: [],
       ingredients: [],
       lists: [],
+      recipesId: [],
+      ingredientsId: [],
+      listsId: [],
+
       myLists: [],
     }
   },
@@ -76,6 +80,32 @@ export default {
   },
 
   methods: {
+    deleteList(id) {
+      console.log('Mazu id' + id);
+      let updatedLists = this.lists.filter(list => list.id !== id);
+      console.log(updatedLists);
+      let requestList = {
+        lists: updatedLists
+      }
+      this.ulozExistujiciSeznam(this.listsId, requestList);
+      this.lists = updatedLists;
+    },
+
+    ulozExistujiciSeznam(_id, data) {
+      console.log("ukladam existujici seznam");
+      fetch(
+        "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists/" +
+          _id,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+    },
+
     renderLists(){
         if (!this.userLoggedIn || this.recipes.length < 1 || this.ingredients.length < 1 || this.lists.length < 1) {
           return;
@@ -125,6 +155,8 @@ export default {
           amount: ingredientReference.amount * existingIngredient.minQuantity, // opravit undefined zde
           basicUnit: existingIngredient.basicUnit
         }
+        console.log('a');
+        console.log(ingredient.basicUnit);
         ingredients.push(ingredient);
       }
       return ingredients;
@@ -156,14 +188,16 @@ export default {
         })
         .then(data => {
           if (data !== undefined) {
-            return data[resource];
+            this[resource + 'Id'] = data['_id'];
+            this[resource] = data[resource];
+            //return data[resource];
           } else {
             throw Error("Databáze " + resource + " neexistuje, ty kokos!");
           }
         })
-        .then(data => {
+        /*.then(data => {
           this[resource] = data;
-        });
+        });*/
     }
   },
 
@@ -177,6 +211,9 @@ export default {
     Bus.$on("userLoggedOut", () => {
       this.userLoggedIn = false;
       this.user = null;
+    });
+    Bus.$on('listSmazan', (id) => {
+      this.deleteList(id);
     });
 
     this.fetchData('recipes');

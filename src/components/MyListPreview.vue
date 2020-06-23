@@ -1,5 +1,16 @@
 <template>
   <v-card class="my-6 ma-5 py-5 px-10 pa-5" color="white" max-width="300px" min-height="300px">
+    <v-btn fab color="#302F2F" small class="delete-button" v-on:click="deleteDialog = true">
+      <v-icon>mdi-close</v-icon>
+    </v-btn>
+    <v-dialog v-model="deleteDialog">
+      <v-card>
+        <span>Opravdu chcete seznam {{name}} vymazat?</span>
+        <v-btn color="#302F2F" v-on:click="deleteList">Ano</v-btn>
+        <v-btn color="#302F2F" v-on:click="deleteDialog = false">Ne</v-btn>
+      </v-card>
+    </v-dialog>
+
     <v-row no gutters justify="center">
       <v-card-title class="list-headline">{{name}}</v-card-title>
     </v-row>
@@ -11,7 +22,17 @@
         v-bind:key="id"
       >{{recipe.name}}</v-card-subtitle>
     </v-row>
-     <v-row justify="center">
+    <v-row no gutters justify="center">
+      <v-card-text class="list-text">
+        <ul class="ingredients-list">
+          <li
+            v-for="(ingredient, inId) in addedIngredients"
+            v-bind:key="inId"
+          >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
+        </ul>
+      </v-card-text>
+    </v-row>
+    <v-row justify="center">
       <v-dialog v-model="dialog" width="600px" class="open-dialog">
         <template v-slot:activator="{ on, attrs }">
           <v-btn class="button-read-list" color="#232222" v-bind="attrs" v-on="on">
@@ -25,13 +46,10 @@
             </v-card-title>
             <v-card-text>
               <ul class="ingredients-list">
-                <div v-for="(recipe,id) in recipes" v-bind:key="id">
                   <li
-                    v-for="(ingredient, inId) in recipe.ingredients"
-                    
+                    v-for="(ingredient, inId) in addedIngredients"
                     v-bind:key="inId"
                   >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
-                </div>
               </ul>
             </v-card-text>
           </div>
@@ -80,13 +98,17 @@ export default {
     return {
       addedIngredients: [],
       dialog: false,
-      output: null
+      output: null,
+      deleteDialog: false
     };
   },
 
   methods: {
+    deleteList() {
+      Bus.$emit("listSmazan", this.id);
+    },
+
     print() {
-      // Pass the element id here
       this.$htmlToPaper("printMe");
     },
     resolveIngredients() {
@@ -111,13 +133,14 @@ export default {
         id: ingredient.id,
         name: ingredient.name,
         amount: Math.round(count * ingredient.amount),
-        unit: ingredient.basicUnit
+        basicUnit: ingredient.basicUnit
       };
       this.addedIngredients.push(addedIngredient);
     }
   },
   created() {
     this.resolveIngredients();
+    console.log(this.recipes);
   }
 };
 </script>
@@ -130,5 +153,11 @@ export default {
 
 .dialog-bnt {
   max-height: 40px;
+}
+
+.delete-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
 }
 </style>

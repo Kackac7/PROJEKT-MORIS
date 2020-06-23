@@ -16,7 +16,7 @@
         <v-col no-gutters align-self="center">
           <v-img
             class="recipe-card-image mx-10 rounded"
-            src="./../assets/images/cupcakes.jpg"
+            v-bind:src="require(`./../assets/images/${id}.jpg`)"
             alt="Cupcakes"
             :aspect-ratio="4/3"
           ></v-img>

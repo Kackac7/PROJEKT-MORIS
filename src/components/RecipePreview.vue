@@ -14,7 +14,7 @@
               <v-row no-gutters>
                 <v-img
                   class="recipe-img ma-5 rounded"
-                  src="./../assets/images/cupcakes.jpg"
+                  v-bind:src="require(`./../assets/images/${id}.jpg`)"
                   alt="Cupcakes"
                   :aspect-ratio="4/3"
                 ></v-img>
