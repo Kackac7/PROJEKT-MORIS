@@ -25,7 +25,7 @@
           <v-col cols="7">
             <router-link v-bind:to="`/recept/${id}`">
               <v-row no-gutters justify="center">
-                <v-card-text class="recipe-text">{{method}}</v-card-text>
+                <v-card-text class="recipe-text">{{method | truncate(600)}}</v-card-text>
               </v-row>
             </router-link>
 
