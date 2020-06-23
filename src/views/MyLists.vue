@@ -4,7 +4,8 @@
       <v-card-title class="headline">Moje seznamy</v-card-title>
      <div class="cards">
      
-     <v-row><mylistpreview 
+     <v-row justify="center">
+       <mylistpreview 
         v-for="myList in myLists"
         v-bind:key="myList.id"
         v-bind:id="myList.id"

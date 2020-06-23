@@ -1,5 +1,5 @@
 <template>
-  <v-card class="my-6 ma-10 py-5 px-10 pa-5" color="white">
+  <v-card class="my-6 ma-5 py-5 px-10 pa-5" color="white">
     <v-row no gutters justify="center">
       <v-card-title class="list-headline">{{name}}</v-card-title>
     </v-row>
@@ -29,7 +29,7 @@
             <div class="text-btn-list">Přejdi na celý seznam</div>
           </v-btn>
         </template>
-        <v-card justify="center">
+        <v-card class="pa-5">
           <div id="printMe">
             <v-card-title>
               <span class="dialog-list">{{name}}</span>
