@@ -1,7 +1,7 @@
 <template>
 
   <v-container class="odsazeni-od-appbar">
-    <v-card color="#8EDEDD" class=" ma-10 py-5 px-10 my-6 pa-5">
+    <v-card color="#9DDDD1" class=" ma-10 py-5 px-10 my-6 pa-5">
      <v-col>
      <v-row><router-link to="/pridatrecept"><v-btn color="#302F2F" class="btn-add-rec"><div class="text-add-recipe">Přidat recept</div></v-btn></router-link> 
       </v-row>

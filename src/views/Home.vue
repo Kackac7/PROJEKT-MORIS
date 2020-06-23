@@ -2,7 +2,7 @@
   <div fill-height class="main-page odsazeni-od-appbar" style="max-height: 100vh;">
 
     <div v-if="!userLoggedIn">
-      <div class="main-page-header ma-10">NEJUZASNEJSI APLIKACE</div>
+      <div class="main-page-header ma-10">MORIS - místo pro tvoje recepty i seznamy</div>
 
       <div class="main-page-subtitle mx-10 ma-5">Nenos papirky, pouzivej moderni technologie, ty kokos</div>
 
@@ -149,7 +149,7 @@ export default {
 <style>
 
 .main-page {
-  background: url('./../assets/images/pozadi-main.jpg');
+  background: url('./../assets/images/main-pozadi.jpg');
   background-size: cover;
   width: 100%;
   height: 100vh;

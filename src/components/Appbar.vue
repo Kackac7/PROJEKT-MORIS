@@ -5,7 +5,7 @@
         <router-link to="/">Logo</router-link>
       </div>
 
-      <div>Receptář</div>
+      <div>MORIS</div>
 
       <div>
         

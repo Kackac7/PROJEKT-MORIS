@@ -6,7 +6,7 @@
     class="seznam-bocni pa-5"
     width="350px"
     temporary
-    color="#F0EC92"
+    color="#FAF9F9"
   >
     <div class="list-headline">Nákupní seznam</div>
     <v-btn dark :disabled="saveButtonDisabled" v-on:click="dialog = true">
