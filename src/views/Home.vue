@@ -25,7 +25,8 @@
                 class="main-page-button white--text"
                 color="#302F2F"
                 v-bind="attrs"
-                v-on="on"
+                v-on="on" 
+                v-on:click="validationError=false"
               >Přihlásit</v-btn>
             </template>
             <v-form ref="form" class="white pa-5">
@@ -35,6 +36,7 @@
                 label="Přihlašovací jméno"
                 required
                 v-on:keyup.enter="login"
+                autofocus
               ></v-text-field>
               <v-text-field
                 :type="'password'"
@@ -130,9 +132,10 @@ export default {
   
         this.validationError = false;
         this.menu = false; 
-        console.log('cookie A');
         this.$cookie.set('user',JSON.stringify(this.user), 1);
-        console.log('cookie B');
+
+        this.username = '';
+        this.password = '';
       } else {
         this.validationError = true;
       }
