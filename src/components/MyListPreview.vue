@@ -1,5 +1,5 @@
 <template>
-  <v-card class="my-6 ma-5 py-5 px-10 pa-5" color="white">
+  <v-card class="my-6 ma-5 py-5 px-10 pa-5" color="white" max-width="300px" min-height="300px">
     <v-btn fab color="#302F2F" small class="delete-button" v-on:click="deleteDialog = true">
       <v-icon>mdi-close</v-icon>
     </v-btn>
@@ -14,6 +14,7 @@
     <v-row no gutters justify="center">
       <v-card-title class="list-headline">{{name}}</v-card-title>
     </v-row>
+    
     <v-row no gutters justify="center">
       <v-card-subtitle
         class="list-subtitle"
@@ -65,6 +66,19 @@
         </v-card>
       </v-dialog>
     </v-row>
+    <v-row no gutters justify="center">
+      <v-card-text class="list-text">
+        <ul class="ingredients-list">
+          
+            <li
+              v-for="(ingredient, inId) in addedIngredients"
+              v-bind:key="inId"
+            > {{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}} </li>
+          
+        </ul>
+      </v-card-text>
+    </v-row>
+   
   </v-card>
 </template>
 
