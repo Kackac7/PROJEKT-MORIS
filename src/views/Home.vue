@@ -158,7 +158,7 @@ export default {
 
 <style>
 .main-page {
-  background: url("./../assets/images/main-pozadi3.jpg");
+  background: url("./../assets/images/main-pozadi5.jpg");
   background-size: cover;
   margin-top: -40px;
   width: 100%;
