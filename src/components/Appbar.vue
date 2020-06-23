@@ -106,7 +106,7 @@ export default {
       this.user = null;
 
       this.menu = false;
-
+      this.$cookie.delete('user');
       Bus.$emit("showSnackbar", {
         text: "Odhlášení úspěšné",
         timeout: 3000
@@ -146,6 +146,7 @@ export default {
 
         this.validationError = false;
         this.menu = false;
+        
       } else {
         this.validationError = true;
       }

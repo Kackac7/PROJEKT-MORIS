@@ -1,10 +1,11 @@
 <template>
   <v-container fluid color="transparent" class="odsazeni-od-appbar styl-button pa-0 mt-13">
     <v-row no-gutters align="center" class="mx-10">
-      <v-col>  
-        <v-row class="mx-10 my-10"  v-if="userLoggedIn">
+      <v-col>
+        <v-row class="mx-10 my-10" v-if="userLoggedIn">
           <router-link to="/recepty">
-            <v-btn class="btn-logged-in"
+            <v-btn
+              class="btn-logged-in"
               v-bind:min-width="sirkaTlacitka"
               v-bind:min-height="vyskaTlacitka"
               color="#302F2F"
@@ -27,7 +28,7 @@
           </router-link>
         </v-row>
 
-        <v-row class="mx-10 my-10"  v-if="userLoggedIn">
+        <v-row class="mx-10 my-10" v-if="userLoggedIn">
           <router-link to="/pridatrecept">
             <v-btn
               class="btn-logged-in"
@@ -35,9 +36,21 @@
               v-bind:min-height="vyskaTlacitka"
               color="#302F2F"
             >
-              <div class="text-btn-menu" >Přidat recept</div>
+              <div class="text-btn-menu">Přidat recept</div>
             </v-btn>
           </router-link>
+        </v-row>
+
+        <v-row class="mx-10 my-10" v-if="userLoggedIn">
+          <v-btn
+            v-on:click="logout"
+            class="btn-logged-in"
+            v-bind:min-width="sirkaTlacitka"
+            v-bind:min-height="vyskaTlacitka"
+            color="#302F2F"
+          >
+            <div class="text-btn-menu">Odhlásit se</div>
+          </v-btn>
         </v-row>
       </v-col>
     </v-row>
@@ -96,7 +109,22 @@ export default {
       }
     }
   },
+  methods: {
+    logout() {
+      userStore.store().user = null;
+      Bus.$emit("userLoggedOut");
 
+      this.userLoggedIn = false;
+      this.user = null;
+
+      this.menu = false;
+      this.$cookie.delete("user");
+      Bus.$emit("showSnackbar", {
+        text: "Odhlášení úspěšné",
+        timeout: 3000
+      });
+    }
+  },
   created() {
     Bus.$on("userLoggedIn", () => {
       this.userLoggedIn = true;
@@ -124,12 +152,12 @@ a {
 .hlavne-menu {
   margin: 150px auto;
 }
-.btn-logged-in{
+.btn-logged-in {
   width: 200px;
   min-height: 40px;
 }
 .styl-button {
-  display:flex;
+  display: flex;
   justify-content: center;
   margin-left: 230px;
 }

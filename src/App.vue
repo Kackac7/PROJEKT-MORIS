@@ -10,7 +10,6 @@
 
         <v-snackbar
           class="snackbar-okno"
-          centered
           v-model="snackbar"
           :timeout="snackbarTimeout"
         >{{snackbarText}}</v-snackbar>
@@ -58,6 +57,14 @@ export default {
       this.snackbarTimeout = snackbarParams.timeout;
       this.snackbar = true;
     });
+    
+    let userCookie = this.$cookie.get('user');
+    if (userCookie !== null) {
+        let user = JSON.parse(userCookie);
+        userStore.store().user = user;
+        Bus.$emit('userLoggedIn');
+    }
+
   }
 };
 </script>

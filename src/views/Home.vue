@@ -127,9 +127,12 @@ export default {
 
         this.user = filteredUsers[0];
         this.userLoggedIn = true;
-
+  
         this.validationError = false;
-        this.menu = false;
+        this.menu = false; 
+        console.log('cookie A');
+        this.$cookie.set('user',JSON.stringify(this.user), 1);
+        console.log('cookie B');
       } else {
         this.validationError = true;
       }
