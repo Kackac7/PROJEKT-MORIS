@@ -1,12 +1,11 @@
 <template>
    <v-container class="odsazeni-od-appbar" v-if="recipe !== null && ingredientList.length > 0">
-    <v-card color="white" class="my-6 ma-10 py-5 px-10 pa-5">
- 
-    
-      <v-row justify="center">
-        <v-card-title class="recipe-name">{{recipe.name}}</v-card-title>
+    <v-card color="white" class="my-6 ma-10 py-10 px-10">
+  
+      <v-row justify="center" no-gutters="">
+        <v-card-title class="recipe-name mb-5">{{recipe.name}}</v-card-title>
       </v-row>
-      <v-row class="mx-5">
+      <v-row no-gutters>
         <v-col>
           <v-list>
             <v-list-item v-for="(ingredient, id) in ingredientList" v-bind:key="id">
@@ -15,9 +14,9 @@
           </v-list>
         </v-col>
         <v-divider vertical></v-divider>
-        <v-col>
+        <v-col no-gutters align-self="center">
           <v-img
-            class="recipe-card-image ma-5"
+            class="recipe-card-image mx-10 rounded"
             src="./../assets/images/cupcakes.jpg"
             alt="Cupcakes"
             :aspect-ratio="4/3"
@@ -27,16 +26,16 @@
       </v-row>
       <v-divider></v-divider>
       <v-spacer></v-spacer>
-      <v-row class="mx-5" justify="center">
+      <v-row no-gutters class="mt-5" justify="center">
         <v-card-subtitle class="recipe-subtitles">Postup</v-card-subtitle>
       </v-row>
-      <v-row class="mx-5">
+      <v-row no-gutters>
         <v-card-text class="recipe-method-text">{{recipe.method}}</v-card-text>
       </v-row>
       <v-spacer></v-spacer>
       <v-row no-gutters justify="end" align="center" class="mx-10 my-5">
-              <v-col cols="4"> 
-                <div class="amount-recipe">Počet porcí</div>
+              <v-col cols="6"> 
+                <div class="amount-recipe">Přidat na seznam</div>
               </v-col>
               <v-col cols="1" class="pr-1">
                 <v-btn
@@ -175,6 +174,7 @@ export default {
 
 .recipe-method-text {
   font-size: 16px;
+  text-align: justify;
 }
 
 .recipe-card-image {
@@ -192,5 +192,6 @@ export default {
 }
 .amount-recipe {
   margin-left: 150px;
+  font-weight: 600;
 }
 </style>

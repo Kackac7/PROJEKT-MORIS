@@ -14,7 +14,7 @@
             <router-link v-bind:to="`/recept/${id}`"><v-row no-gutters>
               
               <v-img
-                class="recipe-img ma-5"
+                class="recipe-img ma-5 rounded"
                 src="./../assets/images/cupcakes.jpg"
                 alt="Cupcakes"
                 :aspect-ratio="4/3"
@@ -29,10 +29,10 @@
             </v-row></router-link>
 
             <v-row no-gutters justify="end" align="center" class="mx-10 my-5">
-              <v-col cols="4"> 
-                <span>Počet porcí</span>
+              <v-col cols="6"> 
+                <span class="amount-recipe">Přidat na seznam</span>
               </v-col>
-              <v-col cols="1" class="pr-2">
+              <v-col cols="1" class="pr-3">
                 <v-btn
                   color="#302F2F"
                   class="button-add-recipe"
@@ -40,11 +40,11 @@
                   x-small
                   v-on:click="addRecipe(id)"
                 >
-                  <span class="button-text">+</span>
+                  <v-icon class="icon-add-recipe">mdi-plus</v-icon>
                 </v-btn>
               </v-col>
               
-              <v-col cols="1" class="pl-2">
+              <v-col cols="1" class="pl-3">
                 <v-btn
                   color="#302F2F"
                   class="button-remove-recipe"
@@ -52,7 +52,7 @@
                   x-small
                   v-on:click="removeRecipe(id)"
                 >
-                  <span class="button-text">-</span>
+                  <v-icon class="icon-add-recipe">mdi-minus</v-icon>
                 </v-btn>
               </v-col>
             </v-row>
