@@ -2,7 +2,7 @@
   <div fill-height class="main-page odsazeni-od-appbar" style="max-height: 100vh;">
     <div v-if="!userLoggedIn">
     
-      <div class="moris-nazev" >MORIS.</div>
+      <div class="moris-nazev">MORIS.</div>
 <div class="main-page-subheader"> ...místo pro tvoje recepty i seznamy</div>
       <div
         class="main-page-subtitle mx-10 ma-5"
