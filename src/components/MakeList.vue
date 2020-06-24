@@ -76,5 +76,4 @@ export default {
 .txt-btn-makelist {
   color: white;
 }
-
 </style>

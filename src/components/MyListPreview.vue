@@ -1,20 +1,33 @@
 <template>
-  <v-card class="list-preview my-6 ma-5 py-5 px-10 pa-5" color="white" max-width="300px" min-height="300px">
+  <v-card
+    class="list-preview my-6 ma-5 py-5 px-10 pa-5"
+    color="white"
+    max-width="300px"
+    max-height="350px"
+  >
     <v-btn fab color="#302F2F" small class="delete-button" v-on:click="deleteDialog = true">
       <v-icon>mdi-close</v-icon>
     </v-btn>
-    <v-dialog v-model="deleteDialog">
-      <v-card>
-        <span>Opravdu chcete seznam {{name}} vymazat?</span>
-        <v-btn color="#302F2F" v-on:click="deleteList">Ano</v-btn>
-        <v-btn color="#302F2F" v-on:click="deleteDialog = false">Ne</v-btn>
+    <v-dialog v-model="deleteDialog" max-width="500px">
+      <v-card class="delete-dialog">
+        <v-row no-gutters justify="center" class="mt-4">
+          <div class="font-weight-medium">Opravdu chcete seznam {{name}} vymazat?</div>
+        </v-row>
+        <v-row no-gutters justify="center" class="mt-8">
+          <v-col cols="2" class="mr-10">
+            <v-btn color="#302F2F" v-on:click="deleteList" class="yes-button">Ano</v-btn>
+          </v-col>
+          <v-col cols="2">
+            <v-btn color="#302F2F" v-on:click="deleteDialog = false">Ne</v-btn>
+          </v-col>
+        </v-row>
       </v-card>
     </v-dialog>
 
     <v-row no gutters justify="center">
       <v-card-title class="list-headline">{{name}}</v-card-title>
     </v-row>
-    
+
     <v-row no gutters justify="center">
       <v-card-subtitle
         class="list-subtitle"
@@ -22,23 +35,25 @@
         v-bind:key="id"
       >{{recipe.name}}</v-card-subtitle>
     </v-row>
-    <v-row no gutters justify="center">
-      <v-card-text class="list-text">
-        <div class="list-short-gradient"></div>
-        <ul class="ingredients-list list-short">
-          <li
-            v-for="(ingredient, inId) in addedIngredients"
-            v-bind:key="inId"
-          >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
-        </ul>
-      </v-card-text>
-    </v-row>
-    <v-row justify="center">
+    <div class="style-list">
+        <v-card-text class="list-text">
+          <ul class="ingredients-list list-short">
+            <li
+              v-for="(ingredient, inId) in addedIngredients"
+              v-bind:key="inId"
+            >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
+          </ul>
+        </v-card-text>
+      <div class="gradient"></div>
+    </div>
+
+    
       <v-dialog v-model="dialog" width="600px" class="open-dialog">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="button-read-list" color="#232222" v-bind="attrs" v-on="on">
+          <div class="button-read-list"><v-btn color="#232222" v-bind="attrs" v-on="on">
             <div class="text-btn-list">Zobrazit celý seznam</div>
           </v-btn>
+          </div>
         </template>
         <v-card class="pa-5">
           <div id="printMe">
@@ -47,15 +62,14 @@
             </v-card-title>
             <v-card-text>
               <ul class="ingredients-list">
-                  <li
-                    v-for="(ingredient, inId) in addedIngredients"
-                    v-bind:key="inId"
-                  >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
+                <li
+                  v-for="(ingredient, inId) in addedIngredients"
+                  v-bind:key="inId"
+                >{{ingredient.amount}} {{ingredient.basicUnit}} {{ingredient.name}}</li>
               </ul>
             </v-card-text>
           </div>
           <v-card-actions>
-            <v-spacer></v-spacer>
             <v-btn
               class="dialog-btn"
               color="#302F2F"
@@ -66,8 +80,6 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-row>
-   
   </v-card>
 </template>
 
@@ -95,7 +107,7 @@ export default {
 
   methods: {
     restoreList() {
-      Bus.$emit('listRestored', this.addedRecipes);
+      Bus.$emit("listRestored", this.addedRecipes);
       this.dialog = false;
     },
 
@@ -107,6 +119,7 @@ export default {
     print() {
       this.$htmlToPaper("printMe");
     },
+
     resolveIngredients() {
       for (let recipe of this.recipes) {
         for (let ingredient of recipe.ingredients) {
@@ -156,5 +169,29 @@ export default {
   right: -15px;
 }
 
+.delete-dialog {
+  height: 180px;
+  padding: 25px;
+}
 
+.style-list {
+  max-height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient {
+  height: 150px;
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, transparent, 50%, white);
+}
+
+.button-read-list {
+  position: absolute;
+  bottom: 15px;
+
+}
 </style>

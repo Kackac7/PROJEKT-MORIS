@@ -13,7 +13,8 @@
           <v-row id="ingredient-row" v-for="(ing, index) in ingredientList" v-bind:key="index">
             <v-col>
               <v-autocomplete
-                label="Surovina"
+                class="ingredient-autocomplete"
+                label="Ingredience"
                 outlined
                 v-model="ingredientList[index]"
                 :items="getIngredientName"
@@ -102,7 +103,6 @@ export default {
     },
 
     
-
      fetchData(resource) {
       fetch(
         "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/" + resource
@@ -139,5 +139,8 @@ export default {
 </script>
 
 <style>
+.ingredient-autocomplete {
+  width: 250px;
+}
 
 </style>
