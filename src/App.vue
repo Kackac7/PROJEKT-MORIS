@@ -111,7 +111,7 @@ export default {
 }
 
 .snackbar-okno {
-  margin-left: 800px;
+  
   height: 200px;
   width: 200px;
   color: white;
