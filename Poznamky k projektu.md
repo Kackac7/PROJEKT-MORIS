@@ -27,8 +27,8 @@ password6
 
 
 V projektu jsme nestihly zprovoznit:
-registrace uživatele
-přidávání receptů
-responzivní design
-odšktávání ingrediencí ze seznamu
-vytvoření seznamu pouze z ingrediencí
+1. registrace uživatele
+2. přidávání receptů
+3. responzivní design
+4. odšktávání ingrediencí ze seznamu
+5. vytvoření seznamu pouze z ingrediencí
