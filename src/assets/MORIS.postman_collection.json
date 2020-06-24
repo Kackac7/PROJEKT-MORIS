@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "d3c63176-3170-49cd-9bd1-d0465f55ab50",
+		"name": "MORIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ingredience",
+			"item": [
+				{
+					"name": "Vlozeni ingredienci",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": \"i1\",\r\n            \"name\": \"máslo\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i2\",\r\n            \"name\": \"vejce\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i3\",\r\n            \"name\": \"krupicový cukr\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i4\",\r\n            \"name\": \"hladká mouka\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i5\",\r\n            \"name\": \"prášek do pečiva\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžička\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i6\",\r\n            \"name\": \"holandské kakao\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i7\",\r\n            \"name\": \"mléko\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ml\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i8\",\r\n            \"name\": \"sůl\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"špetka\",\r\n            \"category\": \"Dochucovadla a koření\"\r\n        },\r\n        {\r\n            \"id\": \"i9\",\r\n            \"name\": \"bílek\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i10\",\r\n            \"name\": \"moučkový cukr\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i11\",\r\n            \"name\": \"smetana ke šlehání\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i12\",\r\n            \"name\": \"mascarpone\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i13\",\r\n            \"name\": \"marmeláda jahodová\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i14\",\r\n            \"name\": \"vanilkový pudink\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"balení\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i15\",\r\n            \"name\": \"olej\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ml\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i16\",\r\n            \"name\": \"žloutek\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i17\",\r\n            \"name\": \"horká voda\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Nápoje\"\r\n        },\r\n        {\r\n            \"id\": \"i18\",\r\n            \"name\": \"citronová šťáva\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Ovoce\"\r\n        },\r\n        {\r\n            \"id\": \"i19\",\r\n            \"name\": \"olivový olej\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Oleje a omáčky\"\r\n        },\r\n        {   \"id\": \"i20\",\r\n            \"name\": \"cibule\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Zelenina\"\r\n        },\r\n        {\r\n            \"id\": \"i21\",\r\n            \"name\": \"česnek\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"stroužek\",\r\n            \"category\": \"Zelenina\"\r\n        },\r\n        {\r\n            \"id\": \"i22\",\r\n            \"name\": \"slanina\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Maso a uzeniny\"\r\n        },\r\n        {\r\n            \"id\": \"i23\",\r\n            \"name\": \"rýže na rizoto\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Obiloviny a luštěniny\"\r\n        },\r\n        {\r\n            \"id\": \"i24\",\r\n            \"name\": \"zeleninový vývar\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ml\",\r\n            \"category\": \"Dochucovadla a koření\"\r\n        },\r\n        {\r\n            \"id\": \"i25\",\r\n            \"name\": \"cuketa\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Zelenina\"\r\n        },\r\n        {\r\n            \"id\": \"i26\",\r\n            \"name\": \"čedar\",\r\n            \"minQuantity\": 1,\r\n            \"unit\": \"lžíce\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i27\",\r\n            \"name\": \"pepř\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"špetka\",\r\n            \"category\": \"Dochucovadla a koření\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/ingredients",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ziskani ingredienci",
+					"request": {
+						"auth": {
+							"type": "basic"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/ingredients",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aktualizace ingredienci",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": \"i1\",\r\n            \"name\": \"máslo\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i2\",\r\n            \"name\": \"vejce\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i3\",\r\n            \"name\": \"krupicový cukr\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i4\",\r\n            \"name\": \"hladká mouka\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i5\",\r\n            \"name\": \"prášek do pečiva\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžička\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i6\",\r\n            \"name\": \"holandské kakao\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i7\",\r\n            \"name\": \"mléko\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ml\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i8\",\r\n            \"name\": \"sůl\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"špetka\",\r\n            \"category\": \"Dochucovadla a koření\"\r\n        },\r\n        {\r\n            \"id\": \"i9\",\r\n            \"name\": \"bílek\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i10\",\r\n            \"name\": \"moučkový cukr\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i11\",\r\n            \"name\": \"smetana ke šlehání\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i12\",\r\n            \"name\": \"mascarpone\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i13\",\r\n            \"name\": \"marmeláda jahodová\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i14\",\r\n            \"name\": \"vanilkový pudink\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"balení\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i15\",\r\n            \"name\": \"olej\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ml\",\r\n            \"category\": \"Přísady na pečení\"\r\n        },\r\n        {\r\n            \"id\": \"i16\",\r\n            \"name\": \"žloutek\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i17\",\r\n            \"name\": \"horká voda\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Nápoje\"\r\n        },\r\n        {\r\n            \"id\": \"i18\",\r\n            \"name\": \"citronová šťáva\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Ovoce\"\r\n        },\r\n        {\r\n            \"id\": \"i19\",\r\n            \"name\": \"olivový olej\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"lžíce\",\r\n            \"category\": \"Oleje a omáčky\"\r\n        },\r\n        {\r\n            \"id\": \"i20\",\r\n            \"name\": \"cibule\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Zelenina\"\r\n        },\r\n        {\r\n            \"id\": \"i21\",\r\n            \"name\": \"česnek\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"stroužek\",\r\n            \"category\": \"Zelenina\"\r\n        },\r\n        {\r\n            \"id\": \"i22\",\r\n            \"name\": \"slanina\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Maso a uzeniny\"\r\n        },\r\n        {\r\n            \"id\": \"i23\",\r\n            \"name\": \"rýže na rizoto\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"g\",\r\n            \"category\": \"Obiloviny a luštěniny\"\r\n        },\r\n        {\r\n            \"id\": \"i24\",\r\n            \"name\": \"zeleninový vývar\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ml\",\r\n            \"category\": \"Dochucovadla a koření\"\r\n        },\r\n        {\r\n            \"id\": \"i25\",\r\n            \"name\": \"cuketa\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"ks\",\r\n            \"category\": \"Zelenina\"\r\n        },\r\n        {\r\n            \"id\": \"i26\",\r\n            \"name\": \"čedar\",\r\n            \"minQuantity\": 1,\r\n            \"unit\": \"lžíce\",\r\n            \"category\": \"Mléčné výrobky a vejce\"\r\n        },\r\n        {\r\n            \"id\": \"i27\",\r\n            \"name\": \"pepř\",\r\n            \"minQuantity\": 1,\r\n            \"basicUnit\": \"špetka\",\r\n            \"category\": \"Dochucovadla a koření\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/ingredients/5eedbd1edb22f603e8d5d7a0",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"ingredients",
+								"5eedbd1edb22f603e8d5d7a0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Smazani ingredienci",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/ingredients/5eedbd1edb22f603e8d5d7a0",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"ingredients",
+								"5eedbd1edb22f603e8d5d7a0"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Recepty",
+			"item": [
+				{
+					"name": "Vlozeni receptu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipes\": [\r\n        {\r\n            \"id\": \"r1\",\r\n            \"name\": \"Kakaové cupcakes\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i1\",\r\n                    \"amount\": 120\r\n                },\r\n                {\r\n                    \"id\": \"i2\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i3\",\r\n                    \"amount\": 295\r\n                },\r\n                {\r\n                    \"id\": \"i4\",\r\n                    \"amount\": 200\r\n                },\r\n                {\r\n                    \"id\": \"i5\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i6\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i7\",\r\n                    \"amount\": 50\r\n                },\r\n                {\r\n                    \"id\": \"i8\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i9\",\r\n                    \"amount\": 2\r\n                }\r\n            ],\r\n            \"method\": \"Recept je pro 12 ks dortíků. Dortíky: troubu předehřívejte na 180°C. Máslo utřete s 175 g cukru do pěny. Postupně zašlehejte vejce a kakao. Přidejte na střídačku mouku promíchanou se špetkou soli a práškem do pečiva a mléko. Pečlivě promíchejte a a vlijte do formiček. Pečte 20 minut při 180°C. Po upečení odložte dortíky stranou a nechte je vychladnout. Krém: Bílky šlehejte se špetkou soli na vodní lázni (mísa s bílky se nesmí dotýkat vody a voda v hrnci by měla jen lehce perlit, ne se vařit). Postupně přidejte 120g cukru a šlehejte, dokud nejsou pevné a lesklé. Sundejte mísu z lázně a šlehejte bílky dalších 5 minut, dokud neušleháte velmi tuhý a lesklý sníh. Naplňte zdobící sáček a ozdobte vychladlé dortíky. Na dokončení můžete použít hoblinky čokolády, čokoládovou rýži, nebo jakékoliv jiné zdobení.\",\r\n            \"keywords\": \"muffiny, cupkcakes\",\r\n            \"recipeCategory\": \"Dezerty\"\r\n        },\r\n        {\r\n            \"id\": \"r2\",\r\n            \"name\": \"Roláda\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i10\",\r\n                    \"amount\": 100\r\n                },\r\n                {\r\n                    \"id\": \"i15\",\r\n                    \"amount\": 80\r\n                },\r\n                {\r\n                    \"id\": \"i4\",\r\n                    \"amount\": 100\r\n                },\r\n                {\r\n                    \"id\": \"i12\",\r\n                    \"amount\": 250\r\n                },\r\n                {\r\n                    \"id\": \"i11\",\r\n                    \"amount\": 250\r\n                },\r\n                {\r\n                    \"id\": \"i13\",\r\n                    \"amount\": 250\r\n                }\r\n            ],\r\n            \"method\": \"Nejprve si připravíme tuhý sníh z bílků (až tvoří špičky). Potom našleháme doběla žloutky s cukrem, do kterých postupně zlehka vmícháme sníh. Teprve potom po lžících zamícháváme polohrubou mouku. Opravdu je lepší po lžících, protože kdyby se přidala najednou, padla by ke dnu. Takto připravené těsto rozetřeme na plech vyložený pečícím papírem. Pečeme do zrůžovění (cca 8 minut, podle trouby) při 180 stupních. Ještě horký piškot překlopíme pomocí navlhčené utěrky z plechu a teplý rolujeme (pokud ho neplníme marmeládou, potom se dá natírat ještě teplý). Po vychladnutí naplníme krémem. Na něj si uvařím pudink a do vychladlého zašlehám máslo. Po zamotání potřeme krémem i na povrchu a posypeme sekanými oříšky nebo kokosem. Dáme vychladit do lednice.\",\r\n            \"keywords\": \"muffiny, cupcakes\",\r\n            \"recipeCategory\": \"Dezerty\"\r\n        },\r\n        {\r\n            \"id\": \"r3\",\r\n            \"name\": \"Věnečky\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i14\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i16\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i1\",\r\n                    \"amount\": 200\r\n                },\r\n                {\r\n                    \"id\": \"i10\",\r\n                    \"amount\": 150\r\n                },\r\n                {\r\n                    \"id\": \"i17\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i18\",\r\n                    \"amount\": 1\r\n                }\r\n            ],\r\n            \"method\": \"Na mírném ohni, ve vodě a za stálého míchání rozpustíme máslo, přidáme špetku soli (nesmí vařit). Po rozpuštění přidáme mouku (bude se zdát, že se těsto připaluje, ale je to v pořádku) a mícháme 4-5 minut na ohni. Pak necháme vychladnout (občas promícháme) a mixérem vmícháme vejce. Postupně, vždy až jedno zapracujeme, přidáme další. Pytlíkem stříkáme na plech věnečky a pečeme asi na 180-200 stupňů dozlata. Jsou hotové, až když na ně sáhneme a jsou tvrdé, těsto se nepropadává. Ihned po vytažení z trouby rozkrojíme (pak by to nešlo) a necháme vychladnout. Po vychladnutí plníme krémem: uvaříme hustý pudink a necháme vychladnout, pak stáhneme škraloup (rozmícháme mixérem), vmícháme ušlehané máslo, přidáme trochu rumu.\",\r\n            \"keywords\": \"venecky, cukrovi\",\r\n            \"recipeCategory\":\"Dezerty\"\r\n        },\r\n        {\r\n            \"id\": \"r4\",\r\n            \"name\": \"Cuketové rizoto\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i19\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i20\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i21\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i22\",\r\n                    \"amount\": 60\r\n                },\r\n                {\r\n                    \"id\": \"i23\",\r\n                    \"amount\": 125\r\n                },\r\n                {\r\n                    \"id\": \"i24\",\r\n                    \"amount\": 450\r\n                },\r\n                {\r\n                    \"id\": \"i25\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i1\",\r\n                    \"amount\": 15\r\n                },\r\n                {\r\n                    \"id\": \"i26\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i8\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i27\",\r\n                    \"amount\": 1\r\n                }\r\n            ],\r\n            \"method\": \"Na mírném ohni rozehřejte ve velké hlubší pánvi olej. Přidejte cibuli a nechte ji asi 5 minut měknout. Přidejte česnek a slaninu a smažte dalších 5 minut, dokud nezačnou hnědnout. Přisypte rýži a za stálého míchání restujte 5 minut, potom přidejte 150 ml vývaru a mírně vařte dalších 5 minut. Potom přidejte dalších 150 ml vývaru a pomalu vařte, dokud se všechna tekutina neabsorbuje. Přilijte zbývající vývar, přidejte nastrouhanou cuketu a vařte dalších pár minut, dokud rýže nebude měkká a krémová. Sundejte pánev z ohně, přidejte máslo a nastrouhaný sýr. Před podáváním dobře ochuťte.\",\r\n            \"keywords\": \"muffiny, cupkcakes\",\r\n            \"recipeCategory\": \"Dezerty\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/recipes",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ziskani receptu",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/recipes",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aktualizace receptu",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipes\": [\r\n        {\r\n            \"id\": \"r1\",\r\n            \"name\": \"Kakaové cupcakes\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i1\",\r\n                    \"amount\": 1200\r\n                },\r\n                {\r\n                    \"id\": \"i2\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i3\",\r\n                    \"amount\": 295\r\n                },\r\n                {\r\n                    \"id\": \"i4\",\r\n                    \"amount\": 200\r\n                },\r\n                {\r\n                    \"id\": \"i5\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i6\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i7\",\r\n                    \"amount\": 50\r\n                },\r\n                {\r\n                    \"id\": \"i8\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i9\",\r\n                    \"amount\": 2\r\n                }\r\n            ],\r\n            \"method\": \"Recept je pro 12 ks dortíků. Dortíky: troubu předehřívejte na 180°C. Máslo utřete s 175 g cukru do pěny. Postupně zašlehejte vejce a kakao. Přidejte na střídačku mouku promíchanou se špetkou soli a práškem do pečiva a mléko. Pečlivě promíchejte a a vlijte do formiček. Pečte 20 minut při 180°C. Po upečení odložte dortíky stranou a nechte je vychladnout. Krém: Bílky šlehejte se špetkou soli na vodní lázni (mísa s bílky se nesmí dotýkat vody a voda v hrnci by měla jen lehce perlit, ne se vařit). Postupně přidejte 120g cukru a šlehejte, dokud nejsou pevné a lesklé. Sundejte mísu z lázně a šlehejte bílky dalších 5 minut, dokud neušleháte velmi tuhý a lesklý sníh. Naplňte zdobící sáček a ozdobte vychladlé dortíky. Na dokončení můžete použít hoblinky čokolády, čokoládovou rýži, nebo jakékoliv jiné zdobení.\",\r\n            \"keywords\": \"muffiny, cupkcakes\",\r\n            \"recipeCategory\": \"Dezerty\"\r\n        },\r\n        {\r\n            \"id\": \"r2\",\r\n            \"name\": \"Roláda\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i10\",\r\n                    \"amount\": 100\r\n                },\r\n                {\r\n                    \"id\": \"i15\",\r\n                    \"amount\": 80\r\n                },\r\n                {\r\n                    \"id\": \"i4\",\r\n                    \"amount\": 100\r\n                },\r\n                {\r\n                    \"id\": \"i12\",\r\n                    \"amount\": 250\r\n                },\r\n                {\r\n                    \"id\": \"i11\",\r\n                    \"amount\": 250\r\n                },\r\n                {\r\n                    \"id\": \"i13\",\r\n                    \"amount\": 250\r\n                }\r\n            ],\r\n            \"method\": \"Recept je na 1 roládu. Nejprve si připravíme tuhý sníh z bílků (až tvoří špičky). Potom našleháme doběla žloutky s cukrem, do kterých postupně zlehka vmícháme sníh. Teprve potom po lžících zamícháváme polohrubou mouku. Opravdu je lepší po lžících, protože kdyby se přidala najednou, padla by ke dnu. Takto připravené těsto rozetřeme na plech vyložený pečícím papírem. Pečeme do zrůžovění (cca 8 minut, podle trouby) při 180 stupních. Ještě horký piškot překlopíme pomocí navlhčené utěrky z plechu a teplý rolujeme (pokud ho neplníme marmeládou, potom se dá natírat ještě teplý). Po vychladnutí naplníme krémem. Na něj si uvařím pudink a do vychladlého zašlehám máslo. Po zamotání potřeme krémem i na povrchu a posypeme sekanými oříšky nebo kokosem. Dáme vychladit do lednice.\",\r\n            \"keywords\": \"muffiny, cupcakes\",\r\n            \"recipeCategory\": \"Dezerty\"\r\n        },\r\n        {\r\n            \"id\": \"r3\",\r\n            \"name\": \"Věnečky\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i14\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i16\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i1\",\r\n                    \"amount\": 200\r\n                },\r\n                {\r\n                    \"id\": \"i10\",\r\n                    \"amount\": 150\r\n                },\r\n                {\r\n                    \"id\": \"i17\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i18\",\r\n                    \"amount\": 1\r\n                }\r\n            ],\r\n            \"method\": \"Recept je na 20 věnečků. Na mírném ohni, ve vodě a za stálého míchání rozpustíme máslo, přidáme špetku soli (nesmí vařit). Po rozpuštění přidáme mouku (bude se zdát, že se těsto připaluje, ale je to v pořádku) a mícháme 4-5 minut na ohni. Pak necháme vychladnout (občas promícháme) a mixérem vmícháme vejce. Postupně, vždy až jedno zapracujeme, přidáme další. Pytlíkem stříkáme na plech věnečky a pečeme asi na 180-200 stupňů dozlata. Jsou hotové, až když na ně sáhneme a jsou tvrdé, těsto se nepropadává. Ihned po vytažení z trouby rozkrojíme (pak by to nešlo) a necháme vychladnout. Po vychladnutí plníme krémem: uvaříme hustý pudink a necháme vychladnout, pak stáhneme škraloup (rozmícháme mixérem), vmícháme ušlehané máslo, přidáme trochu rumu.\",\r\n            \"keywords\": \"venecky, cukrovi\",\r\n            \"recipeCategory\": \"Dezerty\"\r\n        },\r\n        {\r\n            \"id\": \"r4\",\r\n            \"name\": \"Cuketové rizoto\",\r\n            \"ingredients\": [\r\n                {\r\n                    \"id\": \"i19\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i20\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i21\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i22\",\r\n                    \"amount\": 60\r\n                },\r\n                {\r\n                    \"id\": \"i23\",\r\n                    \"amount\": 125\r\n                },\r\n                {\r\n                    \"id\": \"i24\",\r\n                    \"amount\": 450\r\n                },\r\n                {\r\n                    \"id\": \"i25\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i1\",\r\n                    \"amount\": 15\r\n                },\r\n                {\r\n                    \"id\": \"i26\",\r\n                    \"amount\": 2\r\n                },\r\n                {\r\n                    \"id\": \"i8\",\r\n                    \"amount\": 1\r\n                },\r\n                {\r\n                    \"id\": \"i27\",\r\n                    \"amount\": 1\r\n                }\r\n            ],\r\n            \"method\": \"Recept je na 4 porce. Na mírném ohni rozehřejte ve velké hlubší pánvi olej. Přidejte cibuli a nechte ji asi 5 minut měknout. Přidejte česnek a slaninu a smažte dalších 5 minut, dokud nezačnou hnědnout. Přisypte rýži a za stálého míchání restujte 5 minut, potom přidejte 150 ml vývaru a mírně vařte dalších 5 minut. Potom přidejte dalších 150 ml vývaru a pomalu vařte, dokud se všechna tekutina neabsorbuje. Přilijte zbývající vývar, přidejte nastrouhanou cuketu a vařte dalších pár minut, dokud rýže nebude měkká a krémová. Sundejte pánev z ohně, přidejte máslo a nastrouhaný sýr. Před podáváním dobře ochuťte.\",\r\n            \"keywords\": \"muffiny, cupkcakes\",\r\n            \"recipeCategory\": \"Dezerty\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/recipes/5eedc302db22f603e8d5d7a2",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"recipes",
+								"5eedc302db22f603e8d5d7a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Smazani receptu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/recipes/eedd6a2db22f603e8d5d7a5",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"recipes",
+								"eedd6a2db22f603e8d5d7a5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Uzivatele",
+			"item": [
+				{
+					"name": "Vlozeni uzivatelu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\": [\r\n        {\r\n            \"id\": \"u1\",\r\n            \"username\": \"user1\",\r\n            \"password\": \"password1\"\r\n        },\r\n        {\r\n            \"id\": \"u2\",\r\n            \"username\": \"user2\",\r\n            \"password\": \"password2\"\r\n        },\r\n        {\r\n            \"id\": \"u1\",\r\n            \"username\": \"user1\",\r\n            \"password\": \"password1\"\r\n        },\r\n        {\r\n            \"id\": \"u2\",\r\n            \"username\": \"user2\",\r\n            \"password\": \"password2\"\r\n        },\r\n        {\r\n            \"id\": \"u3\",\r\n            \"username\": \"user3\",\r\n            \"password\": \"password3\"\r\n        },\r\n        {\r\n            \"id\": \"u4\",\r\n            \"username\": \"user4\",\r\n            \"password\": \"password4\"\r\n        },\r\n        {\r\n            \"id\": \"u5\",\r\n            \"username\": \"user5\",\r\n            \"password\": \"password4\"\r\n        },\r\n        {\r\n            \"id\": \"u5\",\r\n            \"username\": \"user5\",\r\n            \"password\": \"password4\"\r\n        },\r\n        {\r\n            \"id\": \"u6\",\r\n            \"username\": \"user6\",\r\n            \"password\": \"password4\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/users",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ziskani uzivatelu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/users",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aktualizace uzivatelu",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\": [\r\n        {\r\n            \"id\": \"u1\",\r\n            \"username\": \"user1\",\r\n            \"password\": \"password1\"\r\n        },\r\n        {\r\n            \"id\": \"u2\",\r\n            \"username\": \"user2\",\r\n            \"password\": \"password2\"\r\n        },\r\n        {\r\n            \"id\": \"u3\",\r\n            \"username\": \"user3\",\r\n            \"password\": \"password3\"\r\n        },\r\n        {\r\n            \"id\": \"u4\",\r\n            \"username\": \"user4\",\r\n            \"password\": \"password4\"\r\n        },\r\n        {\r\n            \"id\": \"u5\",\r\n            \"username\": \"user5\",\r\n            \"password\": \"password5\"\r\n        },\r\n        {\r\n            \"id\": \"u6\",\r\n            \"username\": \"user6\",\r\n            \"password\": \"password6\"\r\n        }\r\n\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/users/5ef347959a729803e8b2b5a3",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"users",
+								"5ef347959a729803e8b2b5a3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Smazani uzivatelu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/users/5ef347959a729803e8b2b5a3",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"users",
+								"5ef347959a729803e8b2b5a3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ulozene seznamy",
+			"item": [
+				{
+					"name": "Vlozeni seznamu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lists\": [\r\n        {\r\n            \"id\": \"l1\",\r\n            \"userId\": \"u1\",\r\n            \"name\": \"Seznam 1\",\r\n            \"addedRecipes\": [\r\n                {\r\n                    \"id\": \"r1\",\r\n                    \"amount\": 2,\r\n                    \"name\": \"Kakaové cupcakes\"\r\n                },\r\n                {\r\n                    \"id\": \"r3\",\r\n                    \"amount\": 1,\r\n                    \"name\": \"Věnečky\"\r\n                },\r\n                {\r\n                    \"id\": \"r2\",\r\n                    \"amount\": 2,\r\n                    \"name\": \"Roláda\"\r\n                }\r\n\r\n            ]\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ziskani seznamu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists",
+							"protocol": "http",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aktualizace seznamu",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"lists\": [\r\n            {\r\n                \"id\": \"l1\",\r\n                \"userId\": \"u2\",\r\n                \"name\": \"Seznam 1\",\r\n                \"addedRecipes\": [\r\n                    {\r\n                        \"id\": \"r1\",\r\n                        \"amount\": 2,\r\n                        \"name\": \"Kakaové cupcakes\"\r\n                    },\r\n                    {\r\n                        \"id\": \"r3\",\r\n                        \"amount\": 1,\r\n                        \"name\": \"Věnečky\"\r\n                    },\r\n                    {\r\n                        \"id\": \"r2\",\r\n                        \"amount\": 2,\r\n                        \"name\": \"Roláda\"\r\n                    }\r\n                ]\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists/5eef8841db22f603e8d5d7df",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"lists",
+								"5eef8841db22f603e8d5d7df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Smazani seznamu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://crudcrud.com/api/e262c0cbc45743039a2870e26c04d0fe/lists/5eef8841db22f603e8d5d7df",
+							"protocol": "https",
+							"host": [
+								"crudcrud",
+								"com"
+							],
+							"path": [
+								"api",
+								"e262c0cbc45743039a2870e26c04d0fe",
+								"lists",
+								"5eef8841db22f603e8d5d7df"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
