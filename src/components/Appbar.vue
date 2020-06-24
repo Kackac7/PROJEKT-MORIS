@@ -2,10 +2,9 @@
   <v-app-bar color="white" max-height="60px" elevation="24dp" fixed>
     <div class="wrapper">
       <div>
-        <router-link to="/">Logo</router-link>
+        <router-link to="/"><v-img src="./../assets/images/logo3.png" max-height="45px" max-width="45px"></v-img> </router-link>
       </div>
 
-      <div>MORIS</div>
       <div>
         <div class="jmeno-uziv" v-if="username!==null">{{username}}</div>
         <v-menu

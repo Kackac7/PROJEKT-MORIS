@@ -1,14 +1,16 @@
 <template>
   <div fill-height class="main-page odsazeni-od-appbar" style="max-height: 100vh;">
     <div v-if="!userLoggedIn">
-      <div class="main-page-header ma-10">MORIS - místo pro tvoje recepty i seznamy</div>
-
+    
+      <div class="moris-nazev" >MORIS.</div>
+<div class="main-page-subheader"> ...místo pro tvoje recepty i seznamy</div>
       <div
         class="main-page-subtitle mx-10 ma-5"
-      >Válejí se ti všude papíry s recepty ale ten co hledáš, nemůžeš najít? Registruj se a vytvoř si svůj vlastní receptář.</div>
+      >Válí se ti všude papíry s recepty, ale ten co hledáš, nemůžeš najít? </div>
+      <div class="main-page-subtitle-popis mx-10 ma-5">Registruj se a vytvoř si svůj vlastní receptář.</div>
 
       <div class="main-page-subtitle mx-10">
-      <p class="subtitle-main">S <strong>MORISEM</strong> je to snadné</p>
+      <p class="subtitle-main">S <span class="moris-jmeno">MORISEM</span> je to snadné</p>
       <p>- Zapiš si svuj recept.</p>
       <p>- Ulož ho. </p>
       <p>- Přidej na nákupní seznam.</p>
@@ -157,6 +159,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .main-page {
   background: url("./../assets/images/main-pozadi5.jpg");
   background-size: cover;
@@ -179,5 +183,27 @@ export default {
 .main-page-subtitle p {
   font-size: 20px;
   margin-left: 250px;
+}
+.moris-jmeno {
+  font-family: 'Indie Flower' !important;
+  font-size: 34px !important;
+}
+.main-page-subheader {
+  font-family: 'Indie Flower';
+  padding: 0 250px;
+  font-size: 24px;
+}
+.moris-nazev {
+  font-family: 'Indie Flower' !important;
+  font-size: 100px !important;
+  text-shadow: 2px 4px 4px #CFCFCF;
+  margin-top: 20px;
+  padding: 0 300px;
+}
+.main-page-subtitle {
+  padding: 0 150px;
+}
+.main-page-subtitle-popis {
+  padding: 0 237px;
 }
 </style>
