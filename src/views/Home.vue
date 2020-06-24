@@ -1,34 +1,54 @@
 <template>
   <div fill-height class="main-page odsazeni-od-appbar" style="max-height: 100vh;">
     <div v-if="!userLoggedIn">
-    
-      <div class="moris-nazev">MORIS.</div>
-<div class="main-page-subheader"> ...místo pro tvoje recepty i seznamy</div>
-      <div
-        class="main-page-subtitle mx-10 ma-5"
-      >Válí se ti všude papíry s recepty, ale ten co hledáš, nemůžeš najít? </div>
-      <div class="main-page-subtitle-popis mx-10 ma-5">Registruj se a vytvoř si svůj vlastní receptář.</div>
+      <v-row no-gutters class="pt-14 pl-16">
+        <v-col cols="6" class="pl-16">
+          <div class="moris-nazev">MORIS.</div>
+        </v-col>
+      </v-row>
+      <v-row no-gutters class="pl-16">
+        <v-col cols="6" class="pl-16">
+          <div class="main-page-subheader">...místo pro tvoje recepty i seznamy</div>
+        </v-col>
+      </v-row>
+      <v-row no-gutters class="pl-16 pt-6">
+        <v-col cols="6" class="pl-16">
+          <div
+            class="main-page-subtitle"
+          >Válí se ti všude papíry s recepty, ale ten co hledáš, nemůžeš najít?</div>
+        </v-col>
+      </v-row>
+      <v-row no-gutters class="pl-16">
+        <v-col cols="6" class="pl-16">
+          <div class="main-page-subtitle-popis">Registruj se a vytvoř si svůj vlastní receptář - JE TO SNADNÉ.</div>
+        </v-col>
+      </v-row>
 
-      <div class="main-page-subtitle mx-10">
-      <p class="subtitle-main">S <span class="moris-jmeno">MORISEM</span> je to snadné</p>
-      <p>- Zapiš si svuj recept.</p>
-      <p>- Ulož ho. </p>
-      <p>- Přidej na nákupní seznam.</p>
-      <p>- Hurá do obchodu!</p></div>
-      
+      <v-row no-gutters class="pl-16 pt-8 pb-8">
+        <v-col cols="6" class="pl-16">
+          <div class="popis">
+          <p><span class="numbers">1.</span> Zapiš si svuj recept.</p>
+          <p><span class="numbers">2.</span> Ulož ho.</p>
+          </div>
+          <div class="popis">
+          <p><span class="numbers">3.</span> Přidej na nákupní seznam.</p>
+          <p><span class="numbers">4.</span> Hurá do obchodu!</p>
+          </div>
+        </v-col>
+      </v-row>
 
-      <v-row no-gutters class="my-15 mx-10">
-        <v-col cols="3">
+      <v-row no-gutters class="my-15">
+        <v-col cols="3" class="ml-9">
           <v-btn class="main-page-button white--text" color="#302F2F" bottom>Registrovat</v-btn>
         </v-col>
-        <v-col cols="3">
+        <v-col cols="3" class="ml-n10">
           <v-dialog max-width="250px">
             <template v-slot:activator="{ on, attrs }">
               <v-btn
                 class="main-page-button white--text"
                 color="#302F2F"
                 v-bind="attrs"
-                v-on="on" 
+                v-on="on"
                 v-on:click="validationError=false"
                 bottom
               >Přihlásit</v-btn>
@@ -133,13 +153,13 @@ export default {
 
         this.user = filteredUsers[0];
         this.userLoggedIn = true;
-  
-        this.validationError = false;
-        this.menu = false; 
-        this.$cookie.set('user',JSON.stringify(this.user), 1);
 
-        this.username = '';
-        this.password = '';
+        this.validationError = false;
+        this.menu = false;
+        this.$cookie.set("user", JSON.stringify(this.user), 1);
+
+        this.username = "";
+        this.password = "";
       } else {
         this.validationError = true;
       }
@@ -159,7 +179,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 
 .main-page {
   background: url("./../assets/images/main-pozadi5.jpg");
@@ -172,32 +192,46 @@ export default {
 .main-page-button {
   width: 180px;
   min-height: 40px;
-  margin-left: 150px;
-  position: absolute;
-  bottom: 60px;
+  margin-left: 90px;
+  /*position: absolute;*/
+  bottom: 40px;
 }
 .subtitle-main {
   font-size: 30px;
-  margin-left: 250px;
+  /*margin-left: 250px;*/
 }
 .main-page-subtitle p {
   font-size: 20px;
-  margin-left: 250px;
+  /*margin-left: 250px;*/
 }
 .moris-jmeno {
-  font-family: 'Indie Flower' !important;
+  font-family: "Indie Flower" !important;
   font-size: 34px !important;
 }
 .main-page-subheader {
-  font-family: 'Indie Flower';
-  padding: 0 250px;
+  font-family: "Indie Flower";
+  /* padding: 0 250px;*/
   font-size: 24px;
+  margin-top: -30px;
 }
 .moris-nazev {
-  font-family: 'Indie Flower' !important;
+  font-family: "Indie Flower" !important;
   font-size: 100px !important;
-  text-shadow: 2px 4px 4px #CFCFCF;
-  margin-top: 20px;
+  text-shadow: 2px 4px 4px #cfcfcf;
+}
+.subtitle-main {
+  font-size: 24px;
+}
+.popis {
+  display: inline-block;
+  padding-right: 100px;
+}
+
+.numbers {
+  font-family: 'Indie Flower';
+  font-size: 24px;
+}
+/*margin-top: 20px;
   padding: 0 300px;
 }
 .main-page-subtitle {
@@ -205,5 +239,5 @@ export default {
 }
 .main-page-subtitle-popis {
   padding: 0 237px;
-}
+}*/
 </style>
