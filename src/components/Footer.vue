@@ -12,6 +12,6 @@ export default {};
 <style>
 .main-footer {
  box-shadow: 6px 55px 55px -22px rgba(0,0,0,0.75);
- font-style: 'Quicksand' !important; 
+ font-family: 'Quicksand' !important; 
 }
 </style>

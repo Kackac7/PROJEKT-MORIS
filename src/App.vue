@@ -105,11 +105,20 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.v-btn:hover{
+  color: white;
+}
+
 .snackbar-okno {
   height: 200px;
   width: 200px;
   color: white;
   font-style: "Quicksand";
+}
+
+v-navigation-drawer::-webkit-scrollbar{
+
 }
 
 </style>
