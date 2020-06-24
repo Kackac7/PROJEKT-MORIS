@@ -11,6 +11,7 @@
         <v-snackbar
           class="snackbar-okno"
           v-model="snackbar"
+          centered
           :timeout="snackbarTimeout"
         >{{snackbarText}}</v-snackbar>
       </v-main>
@@ -115,10 +116,6 @@ export default {
   width: 200px;
   color: white;
   font-style: "Quicksand";
-}
-
-v-navigation-drawer::-webkit-scrollbar{
-
 }
 
 </style>
