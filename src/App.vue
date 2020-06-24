@@ -8,10 +8,9 @@
       <v-main>
         <router-view></router-view>
 
-        <v-snackbar
+        <v-snackbar centered
           class="snackbar-okno"
           v-model="snackbar"
-          centered
           :timeout="snackbarTimeout"
         >{{snackbarText}}</v-snackbar>
       </v-main>
@@ -112,6 +111,7 @@ export default {
 }
 
 .snackbar-okno {
+  justify-content: center;
   height: 200px;
   width: 200px;
   color: white;
