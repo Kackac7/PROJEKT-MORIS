@@ -2,7 +2,9 @@
   <v-app-bar color="white" max-height="60px" elevation="24dp" fixed>
     <div class="wrapper">
       <div>
-        <router-link to="/"><v-img src="./../assets/images/logo3.png" max-height="45px" max-width="45px"></v-img> </router-link>
+        <router-link to="/">
+          <v-img src="./../assets/images/logo3.png" max-height="45px" max-width="45px"></v-img>
+        </router-link>
       </div>
 
       <div>
@@ -24,22 +26,39 @@
           <template v-if="userLoggedIn">
             <v-list>
               <v-list-item>
-                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2" v-on:click="menu = false">
-                  <div class="navigator-button">
-                    <router-link to="/recepty">
+                <router-link to="/recepty">
+                  <v-btn
+                    block
+                    depressed
+                    color="#302F2F"
+                    large
+                    max-height="40px"
+                    width="160px"
+                    class="my-2"
+                    v-on:click="menu = false"
+                  >
+                    <div class="navigator-button">
                       <span class="navigator-button-text">Recepty</span>
-                    </router-link>
-                  </div>
-                </v-btn>
+                    </div>
+                  </v-btn>
+                </router-link>
               </v-list-item>
               <v-list-item>
-                <v-btn block depressed color="#302F2F" large max-height="40px" class="my-2" v-on:click="menu = false">
-                  <div class="navigator-button">
-                    <router-link to="/mojeseznamy">
+                <router-link to="/mojeseznamy">
+                  <v-btn
+                    block
+                    depressed
+                    color="#302F2F"
+                    large
+                    max-height="40px"
+                    class="my-2"
+                    v-on:click="menu = false"
+                  >
+                    <div class="navigator-button">
                       <span class="navigator-button-text">Moje seznamy</span>
-                    </router-link>
-                  </div>
-                </v-btn>
+                    </div>
+                  </v-btn>
+                </router-link>
               </v-list-item>
               <v-list-item>
                 <v-btn
@@ -52,8 +71,7 @@
                   v-on:click="logout"
                 >
                   <div class="navigator-button">
-                      <span class="navigator-button-text">Odhlásit</span>
-                    
+                    <span class="navigator-button-text">Odhlásit</span>
                   </div>
                 </v-btn>
               </v-list-item>

@@ -53,7 +53,10 @@ export default {
 
   created() {
     Bus.$on("userLoggedOut",() => {
-      this.$router.push('/');
+     if (this.$router.currentRoute.path !== "/")
+     {
+       this.$router.push('/');
+     }
     });
     Bus.$on("showSnackbar", snackbarParams => {
       this.snackbarText = snackbarParams.text;
@@ -111,7 +114,7 @@ export default {
 }
 
 .snackbar-okno {
-  height: 150vh !important;
+  height: 170vh !important;
   color: white;
   font-style: "Quicksand";
 }
