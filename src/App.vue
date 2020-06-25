@@ -111,9 +111,7 @@ export default {
 }
 
 .snackbar-okno {
-  
-  height: 200px;
-  width: 200px;
+  height: 150vh !important;
   color: white;
   font-style: "Quicksand";
 }
