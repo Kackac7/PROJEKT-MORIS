@@ -83,7 +83,7 @@
   </v-app-bar>
 </template>
 <script>
-import userStore from "./../assets/user.js";
+import userStore from "./../assets/user.js"; // UserStore
 import Bus from "./../assets/bus.js";
 import App from "./../App.vue";
 
@@ -114,7 +114,7 @@ export default {
       this.user = null;
 
       this.menu = false;
-      this.$cookie.delete("user");
+      this.$cookie.delete("user"); //melo by byt v Home.vue v created
       Bus.$emit("showSnackbar", {
         text: "Odhlášení úspěšné",
         timeout: 3000

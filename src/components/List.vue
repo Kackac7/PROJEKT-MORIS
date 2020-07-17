@@ -177,6 +177,7 @@ export default {
       this.addedRecipes = this.addedRecipes.filter(function(item) {
         return item.amount > 0;
       });
+      // this.addedRecipes = this.addedRecipes.filter(item => item.amount > 0); stejne jako 177-179
     },
 
     saveList() {
